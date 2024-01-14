@@ -18,7 +18,10 @@ This is the Requirements Document for the the RODEO WP6 for sharing weather rada
 
 ## Table of Content
 - [Introduction](#Introduction)
-- [Datasets](#Dataset description)
+- [Dataset description](#Dataset_description)
+- [User requirements](#User_requirements)
+- [Dependencies](#Dependencies)
+- [Constraints and assumptions](#Constraints_and_assumptions)
 
 ## Introduction
 This is the Requirements Document for the RODEO WP6 for sharing weather radar data. This document outlines the technical requirements and objectives for the development of radar data supply, which utilizes components developed in the the EUMETNET Federated European Meteorological Data Infrastructure (FEMDI) programme. The objective of work in WP6 is utilize the data sharing done in the EUMETNET OPERA programme already over a decase and, build on this collaboration a data supply for the third-party users in line with the World Meteorological Organization’s (WMO) Information System 2.0 (WIS 2.0) strategy and the European Union’s (EU) regulation on Meteorological High Value Data (HVD).
@@ -66,16 +69,6 @@ There are three products on offer from the OPERA suite of products:
 - various national scanning strategies, definitions of scanning time, spatial and temporal resolution.
 - different quality processing levels 
 
-## Dependencies
-
-This chapter is meant to capture any relationships or interdependencies between different requirements. This information can be important for understanding how the system works as a whole, and for ensuring that each requirement is considered in the context of the broader system.
-
-### Relationship between 
-
-## Constraints and assumptions
-
-The purpose of this sub-section is to document any limitations or assumptions that could impact the development of the system in order to ensure that the final product meets the users' needs and expectations. These constraints could include factors such as budget or time constraints, technical limitations, or any other factors that could affect the functionality or usability of the system. By identifying and addressing these constraints and assumptions early in the development process, we can minimize the risk of delays, misunderstandings, or unsatisfactory outcomes.
-
 ## User requirements
 
 Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case.  
@@ -88,12 +81,14 @@ Related to use cases in FEMDI 2.4.
 
 *Requirements:* 
 
-- Needs as long a history of data as possible, ideally in a cloud-optimised format
+- Requires either composite data or volume radar data
+- Needs as long a history of data as possible, the big archive
 - Needs a suitable access mechanism for bulk consumption (rather than download), e.g. through S3 in cloud native formats, to download directly, so no need to download, store, etc.
 - Corresponding real-time data to drive the models?
 - The real-time data for execution needs to be consistent with the data used for model training (i.e., from the same source) 
 
 *Priority:* 
+- secondary
 
 *Clarifications:* 
 
@@ -108,6 +103,8 @@ Related to use cases in FEMDI 2.5 and E-SOH 4.3.
 “As a new data consumer, I want a single unified view of available meteorological datasets which are updated on a regular basis, that is easily accessible and findable, is easily integrated into my systems and can be re-used (i.e., following FAIR principles). This will allow me to develop an application which makes best use of the available data to add value to the users and bring me in an income.”  
 
 *Requirements:* 
+- based on mainly composite data
+- e.g. aviation application would like to have 3D- volume data
 - A software developer builds a mobile application that needs ....
 - They identify a dataset via the FEMDI Shared Catalogue and determine that the API for that dataset is suitable for the application.
 - The mobile application quickly becomes popular and is installed on over 10,000 devices. Each device makes a few requests a day as the user changes location, and this adds up to lots of requests on the Data Supply component’s API. 
@@ -124,140 +121,104 @@ Related to use cases in FEMDI 2.5 and E-SOH 4.3.
 
 ### U03 A member of a public organisation who wants to see real time weather radar visualised on their mobile.  
 
-4.4, and 4.5
-“As a traffic officer manager, I want to use my smart phone to regularly check the rainfall amounts across my country and bordering countries in Europe, so I can be prepared for different driving conditions, and potential impacts on the traffic network and people’s safety.  
-
-This will allow me to rapidly respond with appropriate resources and equipment to incidents.”   
-
+Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
+“As a traffic officer manager, I want to use my smart phone to regularly check the rainfall amounts across my country and bordering countries in Europe, so I can be prepared for different driving conditions, and potential impacts on the traffic network and people’s safety. This will allow me to rapidly respond with appropriate resources and equipment to incidents.”   
+*Requirements:* 
+- most likely composite data
  
+*Priority:* 
 
-[linked to E-SOH requirements 4.4, and 4.5] 
+*Clarifications:* 
+- Visualisation is out of scope of FEMDI – another will provide the visualisation
+- OPERA is EUMETNET’s radar programme; Also RODEO WP6.
+- Potential additional use case to be considered 
 
-Priority: 
+*Acceptance criteria:* 
 
-Clarifications 
+*Consequences and decisions:* 
 
-Visualisation is out of scope of FMEID – another will provide the visualisation 
+### U04 - EUMETNET Members uses RODEO for data exchange
 
-OPERA is EUMETNET’s radar programme; Also RODEO WP6. 
+“EUMETNET members want to replace the bilateral data exchange with RODEO. They want the 3D-volume data as fast as possible, high priority user. They are familiar with the data formats and the radar data processing. They will build their national forecasting services on this data.”  
 
-Potential additional use case to be considered 
+*Requirements:*
+- 3D-volume radar data
+- automized fetching of data from an interface
+- 24 hour cache is suitable, doesn't require the large archive 
 
-Acceptance criteria 
+*Priority:*
+- primary
 
-Consequences and decisions 
+*Clarifications:*
 
-=== U01 - sub-hourly resolution observations from stations operated by EUMETNET Members
+*Acceptance criteria:*
 
-As a current, or new, data consumer of land surface observations,
+*Consequences and decisions:*
 
-I want near real-time access to sub-hourly resolution observations from stations operated by EUMETNET Members that are normally only made available hourly (or less frequently),
+### U05 EUMETNET members are visualising OPERA products in the forecasting services
 
-So, I can improve the services (including forecasting of fog and convective events) I provide to my users.
+“EUMETNET members want to show the composite products on their forecasting services for official duty purposes. They want the composite data as fast as possible, high priority user. They are familiar with the data formats and the radar data processing. ”  
 
-==== Priority: primary
+*Requirements:*
+- basically they do receive this also directly through OPERA. Do we need this user case?
+- composite data
+- automized fetching of data from an interface
 
-==== Clarifications
+*Priority:*
+- primary
 
-==== Acceptance criteria
+*Clarifications:*
 
-==== Consequences and decisions
+*Acceptance criteria:*
 
-=== U02 - sub-hourly not normally made available
+*Consequences and decisions:*
 
-As a current, or new, data consumer of land surface observations,
 
-I want near real-time access to sub-hourly resolution observations from stations operated by EUMETNET Members that are not normally made available,
+### U06 - National Met Service is supplying their national radar products (composites, echo tops, vertical wind profiles) to third party users 
 
-So, I can improve the services (including forecasting of fog and convective events) I provide
-to my users.
+“As a EU members I have to fulfill the HVD Implementation Act, and RODEO provides a common interface which is also good for the third-party users to obtain radar data products from the same interface. This user requirement is following the federated distribution of data.”  
 
-==== Priority: primary
+*Requirements:*
+- radar data products
+- Should we state requirements for the product format/model, spatial and temporal distribution
+- federated distribution, no archive, but should there be 24 hour cache or similar
+- what is the SLA we promise here as it is nationally dependent.
 
-==== Clarifications
+*Priority:*
 
-==== Acceptance criteria
+*Clarifications:*
 
-==== Consequences and decisions
+*Acceptance criteria:*
 
-=== U03 - single unified view of supplementary observations following FAIR principles
+*Consequences and decisions:*
 
-As a data consumer
 
-I want a single unified view of supplementary observations, that is easily accessible and findable, is easily integrated into my systems and can be re-used (i.e., following FAIR principles).
+### U07 - radar data observations from 3rd parties
 
-So, I can access data easily, especially across national borders.
+Related to E-SOH requirement 4.5.
 
-==== Priority: primary
+“I'm representative of e.g. hydrological services or a private company and I own radar data. I would like to include my radar data to the RODEO, e.g. MeteoPress”  
 
-==== Clarifications
+*Requirements:*
 
-==== Acceptance criteria
+*Priority:*
 
-==== Consequences and decisions
+*Clarifications:*
 
-=== U04 - near real-time access to rain-gauge observations that aren’t normally published
+*Acceptance criteria:*
 
-As a current, or new, data consumer of rain-gauge observations,
+*Consequences and decisions:*
 
-I want near real-time access to rain-gauge observations, from gauges operated by EUMETNET Members, that aren’t normally published,
+## Dependencies
 
-So, I can improve the services (including forecasting of fog and convective events) I provide
-to my users.
+This chapter is meant to capture any relationships or interdependencies between different requirements. This information can be important for understanding how the system works as a whole, and for ensuring that each requirement is considered in the context of the broader system.
 
-==== Priority: secondary
+### Relationship between 
 
-==== Clarifications
+## Constraints and assumptions
 
-==== Acceptance criteria
+The purpose of this sub-section is to document any limitations or assumptions that could impact the development of the system in order to ensure that the final product meets the users' needs and expectations. These constraints could include factors such as budget or time constraints, technical limitations, or any other factors that could affect the functionality or usability of the system. By identifying and addressing these constraints and assumptions early in the development process, we can minimize the risk of delays, misunderstandings, or unsatisfactory outcomes.
 
-==== Consequences and decisions
 
-=== U05 - rain-gauge observations from 3rd parties
 
-As a current, or new, data consumer of rain-gauge observations,
-
-I want near real-time access to rain-gauge observations, from gauges operationally operated by 3rd parties who current make their data available to one or more EUMETNET Member, that aren’t normally published,
-
-So, I can improve the services (including forecasting of fog and convective events) I provide to my users.
-
-==== Priority: secondary
-
-==== Clarifications
-
-==== Acceptance criteria
-
-==== Consequences and decisions
-
-=== U06 - near real-time observations from personal weather stations
-
-As a new data consumer of Personal Weather Station (PWS) observations,
-
-I want access to near real-time observations from personal weather stations in a way that is consistent with other land surface observations made available via E-SOH,
-
-So, I can improve the services (including forecasting of fog and convective events) I provide to my users and minimise development requirement in consuming data from a new observing network.
-
-==== Priority: tertiary
-
-==== Clarifications
-
-==== Acceptance criteria
-
-==== Consequences and decisions
-
-=== U07 - first iteration and subsequent corrections
-
-As a meteorologist in the weather forecasting services,
-
-I need access to the first iteration of the observations data, as well as late or subsequently corrected observations,
-
-so I can always base my forecasts on the most reliable observations.
-
-==== Priority: primary
-
-==== Clarifications
-
-==== Acceptance criteria
-
-==== Consequences and decisions
 
