@@ -211,7 +211,551 @@ Related to E-SOH requirement 4.5.
 
 *Consequences and decisions:*
 
-## System requirements
+## System requirements or Functional and non-functional requirements
+
+These are copied from E-SOH directly, no changes!
+
+### F01 - operational service
+
+"As an E-SOH data consumer, I want E-SOH to be an operational service. So I can build my operational services based on E-SOH data."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- What is the meaning of "operational service"?
+- E-SOH will be a fully operational service, providing core capability on behalf of EUMETNET Members. Requirements F02 to F06 describe the Service levels required. 
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F02 - 24/7 availability
+
+"As a E-SOH data consumer,I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- There is an expectation for data to be consistently available 24/7, although a minimum of downtime (<1%) is acceptable with no break in service > 24hours. There is also an expectation that to deliver this level of service a "service desk" capability will be required so incidents can be managed.
+- We need to figure out the consequences of any downtime
+- We need to separate between ingestion and data access downtimes
+- Centralized and federated components also need to be viewed individually
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F03 - delivery within 1 minute
+
+"As an E-SOH sub-hourly observations data consumer, I want observations to be available within 1 minute of data producer publishing their data. So, I can deliver the level of service required by my users."
+
+*Priority:*
+ - primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F04 - file delivered within a minute of the youngest observation within the file
+
+"As a E-SOH sub-hourly observations data consumer, when receiving batched observations within a file, I want the file delivered within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- Depending on who makes the batched file, this is a requirement on the data producer? Yes, but also on the system throughput - it needs to be fast
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F05 - data producers to make the data they create available with minimum delay
+
+"As the E-SOH system manager, I want data producers to make the data they create available with minimum delay. So, I can deliver the level of service required by my users."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- Consequential requirement on E-SOH is to make an "easy-to-use" ingestion interface and high quality user guidance and documentation
+- Ideally, the data producers should be able to reuse their existing capabilities
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F06 - agreed delivery data format and protocol
+
+"As the E-SOH system manager, I want data producers to make the data they create available in an agreed data format and following an agreed delivery protocol. So, I can deliver the level of service required by my users."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- Does this refer to E-SOH ingestion service, or E-SOH API? It's the ingestion. From the ITT: "As well as requirements for the data provider (i.e., E-SOH) to meet, there are also requirements for the data producers (e.g., Members) ... to deliver the overall E-SOH service. "
+
+*Acceptance criteria:*
+
+*Consequences and decisions*:
+
+### F07 - reports of the performance against agreed KPIs
+
+"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against (to be confirmed) agreed KPIs, of the E-SOH service. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F08 - data application providers to only provide supported operating systems, libraries, and software
+
+"As the E-SOH system manager, I want data application providers to only provide supported operating systems, libraries, and software. So, I can minimise the costs of managing the lifecycle of E-SOH."
+
+*Priority:*
+ - primary
+
+*Clarifications:*
+- The spirit of this requirement was to avoid any "exotic" or developer favourites being used. The requirement should be covered by the quality assurance process.
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F09 - access to real-time observations up to 24 hours after the observations data time
+
+"As a data consumer, I want access to real-time observations, up to 24 hours after the observations data time. So, I can retrieve data I might have missed due to, for example, local technical incidents."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- Data consumers might choose to archive data themselves. This is common amongst Members as it, for example, allows Members to run re-analysis trials based on the data reception, rather than validity, time.
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F10 - access to the first iteration as well as corrected observations data
+
+"As a data consumer of file-based E-SOH products, I want access to the first iteration of the observations data, as well as to late or subsequently corrected observations. So, I am able to handle all data."
+
+*Priority:*
+- secondary
+
+*Clarifications:*
+- Should E-SOH always return the last known value for an observation? Yes, only the latest iteration needs to be accessible
+- By late or subsequently corrected observations, we interpret that observations that are corrected within the 24 hours window shall be exposed and pushed to the notification queue
+- By "access to first iteration (..) as well as (..) corrected observations" we suggest to only keep the latest value in the 24 hours data store
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F11 - E-SOH as data provider role within FEMDI when data is exposed by producer via a pull API service
+
+"Given a data producer exposes data via a pull API service, when new data are published by the data producer, then E-SOH must perform its data provider role within FEMDI."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F12 - E-SOH as data provider role within FEMDI when data is exposed by producer via a push API service
+
+"Given a data producer exposes data via a push service,when new data are received by E-SOH, then E-SOH must perform its data provider role within FEMDI."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F13 - initially collect data before making it available to E-SOH
+
+"Given a data producer operates or is responsible for multiple (>1) instruments, when those instruments make an observation, then the data producer initially collects the data before making them available to E-SOH."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- This requirement is here to highlight that the responsibility for the observation networks and initial collection of observations is with the members, and not the E-SOH project.
+- So need to send multiple instruments for a station together, but stations can be sent separately?
+- Given that the expected workflow for data producers is
+  1) collect observations from station
+  2) quality control/post-process(?)
+  3) send to e-soh
+ - it seems that we should support observations from each instrument on each station to be sent separately to e-soh.
+ - A clear dataset definition may also be useful in this context
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F14 - sub-hourly observations from all operational land surface stations operated by EUMETNET Members
+
+"As a current, or new, data consumer of land surface observations, I want access to sub-hourly observations from all operational land surface stations (approximately 5,000) operated by EUMETNET Members. So, I can improve the services (including forecasting of fog and convective events) I provide to my users."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F15 - E-SOH must perform its data provider role within FEMDI when a data producer exposes data in an approved format
+
+"Given a data producer exposes data in an approved format, when new data are received by E-SOH, then E-SOH must perform its data provider roll within FEMDI."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- There is likely to be variability in the format of "supplementary" observations produced by Members. There is a desire for E-SOH to be as flexible as possible when consuming data, but there is also an expectation that data producers provide data in a consistent and easily interpretable format.
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F16 - data quality above an agreed level or to be clearly indicated
+
+"As a current, or new, data consumer of land surface observations, I want the data I receive to be above an agreed quality, or for the quality of the data to be clearly indicated. So, I can improve the services (including forecasting of fog and convective events) I provide to my users."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- There is no expectation for E-SOH to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to E-SOH, then E-SOH will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
+- Future iterations of E-SOH, e.g., incorporating PWS data, will increase the need for EUMETNET, rather than relying on the data producer, to undertake real-time QC. This QC capability, possibly using machine learning techniques, falls outside of the current scope of E-SOH and will therefore need to be built separate too, but incorporate with, E-SOH.
+- Will there be unified QC flagging scheme or is the "quality indicators persisted and exposed" also saying that there might be as many as flagging schemes as there are data providers? 
+
+*Acceptance criteria:*
+
+*Consequences and decisions*
+- Conclusion: we will need some quality indicators
+
+### F17 - reject corrupt data and record the event
+
+"Given a data producer exposes data to E-SOH, when the data format is found to be corrupt. Then E-SOH should reject the data and record the event."
+
+*Priority:*
+ - primary
+
+*Clarifications:*
+ - There is no expectation for E-SOH to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to E-SOH, then E-SOH will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
+ - Future iterations of E-SOH, e.g., incorporating PWS data, will increase the need for EUMETNET, rather than relying on the data producer, to undertake real-time QC. This QC capability, possibly using machine learning techniques, falls outside of the current scope of E-SOH and will therefore need to be built separate too, but incorporate with, E-SOH. 
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F18 - inform the data producer about corrupt format events
+
+"Given E-SOH records a corrupt format events,when the number of events passes an agreed threshold, then E-SOH should inform the data producer through agreed channels."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F19 - data providers to indicate the quality of the data they expose or only expose data above an agreed quality threshold
+
+"As the E-SOH service manager, I want data providers of sub-hourly land surface observations to either indicate the quality of the data they expose or only expose data above an agreed quality threshold. So, I provide E-SOH data consumers with an expected service."
+
+*Priority:*
+ - primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F20 - expose poor quality data with an indication of the data quality
+
+"Given a data producer exposes observations data of poor quality, when those observations data are processed by E-SOH and a quality indicator is present,then the data should be exposed by E-SOH along with an indication of the data quality."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F21 - indicate when data is of unknown quality
+
+"Given a data producer exposes observations data (of any quality), when those observations data are processed by E-SOH and no quality indicator is present,then the data should be exposed by E-SOH along with an indication that the data are of unknown quality."
+
+*Priority:*
+- secondary
+
+*Clarifications:*
+- Should the default be to only return quality data, and an option to get all data + quality indicator)?
+- The user must choose the level of quality control based on a controlled vocabulary in the discovery metadata. We may want to specify a default for use in the API search.
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F22 - convert data values and units to the expected E-SOH output
+
+"Given a data producer exposes observations data, when those observations data are expressed in units not matching the expected E-SOH output, then E-SOH should convert the data values to match those required by E-SOH data consumers."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- Do we store the values in the original units, or in the expected E-SOH units?
+- Expect users to provide values in SI units but if users provide non-SI units, we need to define where to do the conversion.
+- Does WMO already describe which units should be used in BUFR? Yes. There are a lot of WMO documents, and finding what you want can be difficult, but there are a lot of definitions. For example https://www.nco.ncep.noaa.gov/sib/jeff/bufrtab_tableb.html
+- What is the source of information or the specification to rely on? E.g. if there is some pressure data in mbar, should we convert in into hPa?
+- We must start by following WMO rules. For example https://www.nco.ncep.noaa.gov/sib/jeff/bufrtab_tableb.html. We definitely need to do this for BUFR encoding
+- Consequence / Requirement on the data producer: units must be defined using an openly available controlled vocabulary - if not, e-soh must just forward the data. Also, we expect SI units
+- Implementation of the conversion ability is not first priority
+- How to handle possible quality reduction caused by the conversion also needs to be considered
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F23 - near real-time access to sub-hourly observations delivered in the same format (i.e., BUFR) used by NMHSs today
+
+"As a current data consumer of land surface observations, I want near real-time access to sub-hourly observations delivered in the same format (i.e., BUFR) used by NMHSs today. So, I can minimise development of my existing downstream systems."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F24 - access to sub-hourly observations delivered in an Open Standard format (e.g., GeoJSON)
+
+"As a data consumer of land surface observations, I want near real-time access to sub-hourly observations delivered in an Open Standard format (e.g., GeoJSON, CoverageJSON) following agreed and structured naming convention standards (e.g., CF and ACDD). So, I can minimize the development of new applications and reduce the need to learn domain specific formats."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- At the time of gathering requirements, GeoJSON was suggested - the consensus is now moving to CoverageJSON
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F25 - parameter naming convention standards, where not established, to be developed and followed
+
+"As a Service Manager, I want parameter naming convention standards, where not established, to be developed and followed. So, I can efficiently maintain and lifecycle the E-SOH service."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions*
+
+### F26 - near real-time sub-hourly observations delivered via the same method (i.e., push via GTS) used by NMHSs today
+
+"As a current data consumer of land surface observations, I want near real-time sub-hourly observations delivered via the same method (i.e., push via GTS) used by NMHSs today. So, I can minimise development of my existing downstream systems."
+
+*Priority:*
+- tertiary
+
+*Clarifications:*
+- At the kick-off meeting on 3rd March, Jeremy Tandy mentioned that we could rely on WIS2.0 to take care of this delivery
+- Jeremy also noted that there are limitations within the current GTS systems (e.g., the use for bulletin headers TTAAii) that might mean not all additional data produced via the E-SOH project can be shared via GTS. Therefore there is no requirement for E-SOH to develop additional GTS capability to enable additional observations to be shared on the GTS.
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F27 - near real-time access to sub-hourly observations via a publish-subscribe message pattern
+
+"As a data consumer of land surface observations, I want near real-time access to sub-hourly observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F28 - E-SOH to scale to user demands for data
+
+"As a system manager, I want E-SOH to scale to user demands for data, especially those users requesting data via the E-SOH API and pub/sub message pattern. So, I can deliver the service expected by data consumers."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F29 - query based on location, time, and parameter
+
+"As a data consumer using API access, I want to query the data based on location, time, and parameter. So I can access exactly the data I require and minimised the amount of data retrieved and local post processing."
+
+*Priority:*
+ - primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+- At this stage we expect to use EDR as the standard for the API so we should use the EDR standards for location and time. To start with, we will focus on simple radius and 2D polygon queries, and not worry about trajectories, etc.  There is still the open question about parameters but for location and time hopefully we can state EDR.
+- If there is a Z axis, it needs to be defined what kind of support is required: Can one query data based on, e.g., pressure levels or height from ground level or sea level? How to use the Z axis when data is, e.g., sea temperature profiles or so?
+- EDR API needs to support that, and the data storage also has to be such that we can store and query the data efficiently. Maybe the simplest form is to support the Z axis that data happens to have and the user needs to know what it is (e.g., based on metadata) and queries are possible only using that axis. Conversions etc are left to user.
+- Should be defined whether the location can be in 3D (not just lat/lon) or not
+- Decision: height is specified in parameter name and/or discovery metadata. We do not expect to implement vertical layer query in EDR (we will implement 2d bounding box, not 3d, at least as a start).
+
+### F30 - pub-sub message pattern to be compliant with the requirements of WIS 2.0
+
+"As a EUMETNET Member, I want the method of delivery via a pub-sub message pattern to be compliant with the requirements of WIS 2.0. So, I can efficiently meet my obligations as a WMO Member."
+
+*Priority:*
+ - primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F31 - E-SOH software to meet agreed quality assurance standards
+
+"As a System Manager, I want E-SOH software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the E-SOH service."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- What is the definition of "agreed software quality assurance standards"? We interpret this as something the e-soh project team needs to agree on.
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F32 - contributions to the E-SOH code base to be open to all EUMETNET members
+
+"As a EUMETNET Member, I want contributions to the E-SOH code base to be Open to all Members. So, I can efficiently deliver my national and EUMETNET Strategy."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F33 - security to be considered as a high priority
+
+"As a System Manager, I want security to be considered as a high priority and all aspects of the system to meet IT security best practice and includes, for example, identity and access management, role- based access controls, access tokens and data encryption at rest and in transit. So, I can deliver a robust and secure system."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- In the tender, we have said the following, regarding this:
+   * For F33 (security), we expect to implement encryption using secure protocols such as, e.g.HTTPS. Stored observation data will not be encrypted. Identity and Access Management (IAM) will depend on infrastructure implementations of which restrictions may apply, e.g., at EWC.
+- Access control
+   * Broken access control is the top top issue in the link:https://owasp.org/Top10/A01_2021-Broken_Access_Control/[OWASP/Top 10 list of the most critical security risks facing organizations].
+   * It seems there is a need three separate systems for authentication and authorization:
+
+- Data ingestion
+   * There must be control of who are allowed to upload data to the system. Also, there may be several systems for uploading data. Sftp may be one of them, while others may depend on http post requests. This means that each system for ingesting data may need its own mechanisms for authentication, and possibly also authorization. If possible, it would be useful to have a common "source of truth" regarding authorization, regardless of authentication mechanism.
+
+- Administration and monitoring
+   * Access to administration and statistics about the system should not be freely available to anyone. Some system must be set up to allow access to relevant users only.
+- Data delivery
+   * In the first version of e-soh, there will be no restricted data, so from that perspective there is no need for authentication or authorization.
+   * If, at a later stage, we will introduce access control here, there seems to be some limitations in FEMDI regarding this: The use of a message queue implies that anyone will be able to know about the *existence* of restricted data. We can only provide access control on the actual data itself. *This may or may not be acceptable at a later stage.*
+   * Even if we want to only serve freely available data, we may still want to have some kind of access control here, to have some protection against servers becoming overloaded.
+- Security monitoring
+   * Some system must be in place to allow admins to monitor the system with regards to security incidents.
+- Data encryption
+   * All traffic to and from the system will use encryption. No usage of http, only https. The same applies to ftp - we will only provides sftp.
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F34 - sufficient compute resources
+
+"As a System Manager, I want sufficient compute resource to be available. So, I can deliver a resilient and sustainable service to my users."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- The required compute resource for E-SOH is thought to be relatively low, especially compared with the requirements of NWP, Satellites and even Radar.
+- The storage requirements are modest given only 24 hours of storage is required.
+- Consideration also needs to be given to the requirements for resilience and for development environments. Depending on the resilience architecture and the need for development environments there might be several instances of E-SOH running in parallel to the operational system. On the other hand, depending on the service of the Cloud provider chosen, resilience might not need to be running in parallel and development environments may only exist when actively being used rather than being “always on”.
+- As more observations network are added to E-SOH the resource requirements will increase accordingly. For the observations expected for E-SOH the amount of compute resource is likely to be proportional to the number of observations. As a very rough estimate, based on a traditional observations station with several observed parameters, the following compute resource is required for 5000 stations (i.e., an estimate of the number of observing stations in Europe)...
+- CPU ~8 CPU Core, Memory ~8GB RAM, Storage ~1TB
+- The estimate above is for a single instance of E-SOH running.
+- For other networks the number of parameters per station might be less. E.g., rain-gauges might only record a single meteorological value.
+- In addition to the resources required for the observations processing chain, additional resources will be required for the input and output to the systems. The number of “PUT” and “GET” request are likely to be significant given the number of  mall messages/files delivered to and disseminated by E-SOH. The Scoping study estimated between 0.25 and 1.7 Billion PUT requests per month.
+- The ‘periphery’ components of E-SOH (e.g., monitoring and reporting) will also require compute resources, but these are believed to be significantly less than the core of E-SOH.
+- The estimates above will need to be clarified during the design phase (WP1).
+- Antoher crucial part is to estimate the load coming from open data requests. FMI open data gets about 20 req/s for observations (latest numbers should be confirmed with FMI). Scaling that up with number of countries would lead to 200-300 req/s and with number of users much more. FEMDI API gateway can hopefully cope with major part of the load, but probably not all. From that point of view, it's also important to check if, e.g., wis2box supports multiple nodes well (scaling).
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F35 - Data Enrichment and Processing
+
+There is no requirement for E-SOH to perform any significant data enrichment or processing. However, where data received from a data producer does not contain sufficient metadata to meet the standards required of E-SOH products, these additional metadata will be added where possible.
+
+In the case of WIGOS Station IDs (WSI) it will be the responsibility of the data producer to publish the WSI for each station exposed via E-SOH. The WSI may be expressed with the observations data provided or through an agreed metadata store (e.g., OSCAR).
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- We need to state some principles before defining the standards:
+   * A minimum set of (required and recommended) use and discovery metadata must follow the data, i.e., as part of the data files
+   * This metadata must follow agreed standards
+   * It must be possible to translate from the agreed data-following standards to other standards, such as DCAT and ISO19115 and related profiles of these
+   * Based on discussion in https://app.zenhub.com/workspaces/e-soh-63fc8658faa10d2e7d262c3c/issues/zh/40 we only treat open datasets without restrictions in the first stage. This implies that a license is required on all data, and that e-soh only takes in the data if it has an open license or a release statement.
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
 
 ## Business requirements
 
