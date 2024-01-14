@@ -339,133 +339,120 @@ describes
  - Accessibility
    * A1. (meta)data are retrievable by their identifier using a standardized 
 communications protocol
-* A1.1 the protocol is open, free, and universally implementable
-* A1.2 the protocol allows for an authentication and authorization procedure, where necessary
-* A2. metadata are accessible, even when the data are no longer available
+   * A1.1 the protocol is open, free, and universally implementable
+   * A1.2 the protocol allows for an authentication and authorization procedure, where necessary
+   * A2. metadata are accessible, even when the data are no longer available
+- Interoperability
+   * I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+   * I2. (meta)data use vocabularies that follow FAIR principles
+   * I3. (meta)data include qualified references to other (meta)data
+- Reusability
+    * R1. meta(data) are richly described with a plurality of accurate and relevant attributes
+    * R1.1. (meta)data are released with a clear and accessible data usage license
+    * R1.2. (meta)data are associated with detailed provenance?
+    * R1.3. (meta)data meet domain-relevant community standards
 
+- Can FAIR, HVD and WIS2 requirements be contradictory?
+- The requirements are not contradictory, but strict follow-up of the FAIR principles requires at least unique persistent id's on the dataset level (see definition elsewhere). Keeping metadata for indefinite time may be too challenging, since observation datasets are small and only live in E-SOH for 24 hours.
 
-* Can FAIR, HVD and WIS2 requirements be contradictory?
-  * The requirements are not contradictory, but strict follow-up of the FAIR principles requires at least unique persistent id's on the dataset level (see definition elsewhere). Keeping metadata for indefinite time may be too challenging, since observation datasets are small and only live in E-SOH for 24 hours.
+*Acceptance criteria:*
 
-==== Acceptance criteria
+*Consequences and decisions:*
 
-==== Consequences and decisions
+### B09 - data exposed in a way that’s consistent with data exchange initiatives within EUMETNET, WMO and the wider data community
 
-=== B09 - data exposed in a way that’s consistent with data exchange initiatives within EUMETNET, WMO and the wider data community
+“As a data owner, I want my data exposed in a way that’s consistent with data exchange initiatives within EUMETNET, WMO and the wider data community. For example, WIS 2.0, INSPIRE, HVD, and FDCM. So, I can meet my international commitments and obligations within the Meteorological and wider user community.”
 
-As a data owner,
+*Priority:*
+ - primary
 
-I want my data exposed in a way that’s consistent with data exchange initiatives within EUMETNET, WMO and the wider data community. For example, WIS 2.0, INSPIRE, HVD, and FDCM.
+*Clarifications:*
 
-So, I can meet my international commitments and obligations within the Meteorological and wider user community.
+*Acceptance criteria:*
 
-==== Priority: primary
+*Consequences and decisions:*
 
-==== Clarifications
+### B10 - secure mechanism to share data according to data policy
 
-==== Acceptance criteria
+“As a data owner, I want a secure mechanism to share data according to my data policy. So, I can use RODEO to expose my data.”
 
-==== Consequences and decisions
+*Priority:*
+- primary
 
-=== B10 - secure mechanism to share data according to data policy
+*Clarifications:*
+- radar data belongs to the data providor, e.g. UKMO doesn't need to follow the HVD, and most likely is not willing to share the volume data through RODEO. Hence, somewhere, either in OPERA side or in RODEO, there needs to be block preventing data to be shared.
+- Discussions on sharing all the OPERA data inside the composite must be agreed
 
-As a data owner,
+*Acceptance criteria:*
 
-I want a secure mechanism to share data according to my data policy,
+*Consequences and decisions:*
 
-So, I can use E-SOH to expose my data.
+### B11 - observation station metadata
 
-==== Priority: primary
+“As a data owner, I want observations station metadata to be efficiently held and maintained within RODEO; synchronised with national and international metadata stores (e.g., WMO OSCAR); respecting the metadata agreed Single Source of Truth. So, I am assured my data are represented correctly to E-SOH users and costs of metadata maintenance are minimised. Correct this for OPERA data - OPERA radar database, WMO WRD radar database, various WSI shared. ”
 
-==== Clarifications
+*Priority:*
+- primary
 
-==== Acceptance criteria
+*Clarifications:*
 
-==== Consequences and decisions
+*Acceptance criteria:*
 
-=== B11 - observation station metadata
+*Consequences and decisions:*
 
-As a data owner,
+### B12 - minimise the required changes in production systems
 
-I want observations station metadata to be efficiently held and maintained within E-SOH; synchronised with national and international metadata stores (e.g., WMO OSCAR); respecting the metadata agreed Single Source of Truth.
+“As a data producer, I want to minimise the required changes in my systems prior to making data available to RODEO/OPERA. So, the value of RODEO, over developing bespoke capability, is realised.”
 
-So, I am assured my data are represented correctly to E-SOH users and costs of metadata maintenance are minimised.
+*Priority:*
+- secondary
 
-==== Priority: primary
+*Clarifications:*
 
-==== Clarifications
+*Acceptance criteria:*
 
-==== Acceptance criteria
+*Consequences and decisions:*
+- We need to establish principles for when RODEO requirements on, e.g., input data formats or interfaces can be changed to meet producer needs.
 
-==== Consequences and decisions
+### B13 - unified approach to the supply of supplementary observations
 
-=== B12 - minimise the required changes in production systems
+“As a data producer, I want a unified approach to the supply of supplementary observations developed and supported. So, I can remove the need to develop bespoke solutions and the need to establish multiple bilateral agreements.”
 
-As a data producer,
+*Priority:*
+- secondary
 
-I want to minimise the required changes in my systems prior to making data available to E-SOH,
+*Clarifications:*
 
-So, the value of E-SOH, over developing bespoke capability, is realised.
+*Acceptance criteria:*
 
-==== Priority: secondary
+*Consequences and decisions:*
 
-==== Clarifications
+### B14 - radar observations delivered in the same format and exchange protocols as used today
 
-==== Acceptance criteria
+“As a current data consumer of radar data, I want near radar observations delivered in the same format and exchange protocols as used today (i.e., HDF5 ODIM). So, I can minimise development of my systems downstream of RODEO.”
 
-==== Consequences and decisions
+*Priority:*
+- secondary
 
-We need to establish principles for when E-SOH requirements on, e.g., input data formats or interfaces can be changed to meet producer needs.
+*Clarifications:*
 
-=== B13 - unified approach to the supply of supplementary observations
+*Acceptance criteria:*
 
-As a data producer,
+*Consequences and decisions:*
 
-I want a unified approach to the supply of supplementary observations developed and supported,
+### B15 - RODEO to handle transmission on GTS
 
-So, I can remove the need to develop bespoke solutions and the need to establish multiple bilateral agreements.
+“As a data producer, I want to rely on RODEO to handle the transmission of new, late or subsequently corrected observations on GTS, so I can replace my old systems for message generation. Applicable for radar data?”
 
-==== Priority: secondary
+*Priority:*
+- secondary
 
-==== Clarifications
+*Clarifications:*
+- The shared infrastructure of WIS2.0 will most likely be able to support this
 
-==== Acceptance criteria
+*Acceptance criteria:*
 
-==== Consequences and decisions
-
-=== B14 - near real-time access to sub-hourly observations delivered in the same format and exchange protocols as used today
-
-As a current data consumer of land surface observations,
-
-I want near real-time access to sub-hourly observations delivered in the same format and exchange protocols as used today (i.e., BUFR/GTS),
-
-So, I can minimise development of my systems downstream of E-SOH.
-
-==== Priority: secondary
-
-==== Clarifications
-
-==== Acceptance criteria
-
-==== Consequences and decisions
-
-=== B15 - E-SOH to handle transmission on GTS
-
-As a data producer,
-
-I want to rely on E-SOH to handle the transmission of new, late or subsequently corrected observations on GTS,
-
-so I can replace my old systems for message generation.
-
-==== Priority: secondary
-
-==== Clarifications
-
-* The shared infrastructure of WIS2.0 will most likely be able to support this
-
-==== Acceptance criteria
-
-==== Consequences and decisions
+*Consequences and decisions:*
 
 
 
