@@ -21,6 +21,7 @@ This is the Requirements Document for the the RODEO WP6 for sharing weather rada
 - [Dataset description](#Dataset_description)
 - [User requirements](#User_requirements)
 - [System requirements](#System_requirements)
+- [Functional and non-functional requirements](#Functional_and_non-functional_requirements)
 - [Business requirements](#Business_requirements)
 - [Dependencies](#Dependencies)
 - [Constraints and assumptions](#Constraints_and_assumptions)
@@ -213,7 +214,11 @@ Related to E-SOH requirement 4.5.
 
 *Consequences and decisions:*
 
-## System requirements or Functional and non-functional requirements
+## System requirements
+Is this separate from functional and non functional requirements?
+Where to write SLAs of OPERA?
+
+## Functional and non-functional requirements
 
 These are copied from E-SOH directly, no changes!
 
