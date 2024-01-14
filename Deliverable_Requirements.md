@@ -24,6 +24,7 @@ This is the Requirements Document for the the RODEO WP6 for sharing weather rada
 - [Business requirements](#Business_requirements)
 - [Dependencies](#Dependencies)
 - [Constraints and assumptions](#Constraints_and_assumptions)
+- [Risks](#Risks)
 
 ## Introduction
 This is the Requirements Document for the RODEO WP6 for sharing weather radar data. This document outlines the technical requirements and objectives for the development of radar data supply, which utilizes components developed in the the EUMETNET Federated European Meteorological Data Infrastructure (FEMDI) programme. The objective of work in WP6 is utilize the data sharing done in the EUMETNET OPERA programme already over a decase and, build on this collaboration a data supply for the third-party users in line with the World Meteorological Organization’s (WMO) Information System 2.0 (WIS 2.0) strategy and the European Union’s (EU) regulation on Meteorological High Value Data (HVD).
@@ -1012,6 +1013,12 @@ This chapter is meant to capture any relationships or interdependencies between 
 
 The purpose of this sub-section is to document any limitations or assumptions that could impact the development of the system in order to ensure that the final product meets the users' needs and expectations. These constraints could include factors such as budget or time constraints, technical limitations, or any other factors that could affect the functionality or usability of the system. By identifying and addressing these constraints and assumptions early in the development process, we can minimize the risk of delays, misunderstandings, or unsatisfactory outcomes.
 
+## Risks
 
+This section should identify any risks specific to the requirements.
 
+## Conclusion
 
+In conclusion, the requirements document outlines the specific needs and objectives of the RODEO WP6 radar data supply, including functional and non-functional requirements. It should serve as a guide for the development team to ensure
+that the final product meets the expectations and requirements Eumetnet and its associates. The document should be regularly reviewed and updated throughout the project lifecycle to ensure that any changes or additions are properly
+documented and addressed. It is essential for the success of the project that all stakeholders agree on the requirements outlined in this document and use it as a reference throughout the development process.
