@@ -25,6 +25,7 @@ This is the Requirements Document for the the RODEO WP6 for sharing weather rada
 - [Dependencies](#Dependencies)
 - [Constraints and assumptions](#Constraints_and_assumptions)
 - [Risks](#Risks)
+- [Conclusions](#Conclusions)
 
 ## Introduction
 This is the Requirements Document for the RODEO WP6 for sharing weather radar data. This document outlines the technical requirements and objectives for the development of radar data supply, which utilizes components developed in the the EUMETNET Federated European Meteorological Data Infrastructure (FEMDI) programme. The objective of work in WP6 is utilize the data sharing done in the EUMETNET OPERA programme already over a decase and, build on this collaboration a data supply for the third-party users in line with the World Meteorological Organization’s (WMO) Information System 2.0 (WIS 2.0) strategy and the European Union’s (EU) regulation on Meteorological High Value Data (HVD).
