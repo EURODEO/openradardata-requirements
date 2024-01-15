@@ -1,7 +1,8 @@
 # E-SOH Key Performance Indicators
 
 
-### Gijsbert Kruithof, Roope Tervo, Stuart J. Matthews
+### Annakaisa v. Lerber, Stuart J. Matthews, Roope Tervo, Gijsbert Kruithof, Mikko Rauhala, Vegar Kristiansen, DMI (Morten?), Lukas Tüchler (?), Christoph Müller, Daniel Heintze, Steffen Kremer 
+
 
 ## Abstract
 
