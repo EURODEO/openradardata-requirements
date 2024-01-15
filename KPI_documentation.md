@@ -36,13 +36,13 @@ trace root cause of the potential problems.
 In the process of establishing the KPIs the following sources and examples are taken into consideration:
 
 * [EUMETSAT data services KPIs:](https://www.eumetsat.int/media/45745) (pp. 105-107)
-* [OSCAR rquirements:](https://space.oscar.wmo.int/requirements)
-* [EUCOS Performance Standards: Availble from the EUMETNET Portal (SharePoint) Section 2.](https://tlnt19059.sharepoint.com/:w:/r/sites/OBSERVATIONSPROGRAMMEMANAGEMENT/Documentation/Reference/EUCOS-Performance-Standard.docx?d=w311f059736f744bcb83037c362e5d3e2&csf=1&web=1&e=AzDctr)
+* OPERA database? Check this with needed metadata.
+* [EUCOS Performance Standards: Availble from the EUMETNET Portal (SharePoint) Section ?.](https://tlnt19059.sharepoint.com/:w:/r/sites/OBSERVATIONSPROGRAMMEMANAGEMENT/Documentation/Reference/EUCOS-Performance-Standard.docx?d=w311f059736f744bcb83037c362e5d3e2&csf=1&web=1&e=AzDctr)
 * [WIS 2.0 Technical requirements:](https://community.wmo.int/en/WIS2_Technical_Specification_Guidance)
-* [WIS Metadata Key Performance Indicators:](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis)
+* [WIS Metadata Key Performance Indicators:](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis)?
 * DWD OPERA KPI's
-* KNMI KDP KPI's
-* [A Performance Benchmarking Methodology for MQTT Broker Implementations:](https://qrs20.techconf.org/QRSC2020_FULL/pdfs/QRS-C2020-4QOuHkY3M10ZUl1MoEzYvg/891500a499/891500a499.pdf)
+* KNMI KDP KPI's?
+* [A Performance Benchmarking Methodology for MQTT Broker Implementations:](https://qrs20.techconf.org/QRSC2020_FULL/pdfs/QRS-C2020-4QOuHkY3M10ZUl1MoEzYvg/891500a499/891500a499.pdf) - Technical 
 
 ## Service Level Definitions
 
@@ -50,7 +50,8 @@ The EU HVD Regulation, Article 3 defines: "Set out and publish the terms of use 
 
 1. **Best effort – business hours:** Solution with support on best effort basis, on business hours. The solution has a limited capacity to operate big and several parallel inquires. Error cases fixed within 2 weeks. Simple monitoring checks. Capabilities can be developed further, according to FAIR. 
 2. **Immediate response – fixes in 24 hours:** Higher system performance with moderate service level. More advanced automatic monitoring checks and alerts, 24/7 first level support, and the ability to give human support in 24 hours. Error cases fixed within a week. Capabilities can be developed further, according to FAIR. 
-3. **Time critical – fixes in an hour:** Operational international data exchange for model input. 24/7 first, second and third level support, efficient monitoring tools detecting any errors, high availability, and capacity to process data. Capabilities can be developed further, according to FAIR. 
+3. **Time critical – fixes in an hour:** Operational international data exchange for model input. 24/7 first, second and third level support, efficient monitoring tools detecting any errors, high availability, and capacity to process data. Capabilities can be developed further, according to FAIR.
+   
 
 ## KPIs for Data Consumption
 
