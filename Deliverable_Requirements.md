@@ -38,6 +38,22 @@ We hope that this document will serve as a clear guide for the development and i
 
 ## Dataset description
 
+In this section we describe the datasets that are planned to be supplied by the RODEO developed APIs. In short these are stated in the Table XX. 
+
+## Datasets
+| N | Data type | Spatial coverage | Temporal coverage | Timeliness |Availability| Data Owner/licensing | Period | Data model and format | Metadata standard | More Info
+| :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | :--- | :---
+| D1a| OPERA Composite: ODYSSEY maximum reflectivity  |  | | | | | | | |
+| D1b| OPERA Composite: CIRRUS maximum reflectivity  |  | | | | | | | |
+| D1c| OPERA Composite: ODYSSEY Surface rain rate  |  | | | | | | | |
+| D1d| OPERA Composite: NIMBUS Surface rain rate |  | | | | | | | |
+| D1e| OPERA Composite: ODYSSEY 1 hour accumulation |  | | | | | | | |
+| D1f| OPERA Composite: NIMBUS 1 hour accumulation |  | | | | | | | |
+| D2a| OPERA volume radar data: DBZH (filtered, "best possible" horirizontal reflectivty factor), TH (unfiltered horizontal reflectivity factor), VRADH (horizontal radial velocity)  |  | | | | | | | |
+| D2b| OPERA volume radar data: new variables  |  | | | | | | | |
+| D3 | National products   |  | | | | | | | |
+
+
 ### OPERA Composite Data
 
 The composites cover the whole of Europe in a Lambert Equal Area projection. In ODYSSEY production (2011- 2023), they all are updated every 15 minutes, and issued ca. 15 minutes after data time.
