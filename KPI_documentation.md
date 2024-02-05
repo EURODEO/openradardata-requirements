@@ -38,8 +38,8 @@ In the process of establishing the KPIs the following sources and examples are t
 * OPERA database? Check this with needed metadata.
 * [WIS 2.0 Technical requirements:](https://community.wmo.int/en/WIS2_Technical_Specification_Guidance)
 * [WIS Metadata Key Performance Indicators:](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis)?
-* DWD OPERA KPI's
-* KNMI KDP KPI's?
+* DWD OPERA KPI's?
+* KNMI KDP KPI's
 * [A Performance Benchmarking Methodology for MQTT Broker Implementations:](https://qrs20.techconf.org/QRSC2020_FULL/pdfs/QRS-C2020-4QOuHkY3M10ZUl1MoEzYvg/891500a499/891500a499.pdf) - Technical 
 
 ## Service Level Definitions
@@ -84,7 +84,7 @@ simulations. They typically run every 6 hours, whereas local area models run
 every 15-60 minutes.  For example, the IFS [continuous
 assimilation model](https://www.ecmwf.int/en/newsletter/158/meteorology/continuous-data-assimilation-ifs) runs every 60 minutes. 
 
-The NWP models can be run without the latest observations, but this has a
+The NWP models can be run without the latest observations [Does the same apply for radar data???], but this has a
 significant impact on the quality. Hence, less than 60 minutes of downtime is
 desired. However, E-SOH will initially only support 99% availability in order
 to meet the "immediate response" service level. Higher availability would
