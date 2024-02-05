@@ -1,4 +1,4 @@
-# RODEO Opera open radar data Key Performance Indicators
+# RODEO WP 6 Opera open radar data Key Performance Indicators
 
 
 ### Annakaisa v. Lerber, Stuart J. Matthews, Roope Tervo, Gijsbert Kruithof, Mikko Rauhala, Vegar Kristiansen, DMI (Morten?), Lukas Tüchler (?), Christoph Müller, Daniel Heintze, Steffen Kremer 
@@ -12,7 +12,7 @@ This document defines KPIs for the RODEO WP6 weather radar supply. The target of
 | Version | Date | Comment | Responsible
 | :--- | :--- | :--- | :--- 
 | 0.1 | 2024-01-14 | preliminary draft | Annakaisa v. Lerber
-| | | |
+| 0.2 | 2024-02-05 | first concept | Gijsbert Kruithof
 | | | |
 | | | |
 
@@ -26,7 +26,7 @@ This document defines KPIs for the RODEO WP6 weather radar supply. The target of
 
 ## Introduction
 
-This document defines KPIs for the E-SOH system. The target of the KPIs is to provide guidance for system design and operations to ensure correct level of availability and usability of the system and data.  E-SOH requirement F07 states that the EUMETNET members want monthly, quarterly, and annual reports of the performance, against (to be confirmed) agreed KPIs.
+This document defines KPIs for RODEO WP6 open radar data system. The target of the KPIs is to provide guidance for system design and operations to ensure correct level of availability and usability of the system and data.  RODEO WP6 open radar data requirement F07 states that the EUMETNET members want monthly, quarterly, and annual reports of the performance, against (to be confirmed) agreed KPIs.
 
 The KPIs are measurable and aim to be as simple as possible, containing only few automatically collected metrics.
 
@@ -35,9 +35,7 @@ trace root cause of the potential problems.
 
 In the process of establishing the KPIs the following sources and examples are taken into consideration:
 
-* [EUMETSAT data services KPIs:](https://www.eumetsat.int/media/45745) (pp. 105-107)
 * OPERA database? Check this with needed metadata.
-* [EUCOS Performance Standards: Availble from the EUMETNET Portal (SharePoint) Section ?.](https://tlnt19059.sharepoint.com/:w:/r/sites/OBSERVATIONSPROGRAMMEMANAGEMENT/Documentation/Reference/EUCOS-Performance-Standard.docx?d=w311f059736f744bcb83037c362e5d3e2&csf=1&web=1&e=AzDctr)
 * [WIS 2.0 Technical requirements:](https://community.wmo.int/en/WIS2_Technical_Specification_Guidance)
 * [WIS Metadata Key Performance Indicators:](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis)?
 * DWD OPERA KPI's
@@ -55,7 +53,7 @@ The EU HVD Regulation, Article 3 defines: "Set out and publish the terms of use 
 
 ## KPIs for Data Consumption
 
-The KPIs for Data Consumption define the target KPIs from the perspective of the data consumers of real-time observations. In the [E-SOH technical architecture](https://rodeo-project.eu/e-soh-technical-architecture/#_container_diagram), this corresponds to the Search and Access APIs, and the Notification Service.
+The KPIs for Data Consumption define the target KPIs from the perspective of the data consumers of the open radar data. This corresponds to the Search and Access APIs, and the Notification Service.
 
 ### Search and Access APIs
 
