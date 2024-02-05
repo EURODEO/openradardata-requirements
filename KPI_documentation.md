@@ -64,8 +64,7 @@ The KPIs for Data Consumption define the target KPIs from the perspective of the
 | :--- | :--- | :--- | :--- | :--- 
 |KPI-1 |Availability |The check has to request for latest data and ensure that the returned data is in accordance with the expected one. |99% |Related to requirement F02
 |KPI-2|Response time|How fast the API starts the response.|TBD |
-|KPI-3|Number of requests per hour |The number API requests reflect the usability of the service|TBD|KNMI recieves ca. 2000 pull request per hour for radar data
-FEMDI ET Estimated 1700 pull request per second
+|KPI-3|Number of requests per hour |The number API requests reflect the usability of the service|TBD|KNMI recieves ca. 2000 pull request per hour for radar data; FEMDI ET Estimated 1700 pull request per second
 |KPI-4|Amount of data downloaded |The amount of data downloaded indicates the usability of the data|TBD|KNMI radar data download = ca. 200 GB per day 
 |KPI-5|Number of unique users |The number of unique users|TBD|KNMI has ca. 200 unique users per day for radar data
 |KPI-6|Quality of WIS 2.0 metadata records |WIS metadata records KPIs score|TBD |Metadata quality can be quantified with tooling available at https://github.com/wmo-im/pywcmp. For more information, see: [WMO WIS metadata KPIs](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis).
