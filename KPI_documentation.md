@@ -66,7 +66,7 @@ The KPIs for Data Consumption define the target KPIs from the perspective of the
 |KPI-2|Response time|How fast the API starts the response.|TBD |
 |KPI-3|Number of requests per hour |The number API requests reflect the usability of the service|TBD|KNMI recieves ca. 2000 pull request per hour for radar data
 |KPI-4|Amount of data downloaded |The amount of data downloaded indicates the usability of the data|TBD|KNMI radar data download = ca. 200 GB per day 
-|KPI-5|Number of unique users |The number of unique users|TBD|
+|KPI-5|Number of unique users |The number of unique users|TBD|KNMI has ca. 200 unique users per day for radar data
 |KPI-6|Quality of WIS 2.0 metadata records |WIS metadata records KPIs score|TBD |Metadata quality can be quantified with tooling available at https://github.com/wmo-im/pywcmp. For more information, see: [WMO WIS metadata KPIs](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis).
 |KPI-7|Quality of HVD metadata records|HVD metadata records KPIs score |TBD |
 
@@ -86,7 +86,7 @@ assimilation model](https://www.ecmwf.int/en/newsletter/158/meteorology/continuo
 
 The NWP models can be run without the latest observations [Does the same apply for radar data???], but this has a
 significant impact on the quality. Hence, less than 60 minutes of downtime is
-desired. However, E-SOH will initially only support 99% availability in order
+desired. However, the WP6 Opera Radar System will initially only support 99% availability in order
 to meet the "immediate response" service level. Higher availability would
 require the "time critical" service level.
 
@@ -133,17 +133,17 @@ This section aims to provide the following:
 ## KPIs for Data Provisioning
 
 The KPIs for Data Provisioning define the target KPIs for the data provisioning
-system, initially used by the NMHS'es. In the [E-SOH
-technical architecture](https://rodeo-project.eu/e-soh-technical-architecture/#_container_diagram), this corresponds to the Data Ingestion API(s).
+system, initially used by the NMHS'es. This corresponds to the Data Ingestion API(s).
 
 ### Data Ingestion API(s)
+Is this applicable to the radar data? Will there be an ingestion API?
 
 **Recommended Service Level:** "Immediate response – fixes in 24 hours", in the pre-operational phase.
 
 *ID*|*KPI*|*Description*|*Target*|*Notes*
 |:---|:---|:---|:---|:---
-|KPI-12|Number of data providers |(Mainly) NMHS'es providing data in E-SOH|31|
-|KPI-13|Number of Weather Stations |Combined with the providing organisations|No target value|
+|KPI-12|Number of data providers |(Mainly) NMHS'es providing data |31|
+|KPI-13|Number of Radar sites |Combined with the providing organisations|No target value|
 |KPI-14|Amount of data ingested|Gives an indication of the scale of the ingestion system|TBD|
 |KPI-15|Ingestion system uptime|The uptime of the ingestion system|99%|Please note: this can be different than the uptime of the API for the end-user
 |KPI-16|Ingestion success rate|The percentage of data succesfully ingested|99.95%|Please note: rejected files which do not comply to the input standards are not counted as an unsuccesfull ingest
@@ -161,10 +161,9 @@ This section aims to provide the following:
 
 Internal use of the NMHSs need to be reported as a special case as it is in special interest of the EUMETNET Member States and providing organisations. The KPIs and the target figures should be the same.
 
-The KPI-12 target is derived from an assumption that all EUMETNET Member States will provide data through E-SOH. 
+The KPI-12 target is derived from an assumption that all EUMETNET Member States will provide data.
 
-Regarding KPI-13, there is an assumption that EUMETNET Members will provide data from as many automatic weather stations (AWS) as possible. This is in contrast to only a sub-set of the total number of AWS stations being shared through the GTS. The actual number of stations from each Member is not known at present, but a KPI to reflect the inclusion of additional stations is highly desirable. 
+Regarding KPI-13, there is an assumption that EUMETNET Members will provide data from all of their radar sites. Is the actual number of radar sites from each Member is known at present???? 
 
-KPI-17: [OSCAR requirements](https://space.oscar.wmo.int/requirements) defines detailed requirements for each parameters. For the sake of simplicity the shortest timeliness of ground observations (apart from some aviation parameters and lightning) was chosen.
 
 ## Conclusions
