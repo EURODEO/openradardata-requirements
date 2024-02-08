@@ -53,6 +53,108 @@ In this section we describe the datasets that are planned to be supplied by the 
 | D2b| OPERA volume radar data: new variables  |  | | | | | | | |
 | D3 | National products   |  | | | | | | | |
 
+OPERA - CUMULUS incoming data:
+
+EDZW: 145000 Files/d 13.5 GB/d
+
+LFPW: 40000 Files/d 2G B/d
+
+ESWI: 30000 Files/d 2.5 GB/d
+
+EFKL: 17000 Files/d 1.5 GB/d
+
+EKMI: 1200 Files/d 1.5 GB/d
+
+BIRK: 1500 Files/d 850 MB/d
+
+LEMM: 3500 Files/d 500 MB/d
+
+LPMG: 15000 Files/d 800MB/d
+
+LYMB: 300 Files/d 70 MB/d
+
+LZIB: 3400 Files/D 1.4 GB/d
+
+LDZM: 1000 Files/d 600 MB/d
+
+LSSW: 6400 Files/d 750 MB/d
+
+ENMI: 7000 Files/d 5.5 GB/d
+
+OKPR: 1700 Files/d 500MB/d
+
+EBUM: 7700 Files/d 2 GB/d
+
+EGRR: 36000 Files/d 3.5 GB/d
+
+HABP: 5000 Files/d 1 GB/d
+
+YRBK: 750 Files/d 150 MB/d
+
+EIDB: 4700 Files/d 170 MB/d
+
+SOWR: 5500 Files/d 1.1 GB/d
+
+LJLM: 570 Files/d 280 MB/d
+
+EVRR: 140 Files/d 40 MB/d
+
+LLBD: 280 Files/d 2.5 GB/d
+
+LGAT: 300 Files/d 65 MB/d
+
+Summary : ca. 340000 Files/d with ca. 45GB/d
+
+Data Format:
+Info to ODIM Format (V2.3) located here:
+https://www.eumetnet.eu/wp-content/uploads/2019/01/ODIM_H5_v23.pdf
+
+Used metadata in DWD:
+
+	Metadata set definition: 
+ 
+ General information:
+ 
+		Metadata field: REFERENCE_DATE (d), type Date
+  
+		Metadata field: COUNTRY (ctry), type String
+  
+		Metadata field: COUNTRY_ID (ctryid), type String
+  
+		Metadata field: STATION_NUMBER (stno), type Integer
+  
+		Metadata field: STATION_LOCAL_ID (stid), type String
+  
+		Metadata field: QUANTITY (quant), type String
+  
+		Metadata field: FILENAME (fn), type String
+  
+		Metadata field: ANTENNA_ELEVATION (ae), type Float
+  
+		Metadata field: WAVELENGTH (wl), type Float
+  
+		Metadata field: LATITUDE (lat), type Float
+  
+		Metadata field: LONGITUDE (long), type Float
+  
+		Metadata field: HEIGHT (h), type Float
+
+Special information:
+
+		Metadata field: PROD_IDA1 (pida1), type String
+  
+		Metadata field: PROD_IDA2 (pida2), type String
+  
+		Metadata field: FILE_FORMAT (ff), type String
+  
+		Metadata field: FILE_MODE (fm), type String
+  
+		Metadata field: FORMAT_VERSION (fv), type String
+  
+		Metadata field: DECODE_DATE (dedat), type Date
+  
+		Metadata field: STORE_DATE (stdat), type Date
+
 
 ### OPERA Composite Data
 
