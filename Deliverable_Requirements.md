@@ -6,7 +6,7 @@
 
 ## Abstract
 
-This is the Requirements Document for the the RODEO WP6 for sharing weather radar data. This document outlines the technical requirements and objectives for the development of radar data supply, which utilizes components developed in the the EUMETNET Federated European Meteorological Data Infrastructure (FEMDI) programme. The objective of work in WP6 is utilize the data sharing done in the EUMETNET OPERA programme already over a decase and, build on this collaboration a data supply for the third-party users in line with the World Meteorological Organization’s (WMO) Information System 2.0 (WIS 2.0) strategy and the European Union’s (EU) regulation on Meteorological High Value Data (HVD).
+This is the Requirements Document for the the RODEO WP6 for sharing weather radar data. This document outlines the technical requirements and objectives for the development of radar data supply, which utilizes components developed in the the EUMETNET Federated European Meteorological Data Infrastructure (FEMDI) programme. The objective of work in WP6 is utilize the data sharing done in the EUMETNET OPERA programme already over a decade and, build on this collaboration a data supply for the third-party users in line with the World Meteorological Organization’s (WMO) Information System 2.0 (WIS 2.0) strategy and the European Union’s (EU) regulation on Meteorological High Value Data (HVD).
 
 ## Revision history
 | Version | Date | Comment | Responsible
@@ -43,16 +43,18 @@ In this section we describe the datasets that are planned to be supplied by the 
 ## Datasets
 | N | Data type | Spatial coverage | Temporal coverage | Timeliness |Availability| Data Owner/licensing | Period | Data model and format | Metadata standard | More Info
 | :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | :--- | :---
-| D1a| OPERA Composite: ODYSSEY maximum reflectivity  |  | | | | | | | |
-| D1b| OPERA Composite: CIRRUS maximum reflectivity  |  | | | | | | | |
-| D1c| OPERA Composite: ODYSSEY Surface rain rate  |  | | | | | | | |
-| D1d| OPERA Composite: NIMBUS Surface rain rate |  | | | | | | | |
-| D1e| OPERA Composite: ODYSSEY 1 hour accumulation |  | | | | | | | |
-| D1f| OPERA Composite: NIMBUS 1 hour accumulation |  | | | | | | | |
-| D2a| OPERA volume radar data: DBZH (filtered, "best possible" horirizontal reflectivty factor), TH (unfiltered horizontal reflectivity factor), VRADH (horizontal radial velocity)  |  | | | | | | | |
-| D2b| OPERA volume radar data: new variables  |  | | | | | | | |
-| D3 | National products   |  | | | | | | | |
-
+| D1a| OPERA Composite: ODYSSEY maximum reflectivity  | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
+| D1b| OPERA Composite: CIRRUS maximum reflectivity  | 1 x 1 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | every 5 minutes | delivery (&#124;T2 – T1&#124; ≤ 420 s) > 90 % | (&#124;T2 – T1&#124; ≤ 600 s) > 99 % | EUMETNET | 01/2024 - | ODIM 2.4 HDF5 | ODIM |
+| D1c| OPERA Composite: ODYSSEY Surface rain rate | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
+| D1d| OPERA Composite: NIMBUS Surface rain rate | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 04/2024 -  | ODIM 2.4 HDF5) | ODIM |
+| D1e| OPERA Composite: ODYSSEY 1 hour accumulation | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | hourly | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
+| D1f| OPERA Composite: NIMBUS 1 hour accumulation | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   |hourly | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 04/2024 -  | ODIM 2.4 HDF5 | ODIM |
+| D2a| OPERA volume radar data: DBZH (filtered, "best possible" horirizontal reflectivty factor), TH (unfiltered horizontal reflectivity factor), VRADH (horizontal radial velocity)  | resolution varies 125 m - 1000 m covering 150 -300 km  | 5-15 minutes| >= 0 to < 5 minutes after the nominal time| >= 95%  | Data provider | 2011 - | ODIM (BUFR and HDF5)| ODIM |
+| D2b| OPERA volume radar data: new variables  | resolution  125 m - 1000 m covering 150 -300 km  | 5-15 minutes| >= 0 to < 5 minutes after the nominal time| >= 95%  | Data provider | 2026 - | ODIM HDF5 or FM301 NetCdf| ODIM, FM301 |
+| D3a | National products: reflectivity composite | resolution  125 m - 1000 m | 1-15 minutes | varies | varies| Data provider|  | varies ODIM HDF5, GeoTiff | |
+| D3b | National products: precipitation composite  | resolution  125 m - 1000 m | 1-15 minutes | varies | varies| Data provider|  | varies ODIM HDF5, GeoTiff | |
+| D3c | National products: wind profiles  | n/a | 1-15 minutes | varies | varies| Data provider|  | BUFR | |
+| D3c | National products: echo top  | resolution  125 m - 1000 m | 1-15 minutes | varies | varies| Data provider|  | BUFR | |
 OPERA - CUMULUS incoming data:
 
 EDZW: 145000 Files/d 13.5 GB/d
