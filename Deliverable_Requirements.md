@@ -43,12 +43,18 @@ In this section we describe the datasets that are planned to be supplied by the 
 ## Datasets
 | N | Data type | Spatial coverage | Temporal coverage | Timeliness |Availability| Data Owner/licensing | Period | Data model and format | Metadata standard | More Info
 | :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | :--- | :---
-| D1a| OPERA Composite: ODYSSEY maximum reflectivity  | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
-| D1b| OPERA Composite: CIRRUS maximum reflectivity  | 1 x 1 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | every 5 minutes | delivery (&#124;T2 – T1&#124; ≤ 420 s) > 90 % | (&#124;T2 – T1&#124; ≤ 600 s) > 99 % | EUMETNET | 01/2024 - | ODIM 2.4 HDF5 | ODIM |
-| D1c| OPERA Composite: ODYSSEY Surface rain rate | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
-| D1d| OPERA Composite: NIMBUS Surface rain rate | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 04/2024 -  | ODIM 2.4 HDF5) | ODIM |
-| D1e| OPERA Composite: ODYSSEY 1 hour accumulation | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   | hourly | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
-| D1f| OPERA Composite: NIMBUS 1 hour accumulation | 2 x 2 km, with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E   |hourly | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 04/2024 -  | ODIM 2.4 HDF5 | ODIM |
+| D1a| OPERA Composite: ODYSSEY maximum reflectivity  | 2 x 2 km, Cartesian grid covering the whole of Europe (area:
+3,800 × 4,400 km2) | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
+| D1b| OPERA Composite: CIRRUS maximum reflectivity  | 1 x 1 km, Cartesian grid covering the whole of Europe (area:
+3,800 × 4,400 km2) | every 5 minutes | delivery (&#124;T2 – T1&#124; ≤ 420 s) > 90 % | (&#124;T2 – T1&#124; ≤ 600 s) > 99 % | EUMETNET | 01/2024 - | ODIM 2.4 HDF5 | ODIM |
+| D1c| OPERA Composite: ODYSSEY Surface rain rate | 2 x 2 km, Cartesian grid covering the whole of Europe (area:
+3,800 × 4,400 km2)   | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
+| D1d| OPERA Composite: NIMBUS Surface rain rate | 2 x 2 km,Cartesian grid covering the whole of Europe (area:
+3,800 × 4,400 km2)   | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 04/2024 -  | ODIM 2.4 HDF5) | ODIM |
+| D1e| OPERA Composite: ODYSSEY 1 hour accumulation | 2 x 2 km,Cartesian grid covering the whole of Europe (area:
+3,800 × 4,400 km2) | hourly | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
+| D1f| OPERA Composite: NIMBUS 1 hour accumulation | 2 x 2 km Cartesian grid covering the whole of Europe (area:
+3,800 × 4,400 km2)  |hourly | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 04/2024 -  | ODIM 2.4 HDF5 | ODIM |
 | D2a| OPERA volume radar data: DBZH (filtered, "best possible" horirizontal reflectivty factor), TH (unfiltered horizontal reflectivity factor), VRADH (horizontal radial velocity)  | resolution varies 125 m - 1000 m covering 150 -300 km  | 5-15 minutes| >= 0 to < 5 minutes after the nominal time| >= 95%  | Data provider | 2011 - | ODIM (BUFR and HDF5)| ODIM |
 | D2b| OPERA volume radar data: new variables  | resolution  125 m - 1000 m covering 150 -300 km  | 5-15 minutes| >= 0 to < 5 minutes after the nominal time| >= 95%  | Data provider | 2026 - | ODIM HDF5 or FM301 NetCdf| ODIM, FM301 |
 | D3a | National products: reflectivity composite | resolution  125 m - 1000 m | 1-15 minutes | varies | varies| Data provider|  | varies ODIM HDF5, GeoTiff | |
@@ -158,24 +164,32 @@ Special information:
 		Metadata field: STORE_DATE (stdat), type Date
 
 
-### OPERA Composite Data
+### OPERA Composite Data D1
 
-The composites cover the whole of Europe in a Lambert Equal Area projection. In ODYSSEY production (2011- 2023), they all are updated every 15 minutes, and issued ca. 15 minutes after data time.
+The composites cover the whole of Europe (area: 3,800 × 4,400 km2) in a Lambert Equal Area projection with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E. In ODYSSEY production (D1a, D1c, D1e) covering years of 2011- 2023, the composites are all updated every 15 minutes, and issued ca. 15 minutes after data time with 2 x 2 km resolution. In the new production (2024 - ) the CIRRUS products are with higher spatial resolution of 1 x 1 km and update cycle of 5 minutes. The composite products are based on incoming polar scans and volumes of filtered reflecitvity. 
 
-- in BUFR and HDF5, possible GeoTiff
-- production stable since 2012? Changes in production in 2024.
+Four quality filters are applied to the volume data prior to compositing. Two methods were initially utilized since 2011: an anomaly-removal module and a hit-accumulation filter. The anomaly-removal module utilizes computer vision techniques to detect patterns often associated with non-weather-related sources, such as straight lines or single pixels. It assigns a probability of precipitation to the data as an initial quality indicator and discards non-precipitation pixels by setting values exceeding a threshold to nodata. 
 
-The composite corner coordinates, approximately: 70 N 30 W, 70N 50E, 32N 15W, and 32 N 30E.
+The hit-accumulation clutter filter calculates a normalized echo count (or occurrence frequency) monthly. Pixels with a normalized echo count exceeding a threshold in each radar scan are identified as residual clutter, typically set at 0.6.
+
+In late 2015, two additional methods were introduced: Beam blockage correction and a satellite-based filter for residual non-precipitation echoes. Beam blockage correction involves calculating beam blockage percentage in polar coordinates using a 1 km digital elevation model (GTOPO30) and a geometric propagation model. Pre-calculated values are then used to adjust reflectivity, with values in partially blocked sectors corrected and given less weight in composite products. Reflectivity values in sectors with blockage exceeding 70% are set to nodata.
+
+The satellite filter is based on the EUMETSAT Nowcasting SAF Precipitating Clouds product, which provides a probability of precipitation. The filter considers the 49 surrounding satellite pixels for each radar pixel with a detected echo, accounting for time gaps between radar and satellite observations and parallax effects. The maximum probability serves as the third quality index, and if the probability of precipitation is 0, the reflectivity is marked as undetectable.
+
+The used data sharing model in OPERA is in-house deveoped ODIM (OPERA Data Information Model) both in BUFR and HDF5 for older production, solely HDF5 for the new production. 
 
 There are three products on offer from the OPERA suite of products:
  
-#### OPERA Instantaneous Maximum Reflectivity (in dBz)
+#### OPERA Instantaneous Maximum Reflectivity (in dBz) D1a, D1b
 - In the maximum reflectivity composite each composite pixel contains the maximum of all polar cell values of the contributing radars at that location.
-- ODYSSEY production 2012-2023 with 
+- ODYSSEY production 2012-2023 and CIRRUS production 2024 -
+  
 #### Instantaneous Surface Rain rate composite (in mm/h)
-- In the  rain rate composite each composite pixel is a weighted average of the valid pixels of the contributing radars,      weighted by a quality index, the distance from center of the pixel and an exponential index related to inverse of the       beam altitude.
+- ODYSSEY production 2012-2023 and NIMBUS production 2024 -
+- In the ODYSSEY rain rate composite each composite pixel is a weighted average of the valid pixels of the contributing radars, weighted by a quality index, the distance from center of the pixel and an exponential index related to inverse of the  beam altitude.
 - Polar cells within a search radius of 2.5 km of the composite pixel are considered.
 - Measured reflectivity values are converted to rainfall (mm/h) using the Marshall-Palmer equation.
+
 #### OPERA One Hour rainfall Accumulation (in mm)
 - Rainfall accumulation is the sum of the previous four 15-minute rain-rate products.
 
