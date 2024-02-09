@@ -163,7 +163,5 @@ Internal use of the NMHSs need to be reported as a special case as it is in spec
 
 The KPI-12 target is derived from an assumption that all EUMETNET Member States will provide data.
 
-Regarding KPI-13, there is an assumption that EUMETNET Members will provide data from all of their radar sites. Is the actual number of radar sites from each Member is known at present???? 
-
 
 ## Conclusions
