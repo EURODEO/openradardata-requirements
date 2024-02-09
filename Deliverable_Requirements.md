@@ -90,7 +90,7 @@ There are three products on offer from the OPERA suite of products:
 
 ### OPERA Database
 
-OPERA Database is manually maintained table by the OPERA data providers and by the Croatian Met Services. It is sporadically updated, minimum twice a year. The available formats are json, xlsx and csv and it can be automatically pushed to service. The fields it includes are stated in the Table 2 and example file is attached as annex.  
+OPERA Database is manually maintained table by the OPERA data providers and by the Croatian Met Services. It is sporadically updated, minimum twice a year. The available formats are json, xlsx and csv and it can be automatically pushed to service. The fields it includes are stated in the Table 2 and example file is attached as Annex [OPERA database in csv](https://github.com/EURODEO/opera-requirements/blob/main/Annex/OPERA_RADARS_DB_2024_02.csv).  
 
 Table 2. OPERA database content.
 | Field | Unit/Format | Description | Example 
