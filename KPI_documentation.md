@@ -64,7 +64,7 @@ The KPIs for Data Consumption define the target KPIs from the perspective of the
 | :--- | :--- | :--- | :--- | :--- 
 |KPI-1 |Availability |The check has to request for latest data and ensure that the returned data is in accordance with the expected one. |99% |Related to requirement F02
 |KPI-2|Response time|How fast the API starts the response.|TBD |
-|KPI-3|Number of requests per hour |The number API requests reflect the usability of the service|TBD|KNMI recieves ca. 2000 pull request per hour for radar data. FEMDI ET Estimated 1700 pull request per second
+|KPI-3|Number of requests per hour |The number API requests reflect the usability of the service|TBD|The system should be able to scale up to 1700 pull request per second (FEMDI ET Estimated). KNMI recieves ca. 2000 pull request per hour for radar data. 
 |KPI-4|Amount of data downloaded |The amount of data downloaded indicates the usability of the data|TBD|KNMI radar data download = ca. 200 GB per day 
 |KPI-5|Number of unique users |The number of unique users|TBD|KNMI has ca. 200 unique users per day for radar data
 |KPI-6|Quality of WIS 2.0 metadata records |WIS metadata records KPIs score|TBD |Metadata quality can be quantified with tooling available at https://github.com/wmo-im/pywcmp. For more information, see: [WMO WIS metadata KPIs](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis).
@@ -136,19 +136,19 @@ The KPIs for Data Provisioning define the target KPIs for the data provisioning
 system, initially used by the NMHS'es. This corresponds to the Data Ingestion API(s).
 
 ### Data Ingestion API(s)
-Is this applicable to the radar data? Will there be an ingestion API?
+Most of the rada data will come from Opera. The Data ingetion KPI's are only applicable to the National Composites.
+ToBe figured out: will the actual data be ingested or just metadatafiles pointing to the data.
 
 **Recommended Service Level:** "Immediate response – fixes in 24 hours", in the pre-operational phase.
 
 *ID*|*KPI*|*Description*|*Target*|*Notes*
 |:---|:---|:---|:---|:---
 |KPI-12|Number of data providers |(Mainly) NMHS'es providing data |31|
-|KPI-13|Number of Radar sites |Combined with the providing organisations|No target value|
-|KPI-14|Amount of data ingested|Gives an indication of the scale of the ingestion system|TBD|
-|KPI-15|Ingestion system uptime|The uptime of the ingestion system|99%|Please note: this can be different than the uptime of the API for the end-user
-|KPI-16|Ingestion success rate|The percentage of data succesfully ingested|99.95%|Please note: rejected files which do not comply to the input standards are not counted as an unsuccesfull ingest
-|KPI-17|Ingestion timeliness|Processing time from "inserted in system" to "notification sent out to destination"|< 1 minute|See Requirement F03
-|KPI-18|Data transformation success rate|The percentage of BUFR and CSV files that is succesfully transformed by the system|100%|
+|KPI-13|Amount of (meta)data ingested|Gives an indication of the scale of the ingestion system|TBD|
+|KPI-14|Ingestion system uptime|The uptime of the ingestion system|99%|Please note: this can be different than the uptime of the API for the end-user
+|KPI-15|Ingestion success rate|The percentage of data succesfully ingested|99.95%|Please note: rejected files which do not comply to the input standards are not counted as an unsuccesfull ingest
+|KPI-16|Ingestion timeliness|Processing time from "inserted in system" to "notification sent out to destination"|< 1 minute|See Requirement F03
+|KPI-18|Data transformation success rate|The percentage of BUFR and CSV files that is succesfully transformed by the system|100%|Is this applicable?
 |=========================
 
 #### Discussion
