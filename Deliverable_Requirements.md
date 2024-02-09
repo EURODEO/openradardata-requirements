@@ -232,7 +232,7 @@ Special information:
   
 		Metadata field: STORE_DATE (stdat), type Date
 
-#### National composites or products (D3a-d)
+#### National composites or products (D03a-d)
  - formats?
  - temporal and spatial resolution
  - included metadata
@@ -241,8 +241,10 @@ Special information:
 FMI could demonstrate the RODEO interface with D3a (reflectivity composite), D3b (precipitation composites), and D3d (echo top):
 1. Radar reflectivity factor in dBZ.
 2. Rainfall intensity R, in units of mm/h and 1, 12, and 24-hour rainfall accumulation (mm).
-Products for variables 1 and 2 are available with a 5-minute time resolution. Composite products are displayed in a Cartesian coordinate system with a 1 km resolution in GeoTIFF format.
-In addition to the aforementioned products, FMI national suite has Echo top - product (etop_20), which represents the maximum height of strong or moderate echoes at each point. Its height unit is presented in kilometers and spatial resolution is same as with composites  with a 1 km resolution and offered format is GeoTIFF.
+
+Products for variables 1. and 2. are available with a 5-minute time resolution. Composite products are displayed in a Cartesian coordinate system with a 1 km resolution in GeoTIFF format.
+
+3. In addition to the aforementioned products, FMI national suite has Echo top - product (etop_20), which represents the maximum height of strong or moderate echoes at each point. Its height unit is presented in kilometers and spatial resolution is same as with composites  with a 1 km resolution and offered format is GeoTIFF.
 
 All data and resulting data products have undergone signal processing stages where:
 * Stationary objects have been removed using ground clutter filtering.
@@ -254,18 +256,25 @@ In addition to these, the following post-processing steps have been applied to t
 * Removal of non-meteorological echoes.
 * Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
 
+Metadata description missing (?)
+
 
 
 
 ## User requirements
 
-Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case. The short descriptions of the use cases specified in the Table 2. aligned with teh datasets they are utilizing. 
+Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case. The short descriptions of the use cases specified in the Table 3. aligned with the datasets they are utilizing. 
 
-Table 2. User requirements in short 
-| User requirement | Description | D01 real-time OPERA composites | D01 archived OPERA composites| D02 real-time OPERA volume data  | D02 archived volume data | D03 real-time National products | More Info 
-| :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | 
-| U01 | Development of AI |  | X |  | X | | requires large amount of dat, but not with prioritized access| 
-
+Table 3. User requirements in short 
+| User requirement | Description | D01 real-time OPERA composites | D01 archived OPERA composites| D02 real-time OPERA volume data  | D02 archived volume data | D03 real-time National products | Primary (P)/Secondary (S)/Tertiary (T)| More Info 
+| :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | 
+| U01 | Development of AI model | X | X | X | X | | P | requires large amount of data, but not with prioritized access to develop, consistent data in operating the AI model| 
+| U02 | Development and operating an application  | X | X | (X) | (X) | | S | requires easy access and easily-readible data, archive for development | 
+| U03 | Use data on mobile | X | | | | | S | requires easy access and easily-readible data | 
+| U04 | EMN for data exchange | | | X | | | P |requires fast access and prioritized to real-time volume data | 
+| U05 | EMN for data visualization | X | | | | X | S |requires data to be easily inserted to the used visualization tools| 
+| U06 | EMN supply national radar products | | | | | X | P |requires data to be easily inserted to the used visualization tools|
+| U07 | Third-party radar observations | | | | | | T | N/A | 
 
 ### U01 A company or public institute, where a data scientist who wants to use radar data in their machine learning model (training and operational) environment. 
 
@@ -275,70 +284,89 @@ Related to use cases in FEMDI 2.4.
 
 *Requirements:* 
 
-- Requires either composite data or volume radar data
-- Needs as long a history of data as possible, the big archive
-- Needs a suitable access mechanism for bulk consumption (rather than download), e.g. through S3 in cloud native formats, to download directly, so no need to download, store, etc.
-- Corresponding real-time data to drive the models?
-- The real-time data for execution needs to be consistent with the data used for model training (i.e., from the same source) 
-
+- Requires either D01 composite or D02 volume radar data with a large archive (the back-end archive to be established in EWC)
+- Needs a suitable access mechanism for bulk consumption (rather than download), e.g. through S3 in cloud native formats to download directly to avoid download store.
+- The execution of the trained AI model requires the real-time to be consistent with the training data (i.e., from the same source)
+- The old archive includes country specific BUFR ODIM format files, the newer files are in HVDs, requirement is to provide converters/readers to the old data. Here WP6 T4 could provide suitable tools when they are also developing the suitable datasets.
+- Data consumption is large in the case of radar volumes, but not time critical. This sets requirement for priorization of data supply
+- Requires that data could be searched by radar-wise, by coordinate-wise (radar location information should be in the discovery metadata), time-wise, variable-wise, format-wise
+- Requires license rights to data
+-  
 *Priority:* 
-- secondary
+- secondary? Should this be primary accroding to EU Digital funding?
 
 *Clarifications:* 
 
+
 *Acceptance criteria:* 
+- Suggestion: Could WP6 T4 (ECMWF) to be a test user here and when they can calculate an dataset based on data fetched via the API and converted it to format they can read.
 
 *Consequences and decisions:* 
+- Responsible to provide the converters/readers for the old data, collaboration with OPERA ET and xradar
+- To engange WP6 T4 (ECMWF)
+- requires the descision of how much we can follow FAIR-principles with the datasets
+  
 
-### U02 A Small & Medium Enterprise (SME) application developer who wants to see what data sets are available and access them. 
+### U02 A Small & Medium Enterprise (SME) application developer who wants to see what data sets are available, access them and build an application based on OPERA data  
 
 Related to use cases in FEMDI 2.5 and E-SOH 4.3.
 
 “As a new data consumer, I want a single unified view of available meteorological datasets which are updated on a regular basis, that is easily accessible and findable, is easily integrated into my systems and can be re-used (i.e., following FAIR principles). This will allow me to develop an application which makes best use of the available data to add value to the users and bring me in an income.”  
 
 *Requirements:* 
-- based on mainly composite data
-- e.g. aviation application would like to have 3D- volume data
-- A software developer builds a mobile application that needs ....
-- They identify a dataset via the FEMDI Shared Catalogue and determine that the API for that dataset is suitable for the application.
-- The mobile application quickly becomes popular and is installed on over 10,000 devices. Each device makes a few requests a day as the user changes location, and this adds up to lots of requests on the Data Supply component’s API. 
+- Preseumably uses only D01 composite data, but e.g. aviation application developer may would like to have 3D - volume data (this is similar to U01)
+- Requirement is to identify a suitable datasets via the FEMDI Shared Catalogue and determine which of the APIs for that dataset is suitable for running application.
+- The mobile application quickly becomes popular and is installed on over 10,000 devices. Each device makes a few requests a day as the user changes location, and this adds up to lots of requests on the Data Supply component’s API.
+- Data should be easily readable, requires e.g. that datasets are availbale in GeoTiff in addition to HDF5
+- Requires a manual how to use the data
+- For D01, the search can be time-wise, but no need for spatial-wise. Always use the whole composite.
+- Potentially can lead to a lot of requests and processing on the data source, thus, requires for priority use an authorization.    
 
 *Priority:*  
+-secondary 
 
 *Clarifications:* 
 
-- Can lead to a lot of requests and processing on the data source. 
-
 *Acceptance criteria:* 
+- Performance validation tests for the API - to be able to download archived GeoTiffs via API and to be able to download real-time GeoTiffs via API with the defined timeliness and availability.
 
 *Consequences and decisions:* 
+- Sets system requirement of authorized access for data for prioritising data flow
+- Data conversion to GeoTiff
+- Requires descision of the SLA we are offering for the datasets in RODEO 
 
 ### U03 A member of a public organisation who wants to see real time weather radar visualised on their mobile.  
 
 Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
+
 “As a traffic officer manager, I want to use my smart phone to regularly check the rainfall amounts across my country and bordering countries in Europe, so I can be prepared for different driving conditions, and potential impacts on the traffic network and people’s safety. This will allow me to rapidly respond with appropriate resources and equipment to incidents.”   
+
 *Requirements:* 
-- most likely composite data
+- Similar to U02 in respect to the system requirements
  
 *Priority:* 
+- secondary
 
 *Clarifications:* 
-- Visualisation is out of scope of FEMDI – another will provide the visualisation
-- OPERA is EUMETNET’s radar programme; Also RODEO WP6.
+- Visualisation is out of scope of FEMDI. The responsibilty of the RODEO API will end to supply the data. 
 - Potential additional use case to be considered 
 
 *Acceptance criteria:* 
+- same as U02
 
 *Consequences and decisions:* 
+- This U03 will not introduce new system requirements to U02 
 
 ### U04 - EUMETNET Members uses RODEO for data exchange
 
-“EUMETNET members want to replace the bilateral data exchange with RODEO. They want the 3D-volume data as fast as possible, high priority user. They are familiar with the data formats and the radar data processing. They will build their national forecasting services on this data.”  
+“EUMETNET members want to replace the bilateral data exchange with RODEO. They want the 3D-volume data as fast as possible as a high priority user. They are familiar with the data formats and the radar data processing. They will build their national forecasting services on this data.”  
 
 *Requirements:*
-- 3D-volume radar data
-- automized fetching of data from an interface
-- 24 hour cache is suitable, doesn't require the large archive 
+- requires 3D-volume radar data
+- requires automized fetching of data from an interface, automized set of rules for selecting data (radar-wise, spatially, variables) 
+- a 24 - hour cache is suitable, doesn't require the large archive
+- requires the authorization and priorization for the data use
+- reqiures a fast connection to data, no in-between processing  
 
 *Priority:*
 - primary
@@ -346,26 +374,33 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
 *Clarifications:*
 
 *Acceptance criteria:*
+- Perfromance validation results for fetching different sizes of data batches in the defined SLA of timeliness, availablity and completeness
 
 *Consequences and decisions:*
+- The SLAs for RODEO needs to be defined following the QoS planned.
+
 
 ### U05 EUMETNET members are visualising OPERA products in the forecasting services
 
 “EUMETNET members want to show the composite products on their forecasting services for official duty purposes. They want the composite data as fast as possible, high priority user. They are familiar with the data formats and the radar data processing. ”  
 
 *Requirements:*
-- basically they do receive this also directly through OPERA. Do we need this user case?
-- composite data
-- automized fetching of data from an interface
+- D01 OPERA composite data is already to NMSs, the added value of RODEO API needs to be clarified
+- Automized fetching of data from an interface
+- would require map-service (WMS-layer?) functionality to the system
+- could provide also D03 national products
 
 *Priority:*
-- primary
+- Secondary
 
 *Clarifications:*
 
 *Acceptance criteria:*
+- The D01 and D03 products can be fetched via API with the agreed SLA via API and presented on GeoWeb
 
 *Consequences and decisions:*
+- Do we remove this requirement?
+- Do we offer this MAP service?
 
 
 ### U06 - National Met Service is supplying their national radar products (composites, echo tops, vertical wind profiles) to third party users 
@@ -373,35 +408,51 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
 “As a EU members I have to fulfill the HVD Implementation Act, and RODEO provides a common interface which is also good for the third-party users to obtain radar data products from the same interface. This user requirement is following the federated distribution of data.”  
 
 *Requirements:*
-- radar data products
-- Should we state requirements for the product format/model, spatial and temporal distribution
-- federated distribution, no archive, but should there be 24 hour cache or similar
-- what is the SLA we promise here as it is nationally dependent.
+- Includes only radar data products (D03), no volume data, this is included in U04
+- Requires the definition which of the products, formats/model, metadata structure are applicable for RODEO API 
+- Federated distribution, no archive, with 24 - hour cache
+- If the requirement is that products are visualized on GeoWeb, requires map service?
+- Set of decided formats (data, metadata) that can be offered through this API
+- Requires metadata ingestion to be defined 
 
-*Priority:*
+*Priority:* 
+- Primary
 
 *Clarifications:*
+- the SLA for this service is nationally dependent, there needs to be combined SLA how the API supplies the data products 
+
 
 *Acceptance criteria:*
+Demonstration that project partners (METNO, FMI, DMI and KNMI) can offer their products from their open interfaces, these can be downloaded accroding to SLA and fetched from the Data Catalogue and visualized on GeoWeb. 
 
 *Consequences and decisions:*
+- Which formats we agree on to offer:
+- Manual how data can be applied to RODEO API
 
 
 ### U07 - radar data observations from 3rd parties
 
 Related to E-SOH requirement 4.5.
 
-“I'm representative of e.g. hydrological services or a private company and I own radar data. I would like to include my radar data to the RODEO, e.g. MeteoPress”  
+“I'm representative of e.g. hydrological services or a private company and I own radar data. I would like to include supply my radar data via RODEO developed APIs.”  
 
 *Requirements:*
+- External provideor should be applicable to OPERA rules for data ingestion or defined in U06
+- Data compliency checks
+- agreements for licensing 
 
 *Priority:*
-
+- tertiary
+  
 *Clarifications:*
+- OPERA is making quality and complience checks before accepting the data or products to the data flow. Rodeo does not have resources to do this. 
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+Suggestion is not to accept this requirement U07.
+
+
 
 ## System requirements
 Is this separate from functional and non functional requirements?
