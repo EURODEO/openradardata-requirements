@@ -38,9 +38,10 @@ We hope that this document will serve as a clear guide for the development and i
 
 ## Dataset description
 
-In this section we describe the datasets that are planned to be supplied by the RODEO developed APIs. In short these are stated in the Table XX. 
+In this section we describe the datasets that are planned to be supplied by the RODEO developed APIs. In short these are stated in the Table 1. 
 
-## Datasets
+
+Table 1. Weather datasets in WP6 for supplying in RODEO 
 | N | Data type | Spatial coverage | Temporal coverage | Timeliness |Availability| Data Owner/licensing | Period | Data model and format | Metadata standard | More Info
 | :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | :--- | :---
 | D1a| OPERA Composite: ODYSSEY maximum reflectivity  | 2 x 2 km, Cartesian grid covering the whole of Europe (area 3800 × 4400 km2) | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
@@ -54,7 +55,48 @@ In this section we describe the datasets that are planned to be supplied by the 
 | D3a | National products: reflectivity composite | resolution  125 m - 1000 m | 1-15 minutes | varies | varies| Data provider|  | varies ODIM HDF5, GeoTiff | |
 | D3b | National products: precipitation composite  | resolution  125 m - 1000 m | 1-15 minutes | varies | varies| Data provider|  | varies ODIM HDF5, GeoTiff | |
 | D3c | National products: wind profiles  | n/a | 1-15 minutes | varies | varies| Data provider|  | BUFR | |
-| D3c | National products: echo top  | resolution  125 m - 1000 m | 1-15 minutes | varies | varies| Data provider|  | BUFR | |
+| D3d | National products: echo top  | resolution  125 m - 1000 m | 1-15 minutes | varies | varies | Data provider|  |varies GeoTiff | |
+
+### OPERA Composite Data D1
+
+The composites cover the whole of Europe (area: 3,800 × 4,400 km2) in a Lambert Equal Area projection with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E. In ODYSSEY production (D1a, D1c, D1e) covering years of 2011- 2023, the composites are all updated every 15 minutes, and issued ca. 15 minutes after data time with 2 x 2 km resolution. In the new production (2024 - ) the CIRRUS products are with higher spatial resolution of 1 x 1 km and update cycle of 5 minutes. The composite products are based on incoming polar scans and volumes of filtered reflecitvity. 
+
+Four quality filters are applied to the volume data prior to compositing. Two methods were initially utilized since 2011: an anomaly-removal module and a hit-accumulation filter. The anomaly-removal module utilizes computer vision techniques to detect patterns often associated with non-weather-related sources, such as straight lines or single pixels. It assigns a probability of precipitation to the data as an initial quality indicator and discards non-precipitation pixels by setting values exceeding a threshold to nodata. 
+
+The hit-accumulation clutter filter calculates a normalized echo count (or occurrence frequency) monthly. Pixels with a normalized echo count exceeding a threshold in each radar scan are identified as residual clutter, typically set at 0.6.
+
+In late 2015, two additional methods were introduced: Beam blockage correction and a satellite-based filter for residual non-precipitation echoes. Beam blockage correction involves calculating beam blockage percentage in polar coordinates using a 1 km digital elevation model (GTOPO30) and a geometric propagation model. Pre-calculated values are then used to adjust reflectivity, with values in partially blocked sectors corrected and given less weight in composite products. Reflectivity values in sectors with blockage exceeding 70% are set to nodata.
+
+The satellite filter is based on the EUMETSAT Nowcasting SAF Precipitating Clouds product, which provides a probability of precipitation. The filter considers the 49 surrounding satellite pixels for each radar pixel with a detected echo, accounting for time gaps between radar and satellite observations and parallax effects. The maximum probability serves as the third quality index, and if the probability of precipitation is 0, the reflectivity is marked as undetectable.
+
+The used data sharing model in OPERA is in-house deveoped ODIM (OPERA Data Information Model) both in BUFR and HDF5 for older production, solely HDF5 for the new production. 
+
+There are three products on offer from the OPERA suite of products:
+ 
+#### OPERA Instantaneous Maximum Reflectivity (in dBz) D1a, D1b
+- In the maximum reflectivity composite each composite pixel contains the maximum of all polar cell values of the contributing radars at that location.
+- ODYSSEY production 2012-2023 and CIRRUS production 2024 -
+  
+#### Instantaneous Surface Rain rate composite (in mm/h) (D1c, D1d)
+- ODYSSEY production 2012-2023 and NIMBUS production 2024 -
+- In the ODYSSEY rain rate composite, each composite pixel is a weighted average of the valid pixels of the contributing radars, weighted by a quality index, the distance from center of the pixel and an exponential index related to inverse of the beam altitude. Whereas in NIMBUS production the compositing algorithm is based on the lowest elevation angle only.
+- Measured reflectivity values are converted to rainfall (mm/h) using the Marshall-Palmer equation.
+
+#### OPERA One Hour rainfall Accumulation (in mm) (D1e, D1f)
+- Rainfall accumulation is the sum of the previous four 15-minute rain-rate products.
+- ODYSSEY production 2012-2023 and NIMBUS production 2024 -
+  
+### National volume radar data
+- DBZH, TH, VRADH
+- can be sent as volumes, or scan-by-scan, radar variables can be in the same file or seprately
+- two types of scans, reflectivity or velocity - optimized
+- in VRADH aliasing is not always performed.
+- ODIM Data format model vr. 2-2.4 not always reverse compatible
+- archive in different national BUFR version, there are some manual how to encode these
+- the newer files in HDF
+- various national scanning strategies, definitions of scanning time, spatial and temporal resolution.
+- different quality processing levels 
+
 OPERA - CUMULUS incoming data:
 
 EDZW: 145000 Files/d 13.5 GB/d
@@ -157,51 +199,32 @@ Special information:
   
 		Metadata field: STORE_DATE (stdat), type Date
 
-
-### OPERA Composite Data D1
-
-The composites cover the whole of Europe (area: 3,800 × 4,400 km2) in a Lambert Equal Area projection with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E. In ODYSSEY production (D1a, D1c, D1e) covering years of 2011- 2023, the composites are all updated every 15 minutes, and issued ca. 15 minutes after data time with 2 x 2 km resolution. In the new production (2024 - ) the CIRRUS products are with higher spatial resolution of 1 x 1 km and update cycle of 5 minutes. The composite products are based on incoming polar scans and volumes of filtered reflecitvity. 
-
-Four quality filters are applied to the volume data prior to compositing. Two methods were initially utilized since 2011: an anomaly-removal module and a hit-accumulation filter. The anomaly-removal module utilizes computer vision techniques to detect patterns often associated with non-weather-related sources, such as straight lines or single pixels. It assigns a probability of precipitation to the data as an initial quality indicator and discards non-precipitation pixels by setting values exceeding a threshold to nodata. 
-
-The hit-accumulation clutter filter calculates a normalized echo count (or occurrence frequency) monthly. Pixels with a normalized echo count exceeding a threshold in each radar scan are identified as residual clutter, typically set at 0.6.
-
-In late 2015, two additional methods were introduced: Beam blockage correction and a satellite-based filter for residual non-precipitation echoes. Beam blockage correction involves calculating beam blockage percentage in polar coordinates using a 1 km digital elevation model (GTOPO30) and a geometric propagation model. Pre-calculated values are then used to adjust reflectivity, with values in partially blocked sectors corrected and given less weight in composite products. Reflectivity values in sectors with blockage exceeding 70% are set to nodata.
-
-The satellite filter is based on the EUMETSAT Nowcasting SAF Precipitating Clouds product, which provides a probability of precipitation. The filter considers the 49 surrounding satellite pixels for each radar pixel with a detected echo, accounting for time gaps between radar and satellite observations and parallax effects. The maximum probability serves as the third quality index, and if the probability of precipitation is 0, the reflectivity is marked as undetectable.
-
-The used data sharing model in OPERA is in-house deveoped ODIM (OPERA Data Information Model) both in BUFR and HDF5 for older production, solely HDF5 for the new production. 
-
-There are three products on offer from the OPERA suite of products:
- 
-#### OPERA Instantaneous Maximum Reflectivity (in dBz) D1a, D1b
-- In the maximum reflectivity composite each composite pixel contains the maximum of all polar cell values of the contributing radars at that location.
-- ODYSSEY production 2012-2023 and CIRRUS production 2024 -
-  
-#### Instantaneous Surface Rain rate composite (in mm/h)
-- ODYSSEY production 2012-2023 and NIMBUS production 2024 -
-- In the ODYSSEY rain rate composite each composite pixel is a weighted average of the valid pixels of the contributing radars, weighted by a quality index, the distance from center of the pixel and an exponential index related to inverse of the  beam altitude.
-- Polar cells within a search radius of 2.5 km of the composite pixel are considered.
-- Measured reflectivity values are converted to rainfall (mm/h) using the Marshall-Palmer equation.
-
-#### OPERA One Hour rainfall Accumulation (in mm)
-- Rainfall accumulation is the sum of the previous four 15-minute rain-rate products.
-
-#### National composites
+#### National composites or products
  - formats?
  - temporal and spatial resolution
  - included metadata
 
-### National volume radar data
-- DBZH, TH, VRADH
-- can be sent as volumes, or scan-by-scan, radar variables can be in the same file or seprately
-- two types of scans, reflectivity or velocity - optimized
-- in VRADH aliasing is not always performed.
-- ODIM Data format model vr. 2-2.4 not always reverse compatible
-- archive in different national BUFR version, there are some manual how to encode these
-- the newer files in HDF
-- various national scanning strategies, definitions of scanning time, spatial and temporal resolution.
-- different quality processing levels 
+**FMI national products D3**
+FMI could demonstrate the RODEO interface with D3a (reflectivity composite), D3b (precipitation composites), and D3d (echo top):
+1. Radar reflectivity factor in dBZ.
+2. Rainfall intensity R, in units of mm/h and 1, 12, and 24-hour rainfall accumulation (mm).
+Products for variables 1 and 2 are available with a 5-minute time resolution. Composite products are displayed in a Cartesian coordinate system with a 1 km resolution in GeoTIFF format.
+In addition to the aforementioned products, FMI national suite has Echo top - product (etop_20), which represents the maximum height of strong or moderate echoes at each point. Its height unit is presented in kilometers and spatial resolution is same as with composites  with a 1 km resolution and offered format is GeoTIFF.
+
+All data and resulting data products have undergone signal processing stages where:
+* Stationary objects have been removed using ground clutter filtering.
+* Weakest signals have been thresholded to prevent radar system-induced thermal noise from interfering with measurement data.
+* Strongest ground clutter signals have been thresholded to ensure that the ratio between ground clutter signal and weather signal does not exceed a set radar-specific threshold.
+
+In addition to these, the following post-processing steps have been applied to the radar compositing data:
+* Distance correction derived from the rain vertical distribution to transform measurements made higher in the atmosphere to surface-level measurements.
+* Removal of non-meteorological echoes.
+* Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
+
+
+
+
+
 
 ## User requirements
 
