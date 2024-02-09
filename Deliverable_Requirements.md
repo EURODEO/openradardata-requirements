@@ -90,9 +90,9 @@ There are three products on offer from the OPERA suite of products:
 
 ### OPERA Database
 
-OPERA Database is manually maintained table by the OPERA data providers and by the Croatian Met Services. It is sporadically updated, minimum twice a year. The available formats are json, xlsx and csv and it can be automatically pushed to service. The fields it includes are stated in the Table 2. 
+OPERA Database is manually maintained table by the OPERA data providers and by the Croatian Met Services. It is sporadically updated, minimum twice a year. The available formats are json, xlsx and csv and it can be automatically pushed to service. The fields it includes are stated in the Table 2 and example file is attached as annex.  
 
-Table 2. OPERA database contents
+Table 2. OPERA database content.
 | Field | Unit/Format | Description | Example 
 | :--- | :--- | :--- | :--- 
 | Number | 1111 | Internal identifier of radar in database | 1218
