@@ -12,7 +12,7 @@ This is the Requirements Document for the the RODEO WP6 for sharing weather rada
 | Version | Date | Comment | Responsible
 | :--- | :--- | :--- | :--- 
 | 0.1 | 2024-01-14 | preliminary draft | Annakaisa v. Lerber
-| | | |
+| 0.2 | 2024-02-09 | added dataset description, user requirements for review | Annakaisa v. Lerber
 | | | |
 | | | |
 
@@ -38,10 +38,10 @@ We hope that this document will serve as a clear guide for the development and i
 
 ## Dataset description
 
-In this section we describe the datasets that are planned to be supplied by the RODEO developed APIs. In short these are stated in the Table 1. 
+In this section we describe the datasets that are planned to be supplied by the RODEO developed APIs. In short, these are stated in the Table 1. 
 
 
-Table 1. Weather datasets in WP6 for supplying in RODEO 
+Table 1. Weather radar datasets in WP6 for supplying in RODEO 
 | N | Data type | Spatial coverage | Temporal coverage | Timeliness |Availability| Data Owner/licensing | Period | Data model and format | Metadata standard | More Info
 | :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | :--- | :---
 | D1a| OPERA Composite: ODYSSEY maximum reflectivity  | 2 x 2 km, Cartesian grid covering the whole of Europe (area 3800 × 4400 km2) | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -  | ODIM (BUFR and HDF5) | ODIM |
@@ -73,7 +73,7 @@ The used data sharing model in OPERA is in-house deveoped ODIM (OPERA Data Infor
 
 There are three products on offer from the OPERA suite of products:
  
-#### OPERA Instantaneous Maximum Reflectivity (in dBz) D1a, D1b
+#### OPERA Instantaneous Maximum Reflectivity (in dBz) (D1a, D1b)
 - In the maximum reflectivity composite each composite pixel contains the maximum of all polar cell values of the contributing radars at that location.
 - ODYSSEY production 2012-2023 and CIRRUS production 2024 -
   
@@ -86,7 +86,7 @@ There are three products on offer from the OPERA suite of products:
 - Rainfall accumulation is the sum of the previous four 15-minute rain-rate products.
 - ODYSSEY production 2012-2023 and NIMBUS production 2024 -
   
-### National volume radar data
+### National volume radar data (D2a, D2b)
 - DBZH, TH, VRADH
 - can be sent as volumes, or scan-by-scan, radar variables can be in the same file or seprately
 - two types of scans, reflectivity or velocity - optimized
@@ -199,7 +199,7 @@ Special information:
   
 		Metadata field: STORE_DATE (stdat), type Date
 
-#### National composites or products
+#### National composites or products (D3a-d)
  - formats?
  - temporal and spatial resolution
  - included metadata
@@ -224,11 +224,15 @@ In addition to these, the following post-processing steps have been applied to t
 
 
 
-
-
 ## User requirements
 
-Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case.  
+Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case. The short descriptions of the use cases specified in the Table 2. aligned with teh datasets they are utilizing. 
+
+Table 2. User requirements in short 
+| User requirement | Description | D1 real-time OPERA composites | D1 archived OPERA composites| D2 real-time OPERA volume data  | D2 archived volume data | D3 real-time National products | More Info 
+| :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | 
+| U01 | Development of AI |  | X |  | X | | requires large amount of dat, but not with prioritized access| 
+
 
 ### U01 A company or public institute, where a data scientist who wants to use radar data in their machine learning model (training and operational) environment. 
 
