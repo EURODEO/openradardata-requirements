@@ -256,16 +256,68 @@ In addition to these, the following post-processing steps have been applied to t
 * Removal of non-meteorological echoes.
 * Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
 
-Metadata description missing (?)
+**Metadata description missing (?)**
+
+### Prioritizing FAIR-principles related to weather radar data
+
+The expectation of EU Digital Funding is that the funded APIs are developed according to FAIR (Findability, Accessibility, Interoperability, and Reuse of digital assets) - principles. The principles emphasise machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention). Datasets in WP6 can partially fullfill the requirement of FAIR, but not fully. Here in Table 3 are identified and prioritized, which datasets fulfill the required FAIR-principles and if not, what are the actions either to make the dataset complient.   
+
+Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/Tertiary (T)/Not applied during RODEO (NA)
+| FAIR | Description | D01 real-time OPERA composites | D01 archived OPERA composites| D02 real-time OPERA volume data  | D02 archived volume data | D03 real-time National products | More Info 
+| :--- | :--- |  :--- |  :--- |  :--- |  :--- |  :--- |  :---
+| **Findable** | Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services |  :--- |  :--- |  :--- |  :--- |  :--- |  :---
+| **F1** | (Meta)data are assigned a globally unique and persistent identifier | P: ID for international dataset, version control  |  S: Can ID be given for historical data, e.g. version control|  NA: national effort |  NA: national effort |  NA: national effort. If such exists API should be able to push this information forward |  :---
+
+
+F1. 
+
+F2. Data are described with rich metadata (defined by R1 below)
+
+F3. Metadata clearly and explicitly include the identifier of the data they describe
+
+F4. (Meta)data are registered or indexed in a searchable resource
+
+Accessible
+Once the user finds the required data, she/he/they need to know how they can be accessed, possibly including authentication and authorisation.
+
+A1. (Meta)data are retrievable by their identifier using a standardised communications protocol
+
+A1.1 The protocol is open, free, and universally implementable
+
+A1.2 The protocol allows for an authentication and authorisation procedure, where necessary
+
+A2. Metadata are accessible, even when the data are no longer available
+
+Interoperable
+The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing.
+
+I1. (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+
+I2. (Meta)data use vocabularies that follow FAIR principles
+
+I3. (Meta)data include qualified references to other (meta)data
+
+Reusable
+The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, metadata and data should be well-described so that they can be replicated and/or combined in different settings.
+
+R1. (Meta)data are richly described with a plurality of accurate and relevant attributes
+
+R1.1. (Meta)data are released with a clear and accessible data usage license
+
+R1.2. (Meta)data are associated with detailed provenance
+
+R1.3. (Meta)data meet domain-relevant community standards
+
+The principles refer to three types of entities: data (or any digital object), metadata (information about that digital object), and infrastructure. For instance, principle F4 defines that both metadata and data are registered or indexed in a searchable resource (the infrastructure component).
 
 
 
 
 ## User requirements
 
-Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case. The short descriptions of the use cases specified in the Table 3. aligned with the datasets they are utilizing. 
+Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
 
-Table 3. User requirements in short 
+Table 4. User requirements in short 
 | User requirement | Description | D01 real-time OPERA composites | D01 archived OPERA composites| D02 real-time OPERA volume data  | D02 archived volume data | D03 real-time National products | Primary (P)/Secondary (S)/Tertiary (T)| More Info 
 | :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | 
 | U01 | Development of AI model | X | X | X | X | | P | requires large amount of data, but not with prioritized access to develop, consistent data in operating the AI model| 
