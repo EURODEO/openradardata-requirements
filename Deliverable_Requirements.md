@@ -587,6 +587,8 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
+- It is mandatory to make this as a seltf service sollution. No manual work should be required.
+- Depends on the system used in EWC for survailance.
 
 *Acceptance criteria:*
 
@@ -594,13 +596,14 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F08 - data application providers to only provide supported operating systems, libraries, and software
 
-"As the E-SOH system manager, I want data application providers to only provide supported operating systems, libraries, and software. So, I can minimise the costs of managing the lifecycle of E-SOH."
+"As the OPERA Open Radar Data system manager, I want data application providers to only provide supported operating systems, libraries, and software. So, I can minimise the costs of managing the lifecycle of OPERA Open Radar Data."
 
 *Priority:*
  - primary
 
 *Clarifications:*
 - The spirit of this requirement was to avoid any "exotic" or developer favourites being used. The requirement should be covered by the quality assurance process.
+- It does not mean that system components could not be home made for the purpos of the project.
 
 *Acceptance criteria:*
 
@@ -608,7 +611,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F09 - access to real-time observations up to 24 hours after the observations data time
 
-"As a data consumer, I want access to real-time observations, up to 24 hours after the observations data time. So, I can retrieve data I might have missed due to, for example, local technical incidents."
+"As a data consumer, I want access to real-time radar data, up to 24 hours after the nominal time of the radar data. So, I can retrieve data I might have missed due to, for example, local technical incidents."
 
 *Priority:*
 - primary
@@ -622,23 +625,24 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F10 - access to the first iteration as well as corrected observations data
 
-"As a data consumer of file-based E-SOH products, I want access to the first iteration of the observations data, as well as to late or subsequently corrected observations. So, I am able to handle all data."
+"As a data consumer of file-based OPERA Open Radar Data, I want access to the first iteration of the observations data, as well as to late or subsequently corrected observations. So, I am able to handle all data."
 
 *Priority:*
 - secondary
 
 *Clarifications:*
-- Should E-SOH always return the last known value for an observation? Yes, only the latest iteration needs to be accessible
-- By late or subsequently corrected observations, we interpret that observations that are corrected within the 24 hours window shall be exposed and pushed to the notification queue
-- By "access to first iteration (..) as well as (..) corrected observations" we suggest to only keep the latest value in the 24 hours data store
-
+- --SKIPP-- Not relevant. ODIMHDF files contain raw and controlled values. Should OPERA Open Radar Data always return the last known value for an observati0on? Yes, only the latest iteration needs to be accessible
+- --SKIPP-- By late or subsequently corrected observations, we interpret that observations that are corrected within the 24 hours window shall be exposed and pushed to the notification queue
+- --SKIPP-- By "access to first iteration (..) as well as (..) corrected observations" we suggest to only keep the latest value in the 24 hours data store
+- If member resend data to OPERAT HUB what hapens?
+  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F11 - E-SOH as data provider role within FEMDI when data is exposed by producer via a pull API service
+### F11 - "OPERA Open Radar Data" as data provider role within FEMDI when data is exposed by producer via a pull API service
 
-"Given a data producer exposes data via a pull API service, when new data are published by the data producer, then E-SOH must perform its data provider role within FEMDI."
+"Given a data producer exposes data via a pull API service, when new data are published by the data producer, then OPERA Open Radar Data must perform its data provider role within FEMDI."
 
 *Priority:*
 - primary
@@ -649,9 +653,9 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Consequences and decisions:*
 
-### F12 - E-SOH as data provider role within FEMDI when data is exposed by producer via a push API service
+### F12 - "OPERA Open Radar Data" as data provider role within FEMDI when data is exposed by producer via a push API service
 
-"Given a data producer exposes data via a push service,when new data are received by E-SOH, then E-SOH must perform its data provider role within FEMDI."
+"Given a data producer exposes data via a push service, when new data are received by OPERA Open Radar Data, then OPERA Open Radar Data must perform its data provider role within FEMDI."
 
 *Priority:*
 - primary
@@ -662,22 +666,23 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Consequences and decisions:*
 
-### F13 - initially collect data before making it available to E-SOH
+### F13 - initially collect data before making it available to OPERA Open Radar Data
 
-"Given a data producer operates or is responsible for multiple (>1) instruments, when those instruments make an observation, then the data producer initially collects the data before making them available to E-SOH."
+"Given a data producer operates or is responsible for multiple (>1) instruments, when those instruments make an observation, then the data producer initially collects the data before making them available to OPERA Open Radar Data."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- This requirement is here to highlight that the responsibility for the observation networks and initial collection of observations is with the members, and not the E-SOH project.
-- So need to send multiple instruments for a station together, but stations can be sent separately?
-- Given that the expected workflow for data producers is
+- In case of slice by slice sent from NMS. How will these be sent to the OPERA Open Radar Data system?  
+- --SKIPP-- Not relevant at this piont.  This requirement is here to highlight that the responsibility for the observation networks and initial collection of observations is with the members, and not the E-SOH project.
+- --SKIPP-- So need to send multiple instruments for a station together, but stations can be sent separately?
+- --SKIPP-- Given that the expected workflow for data producers is
   1) collect observations from station
   2) quality control/post-process(?)
   3) send to e-soh
- - it seems that we should support observations from each instrument on each station to be sent separately to e-soh.
- - A clear dataset definition may also be useful in this context
+ - --SKIPP--it seems that we should support observations from each instrument on each station to be sent separately to e-soh.
+ - --SKIPP--A clear dataset definition may also be useful in this context
 
 *Acceptance criteria:*
 
@@ -691,20 +696,24 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
+- Required Scann strategy and input for European composite is mandatory
+- Radar data that is made for National scann strategy could be made available if formats and system requirements is fullfilled. It also depends on the available resourses on OPERA HUB. Should have lower priority    
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F15 - E-SOH must perform its data provider role within FEMDI when a data producer exposes data in an approved format
+### F15 - OPERA Open Radar Data must perform its data provider role within FEMDI when a data producer exposes data in an approved format
 
-"Given a data producer exposes data in an approved format, when new data are received by E-SOH, then E-SOH must perform its data provider roll within FEMDI."
+"Given a data producer exposes data in an approved format, when new data are received by OPERA Open Radar Data, then OPERA Open Radar Data must perform its data provider roll within FEMDI."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- There is likely to be variability in the format of "supplementary" observations produced by Members. There is a desire for E-SOH to be as flexible as possible when consuming data, but there is also an expectation that data producers provide data in a consistent and easily interpretable format.
+- ODIM HDF is used for all data mandataory data.
+- Pilot for nationsl composites and files used by GeoWeb could devide from this requirement
+- --SKIPP-- There is likely to be variability in the format of "supplementary" observations produced by Members. There is a desire for E-SOH to be as flexible as possible when consuming data, but there is also an expectation that data producers provide data in a consistent and easily interpretable format.
 
 *Acceptance criteria:*
 
@@ -718,9 +727,11 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
-- There is no expectation for E-SOH to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to E-SOH, then E-SOH will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
-- Future iterations of E-SOH, e.g., incorporating PWS data, will increase the need for EUMETNET, rather than relying on the data producer, to undertake real-time QC. This QC capability, possibly using machine learning techniques, falls outside of the current scope of E-SOH and will therefore need to be built separate too, but incorporate with, E-SOH.
-- Will there be unified QC flagging scheme or is the "quality indicators persisted and exposed" also saying that there might be as many as flagging schemes as there are data providers? 
+- ODIM HDF is used for all data mandataory data. ODIM validator will be run and will stop the distribution of files before reaching the system
+- All changes to the ODIM format or coming data formats (Eg. CF-radial) will be handeled by required updates of the ODIM (Opera data) validator.
+- --SKIPP--There is no expectation for E-SOH to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to E-SOH, then E-SOH will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
+- --SKIPP-- Future iterations of E-SOH, e.g., incorporating PWS data, will increase the need for EUMETNET, rather than relying on the data producer, to undertake real-time QC. This QC capability, possibly using machine learning techniques, falls outside of the current scope of E-SOH and will therefore need to be built separate too, but incorporate with, E-SOH.
+- --SKIPP-- Will there be unified QC flagging scheme or is the "quality indicators persisted and exposed" also saying that there might be as many as flagging schemes as there are data providers? 
 
 *Acceptance criteria:*
 
@@ -729,14 +740,17 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F17 - reject corrupt data and record the event
 
-"Given a data producer exposes data to E-SOH, when the data format is found to be corrupt. Then E-SOH should reject the data and record the event."
+"Given a data producer exposes data to OPERA Open Radar Data, when the data format is found to be corrupt. Then OPERA Open Radar Data should reject the data and record the event."
 
 *Priority:*
  - primary
 
 *Clarifications:*
- - There is no expectation for E-SOH to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to E-SOH, then E-SOH will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
- - Future iterations of E-SOH, e.g., incorporating PWS data, will increase the need for EUMETNET, rather than relying on the data producer, to undertake real-time QC. This QC capability, possibly using machine learning techniques, falls outside of the current scope of E-SOH and will therefore need to be built separate too, but incorporate with, E-SOH. 
+ - OPERA HUB disiminates all data to OPERA Open Radar Data. ODIM validation is done prior to sending.
+ - There is no expectation for OPERA Open Radar Data to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to OPERA Open Radar Data, then OPERA Open Radar Data will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
+ - Validation of Pilot case will not be done. It is up to the NMS to send correct data.
+ - All 3. party data must go trough NMS, and will be handled by the system as a national radar.
+ - --SKIPP--Future iterations of E-SOH, e.g., incorporating PWS data, will increase the need for EUMETNET, rather than relying on the data producer, to undertake real-time QC. This QC capability, possibly using machine learning techniques, falls outside of the current scope of E-SOH and will therefore need to be built separate too, but incorporate with, E-SOH. 
 
 *Acceptance criteria:*
 
@@ -744,12 +758,13 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F18 - inform the data producer about corrupt format events
 
-"Given E-SOH records a corrupt format events,when the number of events passes an agreed threshold, then E-SOH should inform the data producer through agreed channels."
+"Given OPERA Open Radar Data records a corrupt format events, when the number of events passes an agreed threshold, then OPERA Open Radar Data should inform the data producer through agreed channels."
 
 *Priority:*
 - primary
 
 *Clarifications:*
+- Agreed channels in this case should be OPERA validation procedures, or an autoamtic procedure in F07
 
 *Acceptance criteria:*
 
@@ -757,12 +772,13 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F19 - data providers to indicate the quality of the data they expose or only expose data above an agreed quality threshold
 
-"As the E-SOH service manager, I want data providers of sub-hourly land surface observations to either indicate the quality of the data they expose or only expose data above an agreed quality threshold. So, I provide E-SOH data consumers with an expected service."
+"As the OPERA Open Radar Data service manager, I want data providers of OPERA Open Radar Data to either indicate the quality of the data they expose or only expose data above an agreed quality threshold. So, I provide OPERA Open Radar Data data consumers with an expected service."
 
 *Priority:*
  - primary
 
 *Clarifications:*
+- this is handled by OPERA prior to dissiminaltion
 
 *Acceptance criteria:*
 
@@ -770,26 +786,29 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F20 - expose poor quality data with an indication of the data quality
 
-"Given a data producer exposes observations data of poor quality, when those observations data are processed by E-SOH and a quality indicator is present,then the data should be exposed by E-SOH along with an indication of the data quality."
+"Given a data producer exposes observations data of poor quality, when those observations data are processed by OPERA Open Radar Data and a quality indicator is present, then the data should be exposed by OPERA Open Radar Data along with an indication of the data quality."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-
+- Will this ever happend as long as OPERA is validating
+- Validation of Pilot case will not be done. It is up to the NMS to send correct data and the required information of quality.
+  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
 ### F21 - indicate when data is of unknown quality
 
-"Given a data producer exposes observations data (of any quality), when those observations data are processed by E-SOH and no quality indicator is present,then the data should be exposed by E-SOH along with an indication that the data are of unknown quality."
+"Given a data producer exposes observations data (of any quality), when those observations data are processed by OPERA Open Radar Data and no quality indicator is present,then the data should be exposed by  along with an indication that the data are of unknown quality."
 
 *Priority:*
 - secondary
 
 *Clarifications:*
-- Should the default be to only return quality data, and an option to get all data + quality indicator)?
+- OPERA Open Radar Data API output formats and/or messaging systems should hold a default value if this information is missing 
+- --SKIPP-- Should the default be to only return quality data, and an option to get all data + quality indicator)?
 - The user must choose the level of quality control based on a controlled vocabulary in the discovery metadata. We may want to specify a default for use in the API search.
 
 *Acceptance criteria:*
