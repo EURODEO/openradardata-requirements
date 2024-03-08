@@ -489,14 +489,14 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F01 - operational service
 
-"As an consumer of european radar data, I want E-RADAR to be an operational service. So I can build my operational services based on E-RADAR data."
+"As an consumer of OPERA Open Radar Data, I want OPERA Open Radar Data to be an operational service. So I can build my operational services based on E-RADAR data."
 
 *Priority:*
 - primary
 
 *Clarifications:*
 - What is the meaning of "operational service"?
-- E-RADAR will be a fully operational service, providing core capability on behalf of EUMETNET Members. Requirements F02 to F06 describe the Service levels required. 
+- OPERA Open Radar Data will be a fully operational service, providing core capability on behalf of EUMETNET Members. Requirements F02 to F06 describe the Service levels required. 
 
 *Acceptance criteria:*
 
@@ -504,7 +504,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F02 - 24/7 availability
 
-"As an consumer of european radar data,I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
+"As an consumer of OPERA Open Radar Data,I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
@@ -514,6 +514,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - We need to figure out the consequences of any downtime
 - We need to separate between ingestion and data access downtimes
 - Centralized and federated components also need to be viewed individually
+- We need to clarify the meaning of service desk. How automatic could this be?
 
 *Acceptance criteria:*
 
@@ -521,7 +522,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F03 - delivery within 1 minute
 
-"As an consumer of european radar data, I want volumes and composites to be available within 1 minute of data producer publishing their data. So, I can deliver the level of service required by my users."
+"As an consumer of OPERA Open Radar Data, I want volumes and composites to be available within 1 minute of data is publishing by the OPERA hub. So, I can deliver the level of service required by my users."
 
 *Priority:*
  - primary
@@ -534,7 +535,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F04 - file delivered within a minute of the youngest observation within the file 
 
-"As an consumer of european radar data, I want the files available for downloading within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
+"As an consumer of OPERA Open Radar Data, I want the files available for downloading within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
@@ -548,13 +549,13 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F05 - data producers to make the data they create available with minimum delay
 
-"As the E-SOH system manager, I want data producers to make the data they create available with minimum delay. So, I can deliver the level of service required by my users."
+"As the OPERA Open Radar Data system manager, I want data producers to make the data they create available with minimum delay. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Consequential requirement on E-SOH is to make an "easy-to-use" ingestion interface and high quality user guidance and documentation
+- Consequential requirement on OPERA Open Radar Data is to make an "easy-to-use" ingestion interface and high quality user guidance and documentation
 - Ideally, the data producers should be able to reuse their existing capabilities
 
 *Acceptance criteria:*
@@ -563,13 +564,16 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F06 - agreed delivery data format and protocol
 
-"As the E-SOH system manager, I want data producers to make the data they create available in an agreed data format and following an agreed delivery protocol. So, I can deliver the level of service required by my users."
+"As the OPERA Open Radar Data system manager, I want data producers to make the data they create available in an agreed data format and following an agreed delivery protocol. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Does this refer to E-SOH ingestion service, or E-SOH API? It's the ingestion. From the ITT: "As well as requirements for the data provider (i.e., E-SOH) to meet, there are also requirements for the data producers (e.g., Members) ... to deliver the overall E-SOH service. "
+- ODIM HDF is mandatory for volumes and composites
+- Data format of National product files that is not standard composites could be kept within a list of options. A fully open standard could be dificult to manage.
+- As the data is stored localy at each NMS 
+- --SKIPP-- - Does this refer to OPERA Open Radar Data ingestion service, or E-SOH API? It's the ingestion. From the ITT: "As well as requirements for the data provider (i.e., E-SOH) to meet, there are also requirements for the data producers (e.g., Members) ... to deliver the overall E-SOH service. "
 
 *Acceptance criteria:*
 
