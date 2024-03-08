@@ -842,18 +842,20 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F23 - near real-time access to sub-hourly OPERA Open Radar Data delivered in the same format used by NMHSs today
 
-"As a current data consumer of land surface observations, I want near real-time access to sub-hourly observations delivered in the same format (i.e., BUFR) used by NMHSs today. So, I can minimise development of my existing downstream systems."
+"As a current data consumer of OPERA Open Radar Data, I want near real-time access to sub-hourly observation delivered in the same format (i.e., BUFR) used by NMHSs today. So, I can minimise development of my existing downstream systems."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-
+- Is this relevant
+- Do anyone receive bufr files from OPERA?
+  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F24 - access to sub-hourly observations delivered in an Open Standard format (e.g., GeoJSON)
+### F24 - access to sub-hourly OPERA Open Radar Data delivered in an Open Standard format (e.g., GeoJSON)
 
 "As a data consumer of land surface observations, I want near real-time access to sub-hourly observations delivered in an Open Standard format (e.g., GeoJSON, CoverageJSON) following agreed and structured naming convention standards (e.g., CF and ACDD). So, I can minimize the development of new applications and reduce the need to learn domain specific formats."
 
@@ -861,7 +863,8 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
-- At the time of gathering requirements, GeoJSON was suggested - the consensus is now moving to CoverageJSON
+- Only metadata and api returns is delivered as GeoJson. Actual radar files is only availabel as ODIM HDF.
+- Pilot will not be handled on this level
 
 *Acceptance criteria:*
 
@@ -869,7 +872,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F25 - parameter naming convention standards, where not established, to be developed and followed
 
-"As a Service Manager, I want parameter naming convention standards, where not established, to be developed and followed. So, I can efficiently maintain and lifecycle the E-SOH service."
+"As a Service Manager, I want parameter naming convention standards, where not established, to be developed and followed. So, I can efficiently maintain and lifecycle the OPERA Open Radar Data service."
 
 *Priority:*
 - primary
@@ -880,37 +883,38 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Consequences and decisions*
 
-### F26 - near real-time sub-hourly observations delivered via the same method (i.e., push via GTS) used by NMHSs today
+### F26 - near real-time sub-hourly OPERA Open Radar Data delivered via the same method (i.e., push via GTS) used by NMHSs today
 
-"As a current data consumer of land surface observations, I want near real-time sub-hourly observations delivered via the same method (i.e., push via GTS) used by NMHSs today. So, I can minimise development of my existing downstream systems."
+"As a current data consumer of OPERA Open Radar Data, I want near real-time sub-hourly OPERA Open Radar Data delivered via the same method (i.e., push via GTS) used by NMHSs today. So, I can minimise development of my existing downstream systems."
 
 *Priority:*
 - tertiary
 
 *Clarifications:*
-- At the kick-off meeting on 3rd March, Jeremy Tandy mentioned that we could rely on WIS2.0 to take care of this delivery
+- Is this relevant for OPERA Open Radar Data
+- At the E-soh kick-off meeting on 3rd March, Jeremy Tandy mentioned that we could rely on WIS2.0 to take care of this delivery
 - Jeremy also noted that there are limitations within the current GTS systems (e.g., the use for bulletin headers TTAAii) that might mean not all additional data produced via the E-SOH project can be shared via GTS. Therefore there is no requirement for E-SOH to develop additional GTS capability to enable additional observations to be shared on the GTS.
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F27 - near real-time access to sub-hourly observations via a publish-subscribe message pattern
+### F27 - near real-time access to sub-hourly OPERA Open Radar Data via a publish-subscribe message pattern
 
-"As a data consumer of land surface observations, I want near real-time access to sub-hourly observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
+"As a data consumer of OPERA Open Radar Data, I want near real-time access to sub-hourly observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-
+- Use the MQTT solution as used in E-soh.
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F28 - E-SOH to scale to user demands for data
+### F28 - OPERA Open Radar Data to scale to user demands for data
 
-"As a system manager, I want E-SOH to scale to user demands for data, especially those users requesting data via the E-SOH API and pub/sub message pattern. So, I can deliver the service expected by data consumers."
+"As a system manager, I want OPERA Open Radar Data to scale to user demands for data, especially those users requesting data via the OPERA Open Radar Data API and pub/sub message pattern. So, I can deliver the service expected by data consumers."
 
 *Priority:*
 - primary
@@ -923,21 +927,23 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F29 - query based on location, time, and parameter
 
-"As a data consumer using API access, I want to query the data based on location, time, and parameter. So I can access exactly the data I require and minimised the amount of data retrieved and local post processing."
+"As a data consumer using API access, I want to query the radar sites based on location, time, and parameter. So I can access exactly the data I require and minimised the amount of data retrieved and local post processing."
 
 *Priority:*
  - primary
 
 *Clarifications:*
-
+- is radar parameters relevent in thsi scope? It should be possibel to ask for pointers to files containing certain parameters for each radar scann.
+   
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- Is this relevant?
 - At this stage we expect to use EDR as the standard for the API so we should use the EDR standards for location and time. To start with, we will focus on simple radius and 2D polygon queries, and not worry about trajectories, etc.  There is still the open question about parameters but for location and time hopefully we can state EDR.
-- If there is a Z axis, it needs to be defined what kind of support is required: Can one query data based on, e.g., pressure levels or height from ground level or sea level? How to use the Z axis when data is, e.g., sea temperature profiles or so?
-- EDR API needs to support that, and the data storage also has to be such that we can store and query the data efficiently. Maybe the simplest form is to support the Z axis that data happens to have and the user needs to know what it is (e.g., based on metadata) and queries are possible only using that axis. Conversions etc are left to user.
-- Should be defined whether the location can be in 3D (not just lat/lon) or not
-- Decision: height is specified in parameter name and/or discovery metadata. We do not expect to implement vertical layer query in EDR (we will implement 2d bounding box, not 3d, at least as a start).
+- --SKIPP--If there is a Z axis, it needs to be defined what kind of support is required: Can one query data based on, e.g., pressure levels or height from ground level or sea level? How to use the Z axis when data is, e.g., sea temperature profiles or so?
+- --SKIPP--EDR API needs to support that, and the data storage also has to be such that we can store and query the data efficiently. Maybe the simplest form is to support the Z axis that data happens to have and the user needs to know what it is (e.g., based on metadata) and queries are possible only using that axis. Conversions etc are left to user.
+- --SKIPP--Should be defined whether the location can be in 3D (not just lat/lon) or not
+- --SKIPP-- Decision: height is specified in parameter name and/or discovery metadata. We do not expect to implement vertical layer query in EDR (we will implement 2d bounding box, not 3d, at least as a start).
 
 ### F30 - pub-sub message pattern to be compliant with the requirements of WIS 2.0
 
@@ -947,33 +953,35 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
  - primary
 
 *Clarifications:*
-
+- Reuse method used i E-Soh
+  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F31 - E-SOH software to meet agreed quality assurance standards
+### F31 - OPERA Open Radar Data software to meet agreed quality assurance standards
 
-"As a System Manager, I want E-SOH software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the E-SOH service."
+"As a System Manager, I want OPERA Open Radar Data software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the E-SOH service."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- What is the definition of "agreed software quality assurance standards"? We interpret this as something the e-soh project team needs to agree on.
+- What is the definition of "agreed software quality assurance standards"? We interpret this as something the OPERA Open Radar Data project team needs to agree on.
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F32 - contributions to the E-SOH code base to be open to all EUMETNET members
+### F32 - contributions to the OPERA Open Radar Data code base to be open to all EUMETNET members
 
-"As a EUMETNET Member, I want contributions to the E-SOH code base to be Open to all Members. So, I can efficiently deliver my national and EUMETNET Strategy."
+"As a EUMETNET Member, I want contributions to the OPERA Open Radar Data code base to be Open to all Members. So, I can efficiently deliver my national and EUMETNET Strategy."
 
 *Priority:*
 - primary
 
 *Clarifications:*
+-Codebase is placed on github.com
 
 *Acceptance criteria:*
 
@@ -990,16 +998,16 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - In the tender, we have said the following, regarding this:
    * For F33 (security), we expect to implement encryption using secure protocols such as, e.g.HTTPS. Stored observation data will not be encrypted. Identity and Access Management (IAM) will depend on infrastructure implementations of which restrictions may apply, e.g., at EWC.
 - Access control
-   * Broken access control is the top top issue in the link:https://owasp.org/Top10/A01_2021-Broken_Access_Control/[OWASP/Top 10 list of the most critical security risks facing organizations].
+   * Broken access control is the top issue in the link:https://owasp.org/Top10/A01_2021-Broken_Access_Control/[OWASP/Top 10 list of the most critical security risks facing organizations].
    * It seems there is a need three separate systems for authentication and authorization:
 
-- Data ingestion
+- Data ingestion (Only aplicable for dissimination of national products/files)
    * There must be control of who are allowed to upload data to the system. Also, there may be several systems for uploading data. Sftp may be one of them, while others may depend on http post requests. This means that each system for ingesting data may need its own mechanisms for authentication, and possibly also authorization. If possible, it would be useful to have a common "source of truth" regarding authorization, regardless of authentication mechanism.
 
 - Administration and monitoring
    * Access to administration and statistics about the system should not be freely available to anyone. Some system must be set up to allow access to relevant users only.
 - Data delivery
-   * In the first version of e-soh, there will be no restricted data, so from that perspective there is no need for authentication or authorization.
+   * In the first version of OPERA Open Radar Data, there will be no restricted data, so from that perspective there is no need for authentication or authorization.
    * If, at a later stage, we will introduce access control here, there seems to be some limitations in FEMDI regarding this: The use of a message queue implies that anyone will be able to know about the *existence* of restricted data. We can only provide access control on the actual data itself. *This may or may not be acceptable at a later stage.*
    * Even if we want to only serve freely available data, we may still want to have some kind of access control here, to have some protection against servers becoming overloaded.
 - Security monitoring
@@ -1019,17 +1027,18 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
-- The required compute resource for E-SOH is thought to be relatively low, especially compared with the requirements of NWP, Satellites and even Radar.
-- The storage requirements are modest given only 24 hours of storage is required.
-- Consideration also needs to be given to the requirements for resilience and for development environments. Depending on the resilience architecture and the need for development environments there might be several instances of E-SOH running in parallel to the operational system. On the other hand, depending on the service of the Cloud provider chosen, resilience might not need to be running in parallel and development environments may only exist when actively being used rather than being “always on”.
-- As more observations network are added to E-SOH the resource requirements will increase accordingly. For the observations expected for E-SOH the amount of compute resource is likely to be proportional to the number of observations. As a very rough estimate, based on a traditional observations station with several observed parameters, the following compute resource is required for 5000 stations (i.e., an estimate of the number of observing stations in Europe)...
-- CPU ~8 CPU Core, Memory ~8GB RAM, Storage ~1TB
-- The estimate above is for a single instance of E-SOH running.
-- For other networks the number of parameters per station might be less. E.g., rain-gauges might only record a single meteorological value.
-- In addition to the resources required for the observations processing chain, additional resources will be required for the input and output to the systems. The number of “PUT” and “GET” request are likely to be significant given the number of  mall messages/files delivered to and disseminated by E-SOH. The Scoping study estimated between 0.25 and 1.7 Billion PUT requests per month.
-- The ‘periphery’ components of E-SOH (e.g., monitoring and reporting) will also require compute resources, but these are believed to be significantly less than the core of E-SOH.
-- The estimates above will need to be clarified during the design phase (WP1).
-- Antoher crucial part is to estimate the load coming from open data requests. FMI open data gets about 20 req/s for observations (latest numbers should be confirmed with FMI). Scaling that up with number of countries would lead to 200-300 req/s and with number of users much more. FEMDI API gateway can hopefully cope with major part of the load, but probably not all. From that point of view, it's also important to check if, e.g., wis2box supports multiple nodes well (scaling).
+- The required compute resource for OPERA Open Radar Data is thought to be relatively low, especially compared with the requirements of NWP, Satellites and even Radar processing.
+- The storage requirements are modest where only 24 hours of storage is required.
+- In the case of archive data seperat storege requirements will be placed.
+- Consideration also needs to be given to the requirements for resilience and for development environments. Depending on the resilience architecture and the need for development environments there might be several instances of OPERA Open Radar Data running in parallel to the operational system. On the other hand, depending on the service of the Cloud provider chosen, resilience might not need to be running in parallel and development environments may only exist when actively being used rather than being “always on”.
+- As more radars are added to OPERA Open Radar Data the resource requirements will increase accordingly. 
+- --SKIPP-- CPU ~8 CPU Core, Memory ~8GB RAM, Storage ~1TB
+- --SKIPP-- The estimate above is for a single instance of E-SOH running.
+- --SKIPP-- For other networks the number of parameters per station might be less. E.g., rain-gauges might only record a single meteorological value.
+- --SKIPP-- In addition to the resources required for the observations processing chain, additional resources will be required for the input and output to the systems. The number of “PUT” and “GET” request are likely to be significant given the number of  mall messages/files delivered to and disseminated by OPERA Open Radar Data. The Scoping study estimated between 0.25 and 1.7 Billion PUT requests per month.
+- The ‘periphery’ components of OPERA Open Radar Data (e.g., monitoring and reporting) will also require compute resources, but these are believed to be significantly less than the core of OPERA Open Radar Data.
+- The estimates above will need to be clarified during the design phase (WP1) and with E-soh.
+- --SKIPP-- Antoher crucial part is to estimate the load coming from open data requests. FMI open data gets about 20 req/s for observations (latest numbers should be confirmed with FMI). Scaling that up with number of countries would lead to 200-300 req/s and with number of users much more. FEMDI API gateway can hopefully cope with major part of the load, but probably not all. From that point of view, it's also important to check if, e.g., wis2box supports multiple nodes well (scaling).
 
 *Acceptance criteria:*
 
@@ -1037,9 +1046,9 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F35 - Data Enrichment and Processing
 
-There is no requirement for E-SOH to perform any significant data enrichment or processing. However, where data received from a data producer does not contain sufficient metadata to meet the standards required of E-SOH products, these additional metadata will be added where possible.
+There is no requirement for OPERA Open Radar Data to perform any significant data enrichment or processing. However, where data received from a data producer does not contain sufficient metadata to meet the standards required of OPERA Open Radar Data products, these additional metadata will be added where possible.
 
-In the case of WIGOS Station IDs (WSI) it will be the responsibility of the data producer to publish the WSI for each station exposed via E-SOH. The WSI may be expressed with the observations data provided or through an agreed metadata store (e.g., OSCAR).
+--SKIPP??-- In the case of WIGOS Station IDs (WSI) it will be the responsibility of the data producer to publish the WSI for each station exposed via OPERA Open Radar Data. The WSI may be expressed with the observations data provided or through an agreed metadata store (e.g., OSCAR).
 
 *Priority:*
 - primary
@@ -1049,7 +1058,7 @@ In the case of WIGOS Station IDs (WSI) it will be the responsibility of the data
    * A minimum set of (required and recommended) use and discovery metadata must follow the data, i.e., as part of the data files
    * This metadata must follow agreed standards
    * It must be possible to translate from the agreed data-following standards to other standards, such as DCAT and ISO19115 and related profiles of these
-   * Based on discussion in https://app.zenhub.com/workspaces/e-soh-63fc8658faa10d2e7d262c3c/issues/zh/40 we only treat open datasets without restrictions in the first stage. This implies that a license is required on all data, and that e-soh only takes in the data if it has an open license or a release statement.
+   * --SKIPP??-- Based on discussion in https://app.zenhub.com/workspaces/e-soh-63fc8658faa10d2e7d262c3c/issues/zh/40 we only treat open datasets without restrictions in the first stage. This implies that a license is required on all data, and that e-soh only takes in the data if it has an open license or a release statement.
 
 *Acceptance criteria:*
 
