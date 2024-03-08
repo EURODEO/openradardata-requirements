@@ -485,18 +485,18 @@ Where to write SLAs of OPERA?
 
 ## Functional and non-functional requirements
 
-These are copied from E-SOH directly, no changes!
+These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNorway)
 
 ### F01 - operational service
 
-"As an E-SOH data consumer, I want E-SOH to be an operational service. So I can build my operational services based on E-SOH data."
+"As an consumer of european radar data, I want E-RADAR to be an operational service. So I can build my operational services based on E-RADAR data."
 
 *Priority:*
 - primary
 
 *Clarifications:*
 - What is the meaning of "operational service"?
-- E-SOH will be a fully operational service, providing core capability on behalf of EUMETNET Members. Requirements F02 to F06 describe the Service levels required. 
+- E-RADAR will be a fully operational service, providing core capability on behalf of EUMETNET Members. Requirements F02 to F06 describe the Service levels required. 
 
 *Acceptance criteria:*
 
@@ -504,7 +504,7 @@ These are copied from E-SOH directly, no changes!
 
 ### F02 - 24/7 availability
 
-"As a E-SOH data consumer,I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
+"As an consumer of european radar data,I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
@@ -521,7 +521,7 @@ These are copied from E-SOH directly, no changes!
 
 ### F03 - delivery within 1 minute
 
-"As an E-SOH sub-hourly observations data consumer, I want observations to be available within 1 minute of data producer publishing their data. So, I can deliver the level of service required by my users."
+"As an consumer of european radar data, I want volumes and composites to be available within 1 minute of data producer publishing their data. So, I can deliver the level of service required by my users."
 
 *Priority:*
  - primary
@@ -532,9 +532,9 @@ These are copied from E-SOH directly, no changes!
 
 *Consequences and decisions:*
 
-### F04 - file delivered within a minute of the youngest observation within the file
+### F04 - file delivered within a minute of the youngest observation within the file 
 
-"As a E-SOH sub-hourly observations data consumer, when receiving batched observations within a file, I want the file delivered within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
+"As an consumer of european radar data, I want the files available for downloading within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
