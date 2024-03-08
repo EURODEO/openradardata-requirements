@@ -13,6 +13,7 @@ This is the Requirements Document for the the RODEO WP6 for sharing weather rada
 | :--- | :--- | :--- | :--- 
 | 0.1 | 2024-01-14 | preliminary draft | Annakaisa v. Lerber
 | 0.2 | 2024-02-09 | added dataset description, user requirements for review | Annakaisa v. Lerber
+| 0.3 | 2024-03-08 | Rewrite based on requrements for OPERA Open Radar Data Sharing F01 -F35 | Vegar Kristiansen
 | | | |
 | | | |
 
