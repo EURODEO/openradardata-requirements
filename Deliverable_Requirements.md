@@ -3,7 +3,6 @@
 ### Annakaisa v. Lerber, Stuart J. Matthews, Roope Tervo, Gijsbert Kruithof, Mikko Rauhala, Vegar Kristiansen, DMI (Morten?), Vera Meyer, Christoph Müller, Daniel Heintze, Steffen Kremer 
 .
 
-
 ## Abstract
 
 This is the Requirements Document for the the RODEO WP6 for sharing weather radar data. This document outlines the technical requirements and objectives for the development of radar data supply, which utilizes components developed in the the EUMETNET Federated European Meteorological Data Infrastructure (FEMDI) programme. The objective of work in WP6 is utilize the data sharing done in the EUMETNET OPERA programme already over a decade and, build on this collaboration a data supply for the third-party users in line with the World Meteorological Organization’s (WMO) Information System 2.0 (WIS 2.0) strategy and the European Union’s (EU) regulation on Meteorological High Value Data (HVD).
@@ -582,7 +581,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F07 - reports of the performance against agreed KPIs
 
-"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against (to be confirmed) agreed KPIs, of the E-SOH service. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
+"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against (to be confirmed) agreed KPIs, of the OPERA Open Radar Data service. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
 
 *Priority:*
 - primary
