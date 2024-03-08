@@ -808,35 +808,39 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Clarifications:*
 - OPERA Open Radar Data API output formats and/or messaging systems should hold a default value if this information is missing 
-- --SKIPP-- Should the default be to only return quality data, and an option to get all data + quality indicator)?
 - The user must choose the level of quality control based on a controlled vocabulary in the discovery metadata. We may want to specify a default for use in the API search.
+- --SKIPP-- Should the default be to only return quality data, and an option to get all data + quality indicator)?
+
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F22 - convert data values and units to the expected E-SOH output
+### F22 - convert data values and units to the expected OPERA Open Radar Data output
 
-"Given a data producer exposes observations data, when those observations data are expressed in units not matching the expected E-SOH output, then E-SOH should convert the data values to match those required by E-SOH data consumers."
+"Given a data producer exposes observations data, when those observations data are expressed in units not matching the expected OPERA Open Radar Data output, then OPERA Open Radar Data should convert the data values to match those required by OPERA Open Radar Data data consumers."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Do we store the values in the original units, or in the expected E-SOH units?
-- Expect users to provide values in SI units but if users provide non-SI units, we need to define where to do the conversion.
-- Does WMO already describe which units should be used in BUFR? Yes. There are a lot of WMO documents, and finding what you want can be difficult, but there are a lot of definitions. For example https://www.nco.ncep.noaa.gov/sib/jeff/bufrtab_tableb.html
-- What is the source of information or the specification to rely on? E.g. if there is some pressure data in mbar, should we convert in into hPa?
-- We must start by following WMO rules. For example https://www.nco.ncep.noaa.gov/sib/jeff/bufrtab_tableb.html. We definitely need to do this for BUFR encoding
-- Consequence / Requirement on the data producer: units must be defined using an openly available controlled vocabulary - if not, e-soh must just forward the data. Also, we expect SI units
-- Implementation of the conversion ability is not first priority
+- Using the ODIM format and ODIM validator before dissimination to OPERA Open Radar Data removes this problem
+- Convertion of units to make the system Interoperable should be done using a FEMDI m2m vocab service 
+- Implementation of the conversion ability is done by FEMDI WP2
 - How to handle possible quality reduction caused by the conversion also needs to be considered
+
+- --SKIPP--Do we store the values in the original units, or in the expected E-SOH units?
+- --SKIPP--Expect users to provide values in SI units but if users provide non-SI units, we need to define where to do the conversion.
+- --SKIPP--Does WMO already describe which units should be used in BUFR? Yes. There are a lot of WMO documents, and finding what you want can be difficult, but there are a lot of definitions. For example https://www.nco.ncep.noaa.gov/sib/jeff/bufrtab_tableb.html
+- --SKIPP--What is the source of information or the specification to rely on? E.g. if there is some pressure data in mbar, should we convert in into hPa?
+- --SKIPP--We must start by following WMO rules. For example https://www.nco.ncep.noaa.gov/sib/jeff/bufrtab_tableb.html. We definitely need to do this for BUFR encoding
+- --SKIPP--Consequence / Requirement on the data producer: units must be defined using an openly available controlled vocabulary - if not, e-soh must just forward the data. Also, we expect SI units
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F23 - near real-time access to sub-hourly observations delivered in the same format (i.e., BUFR) used by NMHSs today
+### F23 - near real-time access to sub-hourly OPERA Open Radar Data delivered in the same format used by NMHSs today
 
 "As a current data consumer of land surface observations, I want near real-time access to sub-hourly observations delivered in the same format (i.e., BUFR) used by NMHSs today. So, I can minimise development of my existing downstream systems."
 
