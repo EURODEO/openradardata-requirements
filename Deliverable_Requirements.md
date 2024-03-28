@@ -1312,11 +1312,11 @@ communications protocol
 
 ## Dependencies
 
-This chapter is meant to capture any relationships or interdependencies between different requirements. This information can be important for understanding how the system works as a whole, and for ensuring that each requirement is considered in the context of the broader system.
-
-### Relationship between 
+The API of choice for WP6 will be OGC API EDR in line with the rest of the RODEO project. However, file based data and products will be mainly distributed via S3. WP2 will provide a so called EDR profile which is to be followed also in WP6. Essentially it is an agreement between the project members on how the EDR implementation and data models are implemented. This is needed as the EDR specification is very permissible and interoperability cannot be guaranteed by only following the standard. This includes best practices on how to use the recommended CoverageJSON data model.
 
 ## Constraints and assumptions
+
+Is this needed at all?
 
 The purpose of this sub-section is to document any limitations or assumptions that could impact the development of the system in order to ensure that the final product meets the users' needs and expectations. These constraints could include factors such as budget or time constraints, technical limitations, or any other factors that could affect the functionality or usability of the system. By identifying and addressing these constraints and assumptions early in the development process, we can minimize the risk of delays, misunderstandings, or unsatisfactory outcomes.
 
