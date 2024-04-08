@@ -489,7 +489,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F01 - operational service
 
-"As an consumer of OPERA Open Radar Data, I want OPERA Open Radar Data to be an operational service. So I can build my operational services based on E-RADAR data."
+"As an consumer of OPERA Open Radar Data, I want the sytem to be operational. So I can build my operational services based on E-RADAR data."
 
 *Priority:*
 - primary
@@ -504,13 +504,14 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F02 - 24/7 availability
 
-"As an consumer of OPERA Open Radar Data,I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
+"As an consumer of OPERA Open Radar Data, I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- There is an expectation for data to be consistently available 24/7, although a minimum of downtime (<1%) is acceptable with no break in service > 24hours. There is also an expectation that to deliver this level of service a "service desk" capability will be required so incidents can be managed.
+- There is an expectation for data to be consistently available 24/7, although a minimum of downtime (<1%) is acceptable with no break in service > 24hours.
+- There is an expectation that to deliver this level of service, a "service desk" capability will be required so incidents can be managed.
 - We need to figure out the consequences of any downtime
 - We need to separate between ingestion and data access downtimes
 - Centralized and federated components also need to be viewed individually
@@ -541,7 +542,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
-- Depending on who makes the batched file, this is a requirement on the data producer? Yes, but also on the system throughput - it needs to be fast
+- Depending on who makes the batched file, this is a requirement on the data producer? Yes, but also on the system throughput.
 
 *Acceptance criteria:*
 
@@ -573,7 +574,6 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - ODIM HDF is mandatory for volumes and composites
 - Data format of National product files that is not standard composites could be kept within a list of options. A fully open standard could be dificult to manage.
 - As the data is stored localy at each NMS 
-- --SKIPP-- - Does this refer to OPERA Open Radar Data ingestion service, or E-SOH API? It's the ingestion. From the ITT: "As well as requirements for the data provider (i.e., E-SOH) to meet, there are also requirements for the data producers (e.g., Members) ... to deliver the overall E-SOH service. "
 
 *Acceptance criteria:*
 
@@ -581,13 +581,13 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F07 - reports of the performance against agreed KPIs
 
-"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against (to be confirmed) agreed KPIs, of the OPERA Open Radar Data service. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
+"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against agreed KPIs, of the OPERA Open Radar Data service. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- It is mandatory to make this as a seltf service sollution. No manual work should be required.
+- It is mandatory to make this as a self service sollution. No manual work should be required for monitoring the system.
 - Depends on the system used in EWC for survailance.
 
 *Acceptance criteria:*
@@ -602,7 +602,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
  - primary
 
 *Clarifications:*
-- The spirit of this requirement was to avoid any "exotic" or developer favourites being used. The requirement should be covered by the quality assurance process.
+- --SKIPP-- The spirit of this requirement was to avoid any "exotic" or developer favourites being used. The requirement should be covered by the quality assurance process.
 - It does not mean that system components could not be home made for the purpos of the project.
 
 *Acceptance criteria:*
@@ -611,7 +611,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F09 - access to real-time observations up to 24 hours after the observations data time
 
-"As a data consumer, I want access to real-time radar data, up to 24 hours after the nominal time of the radar data. So, I can retrieve data I might have missed due to, for example, local technical incidents."
+"As a data consumer, I want access to radar data, up to 24 hours after the nominal time of the radar data is produced. So, I can retrieve data I might have missed due to, for example, local technical incidents."
 
 *Priority:*
 - primary
@@ -640,6 +640,8 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Consequences and decisions:*
 
+
+Relevant??
 ### F11 - "OPERA Open Radar Data" as data provider role within FEMDI when data is exposed by producer via a pull API service
 
 "Given a data producer exposes data via a pull API service, when new data are published by the data producer, then OPERA Open Radar Data must perform its data provider role within FEMDI."
@@ -648,11 +650,13 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
+- Not relevant????????. Message of new data from Opera is pushed to ingestor. Not data.   
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
+Relevant??
 ### F12 - "OPERA Open Radar Data" as data provider role within FEMDI when data is exposed by producer via a push API service
 
 "Given a data producer exposes data via a push service, when new data are received by OPERA Open Radar Data, then OPERA Open Radar Data must perform its data provider role within FEMDI."
@@ -661,7 +665,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
-
+Is this relevant.
 *Acceptance criteria:*
 
 *Consequences and decisions:*
@@ -688,7 +692,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Consequences and decisions:*
 
-### F14 - sub-hourly observations from all operational land surface stations operated by EUMETNET Members
+### SKIPP F14 - sub-hourly observations from all operational land surface stations operated by EUMETNET Members
 
 "As a current, or new, data consumer of land surface observations, I want access to sub-hourly observations from all operational land surface stations (approximately 5,000) operated by EUMETNET Members. So, I can improve the services (including forecasting of fog and convective events) I provide to my users."
 
@@ -711,9 +715,9 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
+- No data from NMS is transfered. Only notification and a link/URL to localy stored data 
 - ODIM HDF is used for all data mandataory data.
-- Pilot for nationsl composites and files used by GeoWeb could devide from this requirement
-- --SKIPP-- There is likely to be variability in the format of "supplementary" observations produced by Members. There is a desire for E-SOH to be as flexible as possible when consuming data, but there is also an expectation that data producers provide data in a consistent and easily interpretable format.
+- Pilot for national composites and files used by GeoWeb could devide from this requirement
 
 *Acceptance criteria:*
 
@@ -721,7 +725,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F16 - data quality above an agreed level or to be clearly indicated
 
-"As a current, or new, data consumer of land surface observations, I want the data I receive to be above an agreed quality, or for the quality of the data to be clearly indicated. So, I can improve the services (including forecasting of fog and convective events) I provide to my users."
+"As a current, or new, data consumer of OPERA Open Radar Data, I want the data I receive to be above an agreed quality, or for the quality of the data to be clearly indicated. So, I can improve the services (including forecasting of convective events) I provide to my users."
 
 *Priority:*
 - primary
@@ -729,9 +733,6 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 *Clarifications:*
 - ODIM HDF is used for all data mandataory data. ODIM validator will be run and will stop the distribution of files before reaching the system
 - All changes to the ODIM format or coming data formats (Eg. CF-radial) will be handeled by required updates of the ODIM (Opera data) validator.
-- --SKIPP--There is no expectation for E-SOH to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to E-SOH, then E-SOH will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
-- --SKIPP-- Future iterations of E-SOH, e.g., incorporating PWS data, will increase the need for EUMETNET, rather than relying on the data producer, to undertake real-time QC. This QC capability, possibly using machine learning techniques, falls outside of the current scope of E-SOH and will therefore need to be built separate too, but incorporate with, E-SOH.
-- --SKIPP-- Will there be unified QC flagging scheme or is the "quality indicators persisted and exposed" also saying that there might be as many as flagging schemes as there are data providers? 
 
 *Acceptance criteria:*
 
@@ -746,12 +747,12 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
  - primary
 
 *Clarifications:*
- - OPERA HUB disiminates all data to OPERA Open Radar Data. ODIM validation is done prior to sending.
+ - OPERA HUB disiminates all data to OPERA Open Radar Data.
+ - ODIM validation is not done prior to sending.
  - There is no expectation for OPERA Open Radar Data to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to OPERA Open Radar Data, then OPERA Open Radar Data will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
  - Validation of Pilot case will not be done. It is up to the NMS to send correct data.
  - All 3. party data must go trough NMS, and will be handled by the system as a national radar.
- - --SKIPP--Future iterations of E-SOH, e.g., incorporating PWS data, will increase the need for EUMETNET, rather than relying on the data producer, to undertake real-time QC. This QC capability, possibly using machine learning techniques, falls outside of the current scope of E-SOH and will therefore need to be built separate too, but incorporate with, E-SOH. 
-
+ 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
@@ -765,6 +766,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Clarifications:*
 - Agreed channels in this case should be OPERA validation procedures, or an autoamtic procedure in F07
+- All processes should be fully automatic
 
 *Acceptance criteria:*
 
@@ -778,7 +780,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
  - primary
 
 *Clarifications:*
-- this is handled by OPERA prior to dissiminaltion
+- this is handled by NMS or OPERA prior to dissiminaltion
 
 *Acceptance criteria:*
 
@@ -808,9 +810,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Clarifications:*
 - OPERA Open Radar Data API output formats and/or messaging systems should hold a default value if this information is missing 
-- The user must choose the level of quality control based on a controlled vocabulary in the discovery metadata. We may want to specify a default for use in the API search.
-- --SKIPP-- Should the default be to only return quality data, and an option to get all data + quality indicator)?
-
+- The user must choose the level of quality control based on a controlled vocabulary in the discovery metadata defined by the OPERA ODIM HDF format. We may want to specify a default for use in the API search.
 
 *Acceptance criteria:*
 
@@ -824,23 +824,14 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
+- No convertions will be done by the system.
 - Using the ODIM format and ODIM validator before dissimination to OPERA Open Radar Data removes this problem
-- Convertion of units to make the system Interoperable should be done using a FEMDI m2m vocab service 
-- Implementation of the conversion ability is done by FEMDI WP2
-- How to handle possible quality reduction caused by the conversion also needs to be considered
-
-- --SKIPP--Do we store the values in the original units, or in the expected E-SOH units?
-- --SKIPP--Expect users to provide values in SI units but if users provide non-SI units, we need to define where to do the conversion.
-- --SKIPP--Does WMO already describe which units should be used in BUFR? Yes. There are a lot of WMO documents, and finding what you want can be difficult, but there are a lot of definitions. For example https://www.nco.ncep.noaa.gov/sib/jeff/bufrtab_tableb.html
-- --SKIPP--What is the source of information or the specification to rely on? E.g. if there is some pressure data in mbar, should we convert in into hPa?
-- --SKIPP--We must start by following WMO rules. For example https://www.nco.ncep.noaa.gov/sib/jeff/bufrtab_tableb.html. We definitely need to do this for BUFR encoding
-- --SKIPP--Consequence / Requirement on the data producer: units must be defined using an openly available controlled vocabulary - if not, e-soh must just forward the data. Also, we expect SI units
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F23 - near real-time access to sub-hourly OPERA Open Radar Data delivered in the same format used by NMHSs today
+###   F23 - near real-time access to sub-hourly OPERA Open Radar Data delivered in the same format used by NMHSs today
 
 "As a current data consumer of OPERA Open Radar Data, I want near real-time access to sub-hourly observation delivered in the same format (i.e., BUFR) used by NMHSs today. So, I can minimise development of my existing downstream systems."
 
@@ -848,7 +839,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
-- Is this relevant
+- Not relevant
 - Do anyone receive bufr files from OPERA?
   
 *Acceptance criteria:*
@@ -863,6 +854,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
+- NOT RELEVANT
 - Only metadata and api returns is delivered as GeoJson. Actual radar files is only availabel as ODIM HDF.
 - Pilot will not be handled on this level
 
@@ -891,7 +883,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - tertiary
 
 *Clarifications:*
-- Is this relevant for OPERA Open Radar Data
+- NOT RELEVANT
 - At the E-soh kick-off meeting on 3rd March, Jeremy Tandy mentioned that we could rely on WIS2.0 to take care of this delivery
 - Jeremy also noted that there are limitations within the current GTS systems (e.g., the use for bulletin headers TTAAii) that might mean not all additional data produced via the E-SOH project can be shared via GTS. Therefore there is no requirement for E-SOH to develop additional GTS capability to enable additional observations to be shared on the GTS.
 
@@ -899,15 +891,16 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 *Consequences and decisions:*
 
-### F27 - near real-time access to sub-hourly OPERA Open Radar Data via a publish-subscribe message pattern
+### F27 - near real-time access to OPERA Open Radar Data via a publish-subscribe message pattern
 
-"As a data consumer of OPERA Open Radar Data, I want near real-time access to sub-hourly observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
+"As a data consumer of OPERA Open Radar Data, I want near real-time access to observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
 
 *Priority:*
 - primary
 
 *Clarifications:*
 - Use the MQTT solution as used in E-soh.
+  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
@@ -933,17 +926,13 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
  - primary
 
 *Clarifications:*
-- is radar parameters relevent in thsi scope? It should be possibel to ask for pointers to files containing certain parameters for each radar scann.
+- It should be possible to extract radarsites that is within a polygon. Feks a national exhonomical zone
+- It should be possibel to ask for pointers to files containing certain parameters for each radar scann.
    
 *Acceptance criteria:*
 
 *Consequences and decisions:*
-- Is this relevant?
 - At this stage we expect to use EDR as the standard for the API so we should use the EDR standards for location and time. To start with, we will focus on simple radius and 2D polygon queries, and not worry about trajectories, etc.  There is still the open question about parameters but for location and time hopefully we can state EDR.
-- --SKIPP--If there is a Z axis, it needs to be defined what kind of support is required: Can one query data based on, e.g., pressure levels or height from ground level or sea level? How to use the Z axis when data is, e.g., sea temperature profiles or so?
-- --SKIPP--EDR API needs to support that, and the data storage also has to be such that we can store and query the data efficiently. Maybe the simplest form is to support the Z axis that data happens to have and the user needs to know what it is (e.g., based on metadata) and queries are possible only using that axis. Conversions etc are left to user.
-- --SKIPP--Should be defined whether the location can be in 3D (not just lat/lon) or not
-- --SKIPP-- Decision: height is specified in parameter name and/or discovery metadata. We do not expect to implement vertical layer query in EDR (we will implement 2d bounding box, not 3d, at least as a start).
 
 ### F30 - pub-sub message pattern to be compliant with the requirements of WIS 2.0
 
@@ -961,13 +950,14 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F31 - OPERA Open Radar Data software to meet agreed quality assurance standards
 
-"As a System Manager, I want OPERA Open Radar Data software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the E-SOH service."
+"As a System Manager, I want OPERA Open Radar Data software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the service."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- What is the definition of "agreed software quality assurance standards"? We interpret this as something the OPERA Open Radar Data project team needs to agree on.
+- What is the definition of "agreed software quality assurance standards"?
+- We interpret this as something the OPERA Open Radar Data project team needs to agree on.
 
 *Acceptance criteria:*
 
@@ -981,7 +971,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - primary
 
 *Clarifications:*
--Codebase is placed on github.com
+-Codebase is placed on github.com, under the Eumetnet organisation term.
 
 *Acceptance criteria:*
 
