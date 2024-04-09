@@ -260,10 +260,12 @@ In addition to these, the following post-processing steps have been applied to t
 Probably those three: (Need to check this) 
 * https://dataplatform.knmi.nl/dataset/radar-reflectivity-composites-2-0
 "Gridded files of radar reflectivities at 1500 m over the Netherlands and surrounding area measured by two radars in Herwijnen and Den Helder. Time interval is 5 minutes."
+format: hdf5
 * https://dataplatform.knmi.nl/dataset/radar-echotopheight-5min-1-0
   "Gridded files of radar echo top heights over the Netherlands and surrounding area. Based on 15 radar scans by two radars in Herwijnen and Den Helder. Time interval is 5 minutes."
+  format: hdf5
 * https://dataplatform.knmi.nl/dataset/nl-rdr-data-rtcor-5m-1-0
-"Gridded files of radar-derived 5 minute precipitation accumulations, corrected by rain gauge data. Radar data over the Netherlands and surrounding area measured by Dutch, Belgian, and German radars are corrected by available data from automatic rain gauges. Time interval is 5 minutes."
+"Gridded files of radar-derived 5 minute precipitation accumulations, corrected by rain gauge data. Radar data over the Netherlands and surrounding area measured by Dutch, Belgian, and German radars are corrected by available data from automatic rain gauges. Time interval is 5 minutes." format: hdf5
 
 **Metadata description missing (?)**
 
