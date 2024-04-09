@@ -256,6 +256,13 @@ In addition to these, the following post-processing steps have been applied to t
 * Removal of non-meteorological echoes.
 * Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
 
+**KNMI National products**
+Probably those two: (Need to check this) 
+* https://dataplatform.knmi.nl/dataset/radar-reflectivity-composites-2-0
+"Gridded files of radar reflectivities at 1500 m over the Netherlands and surrounding area measured by two radars in Herwijnen and Den Helder. Time interval is 5 minutes."
+* https://dataplatform.knmi.nl/dataset/radar-echotopheight-5min-1-0
+  "Gridded files of radar echo top heights over the Netherlands and surrounding area. Based on 15 radar scans by two radars in Herwijnen and Den Helder. Time interval is 5 minutes."
+
 **Metadata description missing (?)**
 
 ### Prioritizing FAIR-principles related to weather radar data
