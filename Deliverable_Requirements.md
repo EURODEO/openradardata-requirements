@@ -13,7 +13,7 @@ This is the Requirements Document for the the RODEO WP6 for sharing weather rada
 | 0.1 | 2024-01-14 | preliminary draft | Annakaisa v. Lerber
 | 0.2 | 2024-02-09 | added dataset description, user requirements for review | Annakaisa v. Lerber
 | 0.3 | 2024-03-08 | Rewrite based on requrements for OPERA Open Radar Data Sharing F01 -F35 | Vegar Kristiansen
-| | | |
+| 0.4 | 2024-04-09 | Added the Business requirements done by Morten | Annakaisa von Lerber
 | | | |
 
 
@@ -1057,6 +1057,9 @@ There is no requirement for OPERA Open Radar Data to perform any significant dat
 
 ## Business requirements
 
+The business requirements in this section is covering the requirements that are related to WP6 for supplying weather radar data. 
+
+
 ### B01 - RODEO WP6 OPERA to be a flexible pathway to exposing weather radar data observations
 
 “As a EUMETNET Member, I want RODEO to be flexible and be a pathway to exposing radar data from a single point of contact. So, I can deliver a consistent solution and reduce development activity.”
@@ -1072,22 +1075,24 @@ There is no requirement for OPERA Open Radar Data to perform any significant dat
 *Consequences and decisions:*
 - Documentation and education for members and other user groups are required to provide such pathway.
 
+
 ### B02 - adoption of a "build and share" approach to software development
 
-“As a EUMETNET Member, I want the adoption of a "build and share" approach to software development. So, Members can efficiently and consistently develop national capability related to RODEO and beyond.”
+“As a EUMETNET Member, I want the adoption of a "build and share" approach to software development. So, Members can efficiently and consistently develop their national capability related to FEMDI and beyond.” **Question**: What does "build and share" means?
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- The project description says that all software should be open-source.
+- The project description says that all software should be free and open-source.
 - OPERA is committed to share OPERA software under the GPL3.0 license with descision of EUMETNET PFAC. 
 
 *Acceptance criteria:*
-- Software in RODEO is licensed with an open license
+- Software in RODEO is licensed with a free and open source license
 
 *Consequences and decisions:*
-- We will use Apache 2.0 as default?
+- We will use Apache 2.0 as default? **Question**: Is the rest of FEMDI using Apache 2.0? Do we then need to clarify the difference between GPL and Apache and what consequences this may have for FEMDI and the FEMDI Radar data service? 
+
 
 ### B03 - homogeneous data interoperability between EUMETNET Members and the wider community
 
@@ -1097,15 +1102,19 @@ There is no requirement for OPERA Open Radar Data to perform any significant dat
 - primary
 
 *Clarifications:*
-This is from E-SOH:
-- It needs to be clarified what kinds of observations there will be in E-SOH, do we need separate means of exchange for 3rd party data etc. (i.e., data from stations not registered in WIGOS)?
-- From the reqs (U03, U05, U06, ), it is clear that E-SOH should support distribution of non-WIGOS observations, and it should try to "normalize" those data so they can be consumed in a similar way as the WIGOS observations (e.g., by requiring transformations before sending to e-soh, or by doing the transformation in e-soh). We need to figure out in the design process how to do that, and which types of "other" observations we should support.
-- We need to define use and discovery metadata that supports interoperability. Some station metadata (following a controlled vocabulary) should be required but we cannot require a WIGOS ID.
-- Ignore restricted data in the beginning (i.e., data without a standard open license or release statement)
+- The primary source of data in WP6 Open Radar Data is from OPERA, where a OPERA-developed common data model of ODIM (Michelson D. B., Lewandowski R., Szewczykowski M., Beekhuis H., Haase H., Mammen T., and D. Johnson, 2021: EUMETNET OPERA weather radar information model for implementation with the HDF5 file format Version 2.4. (www.eumetnet.eu/wp-content/uploads/2021/07/ODIM_H5_v2.4.pdf)) is used for years.
+- **Question:** Is a requirement of ODIM also applicable for the national products?
+- WMO has decided to follow the developed FM301 data model in the global radar data exchange, the transition period is presumably be long. WP6 Open Radar Data should be ready to supply data also in this model and format (netcdf). OPERA will develop a suitable framework for changing from ODIM to FM301. Converters are offered by WMO, and OPERA will develop a suitable addition to that to meet the requirements of OPERA. 
+- Current data formats are HDF5 and BUFR for archived data.
+- Radar metadata for OPERA members is stored in OPERA database, WRD, and OSCAR database. The infromation is not necessarily aligned.
+- We need to define use and discovery metadata that supports interoperability. Some station metadata (following a controlled vocabulary) should be required 
 
 *Acceptance criteria:*
 
 *Consequences and decisions*
+- RODEO project should obtain converters from BUFR to ODIM/FM301
+- WIGOS Station Identifiers are not yet collected to OPERA radar database (WSI)
+- Ignore restricted data in the beginning (i.e., data without a standard open license or release statement) **Question** this is not stated in the ODIM metadata?  
 
 ### B04 - sustainable service
 
