@@ -1,6 +1,6 @@
 # RODEO WP6: OPERA Open Radar Data Sharing Requirements
 
-### Annakaisa v. Lerber, Stuart J. Matthews, Roope Tervo, Gijsbert Kruithof, Mikko Rauhala, Vegar Kristiansen, DMI (Morten?), Vera Meyer, Christoph Müller, Daniel Heintze, Steffen Kremer 
+### Annakaisa v. Lerber, Stuart J. Matthews, Roope Tervo, Gijsbert Kruithof, Mikko Rauhala, Vegar Kristiansen, Morten Stig Andersen, Vera Meyer, Christoph Müller, Daniel Heintze, Steffen Kremer 
 .
 
 ## Abstract
