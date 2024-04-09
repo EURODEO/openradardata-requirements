@@ -1118,13 +1118,13 @@ The business requirements in this section is covering the requirements that are 
 
 ### B04 - sustainable service
 
-“As a EUMETNET Member, I want RODEO WP6 radar data supply to be a sustainable service that considers the whole lifecycle of a system from design, development, operations to retirement. So, I understand the total cost of ownership of the RODEO service.”
+“As a EUMETNET Member, I want WP6 Open radar data supply to be a sustainable service that considers the whole lifecycle of a system from design, development, operations to retirement. So, I understand the total cost of ownership of the Open radar data service.”
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- It is understood that estimating the full operational costs, at the tender stage, is extremely difficult. Therefore, as well as an initial estimate during the tender phase, there is a requirement for a more accurate estimate to be produced during the initial operational phase. The fully costed estimate of the operational costs should include, for example, system life-cycling cost and reacting to emerging user needs.
+- It is understood that estimating the full operational costs is extremely difficult. The fully costed estimate of the operational costs should include, for example, system life-cycling cost and reacting to emerging user needs.
 - Is this just sustainable in the meaning of operating cost, not in the meaning of green computing etc?
 - There is a general requirement for all EUMETNET Programmes to "ensure that the environmental footprint of the Programme is minimised where possible." So, this should be considered also in the meaning of green computing.
 
