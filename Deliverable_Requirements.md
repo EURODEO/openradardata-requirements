@@ -1112,21 +1112,23 @@ The business requirements in this section is covering the requirements that are 
 *Acceptance criteria:*
 
 *Consequences and decisions*
-- RODEO project should obtain converters from BUFR to ODIM/FM301
-- WIGOS Station Identifiers are not yet collected to OPERA radar database (WSI)
-- Ignore restricted data in the beginning (i.e., data without a standard open license or release statement) **Question** this is not stated in the ODIM metadata?  
+- RODEO project should provide converters from BUFR to ODIM/FM301
+- WIGOS Station Identifiers (WSI) are not yet collected to OPERA radar database 
+- Ignore restricted data in the beginning (i.e., data without a standard open license or release statement) **Question** this is not stated in the ODIM metadata, should it be a requirement in OPERA as well?  
 
 ### B04 - sustainable service
 
-“As a EUMETNET Member, I want WP6 Open radar data supply to be a sustainable service that considers the whole lifecycle of a system from design, development, operations to retirement. So, I understand the total cost of ownership of the Open radar data service.”
+“As a EUMETNET Member, I want WP6 Open radar data supply to be a sustainable service that considers the whole lifecycle of a system from design, development, operations to retirement. So, I understand the total cost of ownership of the Open Radar Data service.”
 
 *Priority:*
 - primary
 
 *Clarifications:*
+- here only service and related costs of WP6 Open radar data part are considered. FEMDI is considered separately
 - It is understood that estimating the full operational costs is extremely difficult. The fully costed estimate of the operational costs should include, for example, system life-cycling cost and reacting to emerging user needs.
 - Is this just sustainable in the meaning of operating cost, not in the meaning of green computing etc?
 - There is a general requirement for all EUMETNET Programmes to "ensure that the environmental footprint of the Programme is minimised where possible." So, this should be considered also in the meaning of green computing.
+- 
 
 *Acceptance criteria:*
 
@@ -1134,30 +1136,37 @@ The business requirements in this section is covering the requirements that are 
 
 ### B05 - continuity of service
 
-“As a EUMETNET Member, I want continuity of service in the event of the Service Provider changing. So, I have a sustainable service delivering my obligations.”
+“As a EUMETNET Member, I want continuity of Open radar data service in the event of the Service Provider changing. So, I have a sustainable service delivering my obligations.”
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- There is an expectation that the tender will outline how the RODEO service will be maintained in the event of a Service Provider not wishing to extend a support contract period or wishes to terminate the operational support contract after an agreed notice period.
+
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- The design and implementation should be developed such that the portability is maintained.
+- Decision to build the design on EWC can be made?
 
+   
 ### B06 - existing Members’ capability considered for incorporation within RODEO/OPERA?
 
-“As a EUMETNET Member, I want, wherever possible, existing Members’ (including ECMWF, EUMETSAT) capability (e.g., EWC) considered for incorporation within E-SOH. So, previous investment is exploited to its full potential.”
+“As a EUMETNET Member, I want, wherever possible, existing Members’ (including ECMWF, EUMETSAT) capability (e.g., EWC) considered for incorporation within WP6 Open radar data. So, previous investment is exploited to its full potential.”
 
 *Priority:*
 - secondary
 
 *Clarifications:*
+- the plans are to use EWC as a back-end for OPERA radar data supply.
+- Need to define how the big archive of incoming data should be transferred from Météo France to EWC/DWD.
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- EUMETNET members should define the needed allocations for the radar data
+
 
 ### B07 - make observations available
 
@@ -1167,10 +1176,12 @@ The business requirements in this section is covering the requirements that are 
 - primary
 
 *Clarifications:*
+- If members are pushing their data to OPERA, they will be fulfilling the HVD requirements for single site volume data. For the composite data, there should be national solutions in place for the HVD requirement. However, the demo is planned to show that also national products can be availble through the developed API in RODEO.
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- **Question:**Is the API and the services ready for the national products?
 
 ### B08 - FAIR principles
 
@@ -1181,30 +1192,7 @@ The business requirements in this section is covering the requirements that are 
 
 *Clarifications:*
 - Which of the FAIR principles we actually can fulfill in WP radar data - e.g. DOI for OPERA composite. For national data, the DOI or PID should be applied by the NMSs? 
-- Findability
-  * F1. (meta)data are assigned a globally unique and persistent identifier
-  * F2. data are described with rich metadata
-  * F3. metadata clearly and explicitly include the identifier of the data it 
-describes
-  * F4. (meta)data are registered or indexed in a searchable resource
- - Accessibility
-   * A1. (meta)data are retrievable by their identifier using a standardized 
-communications protocol
-   * A1.1 the protocol is open, free, and universally implementable
-   * A1.2 the protocol allows for an authentication and authorization procedure, where necessary
-   * A2. metadata are accessible, even when the data are no longer available
-- Interoperability
-   * I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
-   * I2. (meta)data use vocabularies that follow FAIR principles
-   * I3. (meta)data include qualified references to other (meta)data
-- Reusability
-    * R1. meta(data) are richly described with a plurality of accurate and relevant attributes
-    * R1.1. (meta)data are released with a clear and accessible data usage license
-    * R1.2. (meta)data are associated with detailed provenance?
-    * R1.3. (meta)data meet domain-relevant community standards
-
-- Can FAIR, HVD and WIS2 requirements be contradictory?
-- The requirements are not contradictory, but strict follow-up of the FAIR principles requires at least unique persistent id's on the dataset level (see definition elsewhere). Keeping metadata for indefinite time may be too challenging, since observation datasets are small and only live in E-SOH for 24 hours.
+- The FAIR, HVD and WIS2 requirements are not contradictory, but strict follow-up of the FAIR principles requires at least unique persistent id's on the dataset level (see definition elsewhere). Keeping metadata and in the case of radar data, the data processing chanin, for indefinite time may be too challenging.
 
 *Acceptance criteria:*
 
@@ -1212,7 +1200,7 @@ communications protocol
 
 ### B09 - data exposed in a way that’s consistent with data exchange initiatives within EUMETNET, WMO and the wider data community
 
-“As a data owner, I want my data exposed in a way that’s consistent with data exchange initiatives within EUMETNET, WMO and the wider data community. For example, WIS 2.0, INSPIRE, HVD, and FDCM. So, I can meet my international commitments and obligations within the Meteorological and wider user community.”
+“As a data owner, I want my data exposed in a way that’s consistent with data exchange initiatives within EUMETNET, WMO and the wider data community. For example, WIS 2.0, INSPIRE, HVD, and FEMDI. So, I can meet my international commitments and obligations within the Meteorological and wider user community.”
 
 *Priority:*
  - primary
@@ -1225,14 +1213,14 @@ communications protocol
 
 ### B10 - secure mechanism to share data according to data policy
 
-“As a data owner, I want a secure mechanism to share data according to my data policy. So, I can use RODEO to expose my data.”
+“As a data owner, I want a secure mechanism to share data according to my data policy. So, I can use WP6 Open radar data to expose my data.”
 
 *Priority:*
 - primary
 
 *Clarifications:*
 - radar data belongs to the data providor, e.g. UKMO doesn't need to follow the HVD, and most likely is not willing to share the volume data through RODEO. Hence, somewhere, either in OPERA side or in RODEO, there needs to be block preventing data to be shared.
-- Discussions on sharing all the OPERA data inside the composite must be agreed
+- Discussions on sharing all the OPERA data inside the composite must be agreed inside EUMETNET
 
 *Acceptance criteria:*
 
@@ -1240,45 +1228,19 @@ communications protocol
 
 ### B11 - observation station metadata
 
-“As a data owner, I want observations station metadata to be efficiently held and maintained within RODEO; synchronised with national and international metadata stores (e.g., WMO OSCAR); respecting the metadata agreed Single Source of Truth. So, I am assured my data are represented correctly to E-SOH users and costs of metadata maintenance are minimised. Correct this for OPERA data - OPERA radar database, WMO WRD radar database, various WSI shared. ”
+“As a data owner, I want observations station metadata to be efficiently held and maintained within RODEO; synchronised with national, EUMETNET and international metadata stores (e.g., WMO OSCAR, WMO WRD); respecting the metadata agreed Single Source of Truth. So, I am assured my data are represented correctly to radar data users and costs of metadata maintenance are minimised. ”
 
 *Priority:*
 - primary
 
 *Clarifications:*
+- WP6 Open radar data should define what are we considering the source of metadata information?
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### B12 - minimise the required changes in production systems
-
-“As a data producer, I want to minimise the required changes in my systems prior to making data available to RODEO/OPERA. So, the value of RODEO, over developing bespoke capability, is realised.”
-
-*Priority:*
-- secondary
-
-*Clarifications:*
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-- We need to establish principles for when RODEO requirements on, e.g., input data formats or interfaces can be changed to meet producer needs.
-
-### B13 - unified approach to the supply of supplementary observations
-
-“As a data producer, I want a unified approach to the supply of supplementary observations developed and supported. So, I can remove the need to develop bespoke solutions and the need to establish multiple bilateral agreements.”
-
-*Priority:*
-- secondary
-
-*Clarifications:*
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### B14 - radar observations delivered in the same format and exchange protocols as used today
+### B12 - radar observations delivered in the same format and exchange protocols as used today
 
 “As a current data consumer of radar data, I want near radar observations delivered in the same format and exchange protocols as used today (i.e., HDF5 ODIM). So, I can minimise development of my systems downstream of RODEO.”
 
@@ -1286,14 +1248,15 @@ communications protocol
 - secondary
 
 *Clarifications:*
+- real-time data flow can be arranged following the same standard than today, however the big archive has different data formats with BUFR, and HDF5 with different versions of ODIM. These are not coing to be changed, but converted can be provided from the project?
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### B15 - RODEO to handle transmission on GTS
+### B13 - RODEO to handle transmission on GTS
 
-“As a data producer, I want to rely on RODEO to handle the transmission of new, late or subsequently corrected observations on GTS, so I can replace my old systems for message generation. Applicable for radar data?”
+“As a data producer, I want to rely on RODEO to handle the transmission of new, late or subsequently corrected observations on WIS2.0, so I can replace my old systems for message generation. Applicable for radar data?”
 
 *Priority:*
 - secondary
