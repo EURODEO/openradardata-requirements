@@ -330,6 +330,11 @@ Related to use cases in FEMDI 2.4.
 - secondary? Should this be primary accroding to EU Digital funding?
 
 *Clarifications:* 
+- metadata database is needed, will be a large task to define it, but not to extract this 
+- Clarify metadata database structure both for the archived data or 24-cache, should be the same. 
+- For composites the metadata database may be diffrent.
+- Günther and Milka can provide infromation about the queries done at MF API or ODE
+- Basic queries could be (check ODIM definitions): radar id, radar quantity (DBZH, TH, VRADH), time, product type (single site, composite), elevation angles?  
 
 
 *Acceptance criteria:* 
@@ -351,7 +356,7 @@ Related to use cases in FEMDI 2.5 and E-SOH 4.3.
 - Preseumably uses only D01 composite data, but e.g. aviation application developer may would like to have 3D - volume data (this is similar to U01)
 - Requirement is to identify a suitable datasets via the FEMDI Shared Catalogue and determine which of the APIs for that dataset is suitable for running application.
 - The mobile application quickly becomes popular and is installed on over 10,000 devices. Each device makes a few requests a day as the user changes location, and this adds up to lots of requests on the Data Supply component’s API.
-- Data should be easily readable, requires e.g. that datasets are availbale in GeoTiff in addition to HDF5
+- Data should be easily readable, requires e.g. that datasets are availbale in GeoTiff (composites only) in addition to HDF5
 - Requires a manual how to use the data
 - For D01, the search can be time-wise, but no need for spatial-wise. Always use the whole composite.
 - Potentially can lead to a lot of requests and processing on the data source, thus, requires for priority use an authorization.    
@@ -362,7 +367,7 @@ Related to use cases in FEMDI 2.5 and E-SOH 4.3.
 *Clarifications:* 
 
 *Acceptance criteria:* 
-- Performance validation tests for the API - to be able to download archived GeoTiffs via API and to be able to download real-time GeoTiffs via API with the defined timeliness and availability.
+- Performance validation tests for the API - to be able to download archived GeoTiffs (composites) via API and to be able to download real-time GeoTiffs via API with the defined timeliness and availability.
 
 *Consequences and decisions:* 
 - Sets system requirement of authorized access for data for prioritising data flow
@@ -406,12 +411,15 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
 - primary
 
 *Clarifications:*
-
+- Clarify is the API providing links to S3 or to data (for composites)
+   
 *Acceptance criteria:*
 - Perfromance validation results for fetching different sizes of data batches in the defined SLA of timeliness, availablity and completeness
 
 *Consequences and decisions:*
 - The SLAs for RODEO needs to be defined following the QoS planned.
+- Prioritized data use (FEMDI is not supporting this at the moment)
+- can bypass this with direct links to S3 fro EUMETNET members
 
 
 ### U05 EUMETNET members are visualising OPERA products in the forecasting services
@@ -419,10 +427,10 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
 “EUMETNET members want to show the composite products on their forecasting services for official duty purposes. They want the composite data as fast as possible, high priority user. They are familiar with the data formats and the radar data processing. ”  
 
 *Requirements:*
-- D01 OPERA composite data is already to NMSs, the added value of RODEO API needs to be clarified
+- D01 OPERA composite data is already to NMSs, the added value of RODEO API needs to be clarified - can be taken out. Already provided by OPERA
 - Automized fetching of data from an interface
 - would require map-service (WMS-layer?) functionality to the system
-- could provide also D03 national products
+- could provide also D03 national products (the map service is NMSs' side )
 
 *Priority:*
 - Secondary
@@ -460,7 +468,7 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
 Demonstration that project partners (METNO, FMI, DMI and KNMI) can offer their products from their open interfaces, these can be downloaded accroding to SLA and fetched from the Data Catalogue and visualized on GeoWeb. 
 
 *Consequences and decisions:*
-- Which formats we agree on to offer:
+- Which formats we agree on to offer to be served with API - HDF5 and/or GeoTiff
 - Manual how data can be applied to RODEO API
 
 
@@ -486,30 +494,24 @@ Related to E-SOH requirement 4.5.
 *Consequences and decisions:*
 Suggestion is not to accept this requirement U07.
 
-
-
-## System requirements
-Is this separate from functional and non functional requirements?
-Where to write SLAs of OPERA?
-
 ## Functional and non-functional requirements
-
-These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNorway)
 
 ### F01 - operational service
 
-"As an consumer of OPERA Open Radar Data, I want the sytem to be operational. So I can build my operational services based on E-RADAR data."
+"As an consumer of OPERA Open Radar Data, I want the sytem to be operational. So I can build my operational services based on WP6 Open radar data."
 
 *Priority:*
 - primary
 
 *Clarifications:*
 - What is the meaning of "operational service"?
-- OPERA Open Radar Data will be a fully operational service, providing core capability on behalf of EUMETNET Members. Requirements F02 to F06 describe the Service levels required. 
+- This is the main goal set for the requirements, the below defined requirements are to explanatory
+- Open Radar Data will be a fully operational service, providing core capability on behalf of EUMETNET Members. Requirements F02 to F06 describe the Service levels required. 
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+
 
 ### F02 - 24/7 availability
 
@@ -525,14 +527,16 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 - We need to separate between ingestion and data access downtimes
 - Centralized and federated components also need to be viewed individually
 - We need to clarify the meaning of service desk. How automatic could this be?
-
+- System is planned to fulfill the defined in the SLA. Depended on resources the service level can be changed.
+- For now, dublicated system at EWC is not planned (meaning archive), but should be also considred. Operational use of real-time could be more applicable to have redundancy.  
+  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
 ### F03 - delivery within 1 minute
 
-"As an consumer of OPERA Open Radar Data, I want volumes and composites to be available within 1 minute of data is publishing by the OPERA hub. So, I can deliver the level of service required by my users."
+"As an consumer of Open Radar Data, I want volumes and composites to be available within 1 minute of data is publishing by the OPERA hub. So, I can deliver the level of service required by my users."
 
 *Priority:*
  - primary
@@ -545,7 +549,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F04 - file delivered within a minute of the youngest observation within the file 
 
-"As an consumer of OPERA Open Radar Data, I want the files available for downloading within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
+"As an consumer of Open Radar Data, I want the files available for downloading within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
@@ -559,14 +563,12 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F05 - data producers to make the data they create available with minimum delay
 
-"As the OPERA Open Radar Data system manager, I want data producers to make the data they create available with minimum delay. So, I can deliver the level of service required by my users."
+"As the Open Radar Data system manager, I want data producers of national products to make the data they create available with minimum delay. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Consequential requirement on OPERA Open Radar Data is to make an "easy-to-use" ingestion interface and high quality user guidance and documentation
-- Ideally, the data producers should be able to reuse their existing capabilities
 
 *Acceptance criteria:*
 
@@ -574,15 +576,25 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F06 - agreed delivery data format and protocol
 
-"As the OPERA Open Radar Data system manager, I want data producers to make the data they create available in an agreed data format and following an agreed delivery protocol. So, I can deliver the level of service required by my users."
+"As the Open Radar Data system manager, I want data producers to make the data they create available in an agreed data format and following an agreed delivery protocol. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- ODIM HDF is mandatory for volumes and composites
-- Data format of National product files that is not standard composites could be kept within a list of options. A fully open standard could be dificult to manage.
-- As the data is stored localy at each NMS 
+- ODIM HDF is mandatory for volumes (archive is also in BUFR or HDF5) and composites (is also converted to GeoTiff)
+- The archive is supplied in its native format
+- links for converter (xradar)
+- in future data may be also available in FM301 (based on CFradial2, netcdf) - future development of RODEO (after project) 
+- Delivery will be done in S3 buckets
+- the supported data formats for national product files are HDF5 or GeoTiff
+- But also composites with other formats can be supplied directly from national interfaces as the data is stored locally at each NMS or sent to EWC S3 bucket
+- Ingest API will send the notification when the data has arrived to S3 or national storage.
+- Pointer needs to url-based and suitable for web-based clients (GeoWeb), but recommended to save the listing in as EDR-compliant.
+- Make the radar data as easy as possible for GeoWeb (FMI is investigating the solution of optimized GeoTiff)
+
+- Difference between short-term and long-term archives.
+  
 
 *Acceptance criteria:*
 
@@ -590,7 +602,7 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F07 - reports of the performance against agreed KPIs
 
-"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against agreed KPIs, of the OPERA Open Radar Data service. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
+"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against agreed KPIs, of the Open Radar Data service. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
 
 *Priority:*
 - primary
@@ -598,6 +610,11 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 *Clarifications:*
 - It is mandatory to make this as a self service sollution. No manual work should be required for monitoring the system.
 - Depends on the system used in EWC for survailance.
+- For monitoring we use database (as E-SOH), visualization shown in Grafana
+- S3 (uptime) can be monitored if its available. This will be implented in EWC, and E-SOH and Open radar data can reuse this.
+- Document how monioring is done in WP6
+- FEMDI is monitored and surveilance data can be gathered from there, but the direct downloading pypasses these statistics (no user statiscs)
+- In near future, the EWC will not get the monitoring data from the S3 use, but this may change in the long run. 
 
 *Acceptance criteria:*
 
@@ -605,28 +622,31 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F08 - data application providers to only provide supported operating systems, libraries, and software
 
-"As the OPERA Open Radar Data system manager, I want data application providers to only provide supported operating systems, libraries, and software. So, I can minimise the costs of managing the lifecycle of OPERA Open Radar Data."
+"As the Open Radar Data system manager, I want data application providers to only provide supported operating systems, libraries, and software. So, I can minimise the costs of managing the lifecycle of Open Radar Data."
 
 *Priority:*
  - primary
 
 *Clarifications:*
-- --SKIPP-- The spirit of this requirement was to avoid any "exotic" or developer favourites being used. The requirement should be covered by the quality assurance process.
 - It does not mean that system components could not be home made for the purpos of the project.
+- trying to emphasize the open-source libraries or software in the development.
+  
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F09 - access to real-time observations up to 24 hours after the observations data time
+### F09 - access to real-time open radar data up to 24 hours after the observations data time
 
-"As a data consumer, I want access to radar data, up to 24 hours after the nominal time of the radar data is produced. So, I can retrieve data I might have missed due to, for example, local technical incidents."
+"As a data consumer, I want access to open radar data, up to 24 hours after the nominal time of the radar data is produced. So, I can retrieve data I might have missed due to, for example, local technical incidents."
 
 *Priority:*
 - primary
 
 *Clarifications:*
 - Data consumers might choose to archive data themselves. This is common amongst Members as it, for example, allows Members to run re-analysis trials based on the data reception, rather than validity, time.
+- it is not impossible to overwrite the archive e.g. with new processed data. DWD may send data twice to 24 cache, but this should just overwrite the old data
+
 
 *Acceptance criteria:*
 
@@ -634,114 +654,46 @@ These are copied from E-SOH directly, no changes! Changes done by Vegark (MetNor
 
 ### F10 - access to the first iteration as well as corrected observations data
 
-"As a data consumer of file-based OPERA Open Radar Data, I want access to the first iteration of the observations data, as well as to late or subsequently corrected observations. So, I am able to handle all data."
+"As a data consumer of file-based Open Radar Data, I want access to the first iteration of the observations data, as well as to late or subsequently corrected observations. So, I am able to handle all data."
 
 *Priority:*
 - secondary
 
 *Clarifications:*
-- --SKIPP-- Not relevant. ODIMHDF files contain raw and controlled values. Should OPERA Open Radar Data always return the last known value for an observati0on? Yes, only the latest iteration needs to be accessible
-- --SKIPP-- By late or subsequently corrected observations, we interpret that observations that are corrected within the 24 hours window shall be exposed and pushed to the notification queue
-- --SKIPP-- By "access to first iteration (..) as well as (..) corrected observations" we suggest to only keep the latest value in the 24 hours data store
-- If member resend data to OPERAT HUB what hapens?
+ - data and corrected data are in the same file, and these are overwritten in the case of resending the data.
   
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
 
-Relevant??
-### F11 - "OPERA Open Radar Data" as data provider role within FEMDI when data is exposed by producer via a pull API service
+### F11 - Open Radar Data must perform its data provider role within FEMDI when a data producer exposes data in an approved format
 
-"Given a data producer exposes data via a pull API service, when new data are published by the data producer, then OPERA Open Radar Data must perform its data provider role within FEMDI."
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- Not relevant????????. Message of new data from Opera is pushed to ingestor. Not data.   
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-Relevant??
-### F12 - "OPERA Open Radar Data" as data provider role within FEMDI when data is exposed by producer via a push API service
-
-"Given a data producer exposes data via a push service, when new data are received by OPERA Open Radar Data, then OPERA Open Radar Data must perform its data provider role within FEMDI."
+"Given a data producer/OPERA exposes data in an approved format, when new data are received by Open Radar Data, then Open Radar Data must perform its data provider roll within FEMDI."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-Is this relevant.
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F13 - initially collect data before making it available to OPERA Open Radar Data
-
-"Given a data producer operates or is responsible for multiple (>1) instruments, when those instruments make an observation, then the data producer initially collects the data before making them available to OPERA Open Radar Data."
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- In case of slice by slice sent from NMS. How will these be sent to the OPERA Open Radar Data system?  
-- --SKIPP-- Not relevant at this piont.  This requirement is here to highlight that the responsibility for the observation networks and initial collection of observations is with the members, and not the E-SOH project.
-- --SKIPP-- So need to send multiple instruments for a station together, but stations can be sent separately?
-- --SKIPP-- Given that the expected workflow for data producers is
-  1) collect observations from station
-  2) quality control/post-process(?)
-  3) send to e-soh
- - --SKIPP--it seems that we should support observations from each instrument on each station to be sent separately to e-soh.
- - --SKIPP--A clear dataset definition may also be useful in this context
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### SKIPP F14 - sub-hourly observations from all operational land surface stations operated by EUMETNET Members
-
-"As a current, or new, data consumer of land surface observations, I want access to sub-hourly observations from all operational land surface stations (approximately 5,000) operated by EUMETNET Members. So, I can improve the services (including forecasting of fog and convective events) I provide to my users."
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- Required Scann strategy and input for European composite is mandatory
-- Radar data that is made for National scann strategy could be made available if formats and system requirements is fullfilled. It also depends on the available resourses on OPERA HUB. Should have lower priority    
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F15 - OPERA Open Radar Data must perform its data provider role within FEMDI when a data producer exposes data in an approved format
-
-"Given a data producer exposes data in an approved format, when new data are received by OPERA Open Radar Data, then OPERA Open Radar Data must perform its data provider roll within FEMDI."
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- No data from NMS is transfered. Only notification and a link/URL to localy stored data 
+- No data from NMS is transfered. Only notification and a link/URL to localy stored data or S3 bucket at EWC (NMS's own tendancy)  
 - ODIM HDF is used for all data mandataory data.
+- For archive of single site radar data both HDF5 and BUFR will be handled
 - Pilot for national composites and files used by GeoWeb could devide from this requirement
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F16 - data quality above an agreed level or to be clearly indicated
+### F12 - check the technical metadata data quality sent in OPERA files
 
-"As a current, or new, data consumer of OPERA Open Radar Data, I want the data I receive to be above an agreed quality, or for the quality of the data to be clearly indicated. So, I can improve the services (including forecasting of convective events) I provide to my users."
+"As a Open Radar Data we should  check the technical quality of the metadata and data for possible corruption or  the I want the data I receive to be above an agreed quality, or for the quality of the data to be clearly indicated. So, I can improve the services (including forecasting of convective events) I provide to my users."
 
 *Priority:*
-- primary
+
 
 *Clarifications:*
-- ODIM HDF is used for all data mandataory data. ODIM validator will be run and will stop the distribution of files before reaching the system
-- All changes to the ODIM format or coming data formats (Eg. CF-radial) will be handeled by required updates of the ODIM (Opera data) validator.
+- The quality is radar data is responsiblity of the NMS
+- The Open radar data only checkes the readibility of metadata and removes the file if this is not readible, otherwise no quality control is performed.
 
 *Acceptance criteria:*
 
