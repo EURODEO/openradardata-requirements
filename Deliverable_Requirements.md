@@ -686,218 +686,94 @@ Suggestion is not to accept this requirement U07.
 
 *Consequences and decisions:*
 
-### F12 - check the technical metadata data quality sent in OPERA files
+### F12 - reject corrupt data and record the event
 
-"As a Open Radar Data we should  check the technical quality of the metadata and data for possible corruption or  the I want the data I receive to be above an agreed quality, or for the quality of the data to be clearly indicated. So, I can improve the services (including forecasting of convective events) I provide to my users."
-
-*Priority:*
-
-
-*Clarifications:*
-- The quality is radar data is responsiblity of the NMS
-- The Open radar data only checkes the readibility of metadata and removes the file if this is not readible, otherwise no quality control is performed.
-
-*Acceptance criteria:*
-
-*Consequences and decisions*
-- Conclusion: we will need some quality indicators
-
-### F17 - reject corrupt data and record the event
-
-"Given a data producer exposes data to OPERA Open Radar Data, when the data format is found to be corrupt. Then OPERA Open Radar Data should reject the data and record the event."
+"Given a data producer exposes data to Open Radar Data, when the metadata and/or data is found to be corrupt. Then OPERA Open Radar Data should reject the data and record the event."
 
 *Priority:*
  - primary
 
 *Clarifications:*
- - OPERA HUB disiminates all data to OPERA Open Radar Data.
- - ODIM validation is not done prior to sending.
- - There is no expectation for OPERA Open Radar Data to provide any data quality control capability. If data are received in a corrupt format, the data should be rejected, and no attempt should be made to recover the data. If, however, "poor" quality observations are provided to OPERA Open Radar Data, then OPERA Open Radar Data will publish the data as received. Where there are quality indicators provided by the data provider, these should be persisted and exposed to E-SOH data consumers.
- - Validation of Pilot case will not be done. It is up to the NMS to send correct data.
- - All 3. party data must go trough NMS, and will be handled by the system as a national radar.
+ - OPERA HUB disiminates all data to Open Radar Data.
+ - The Open radar data only checkes the readibility of metadata and removes the file if this is not readible, otherwise no quality control is performed.
+ - The quality is radar data is responsiblity of the NMS
+ - If the file is found to be corrupted, the system is able to remove the corrupted file in EUMETNET tendency 
+ - ODIM validation is not done prior to sending,  it is done by OPERA when the NMSs is testing the data transfer.
+ - Monitoring of the number corrupted files
+ - OPERA (DWD, MF, GeoSphere Austria) could have access to Grafana monitoring system
  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F18 - inform the data producer about corrupt format events
 
-"Given OPERA Open Radar Data records a corrupt format events, when the number of events passes an agreed threshold, then OPERA Open Radar Data should inform the data producer through agreed channels."
+### F13 - parameter naming convention standards, where not established, to be developed and followed
 
-*Priority:*
-- primary
-
-*Clarifications:*
-- Agreed channels in this case should be OPERA validation procedures, or an autoamtic procedure in F07
-- All processes should be fully automatic
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F19 - data providers to indicate the quality of the data they expose or only expose data above an agreed quality threshold
-
-"As the OPERA Open Radar Data service manager, I want data providers of OPERA Open Radar Data to either indicate the quality of the data they expose or only expose data above an agreed quality threshold. So, I provide OPERA Open Radar Data data consumers with an expected service."
-
-*Priority:*
- - primary
-
-*Clarifications:*
-- this is handled by NMS or OPERA prior to dissiminaltion
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F20 - expose poor quality data with an indication of the data quality
-
-"Given a data producer exposes observations data of poor quality, when those observations data are processed by OPERA Open Radar Data and a quality indicator is present, then the data should be exposed by OPERA Open Radar Data along with an indication of the data quality."
+"As a Service Manager, I want parameter naming convention standards, where not established, to be developed and followed. So, I can efficiently maintain and lifecycle the Open Radar Data service."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Will this ever happend as long as OPERA is validating
-- Validation of Pilot case will not be done. It is up to the NMS to send correct data and the required information of quality.
-  
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F21 - indicate when data is of unknown quality
-
-"Given a data producer exposes observations data (of any quality), when those observations data are processed by OPERA Open Radar Data and no quality indicator is present,then the data should be exposed by  along with an indication that the data are of unknown quality."
-
-*Priority:*
-- secondary
-
-*Clarifications:*
-- OPERA Open Radar Data API output formats and/or messaging systems should hold a default value if this information is missing 
-- The user must choose the level of quality control based on a controlled vocabulary in the discovery metadata defined by the OPERA ODIM HDF format. We may want to specify a default for use in the API search.
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F22 - convert data values and units to the expected OPERA Open Radar Data output
-
-"Given a data producer exposes observations data, when those observations data are expressed in units not matching the expected OPERA Open Radar Data output, then OPERA Open Radar Data should convert the data values to match those required by OPERA Open Radar Data data consumers."
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- No convertions will be done by the system.
-- Using the ODIM format and ODIM validator before dissimination to OPERA Open Radar Data removes this problem
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-###   F23 - near real-time access to sub-hourly OPERA Open Radar Data delivered in the same format used by NMHSs today
-
-"As a current data consumer of OPERA Open Radar Data, I want near real-time access to sub-hourly observation delivered in the same format (i.e., BUFR) used by NMHSs today. So, I can minimise development of my existing downstream systems."
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- Not relevant
-- Do anyone receive bufr files from OPERA?
-  
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F24 - access to sub-hourly OPERA Open Radar Data delivered in an Open Standard format (e.g., GeoJSON)
-
-"As a data consumer of land surface observations, I want near real-time access to sub-hourly observations delivered in an Open Standard format (e.g., GeoJSON, CoverageJSON) following agreed and structured naming convention standards (e.g., CF and ACDD). So, I can minimize the development of new applications and reduce the need to learn domain specific formats."
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- NOT RELEVANT
-- Only metadata and api returns is delivered as GeoJson. Actual radar files is only availabel as ODIM HDF.
-- Pilot will not be handled on this level
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F25 - parameter naming convention standards, where not established, to be developed and followed
-
-"As a Service Manager, I want parameter naming convention standards, where not established, to be developed and followed. So, I can efficiently maintain and lifecycle the OPERA Open Radar Data service."
-
-*Priority:*
-- primary
-
-*Clarifications:*
+- Currently the vocabulary is taken from ODIM
+- GeoTiff can use the ODIM vocabulary 
+- This may change with FM301 (vocab service)
 
 *Acceptance criteria:*
 
 *Consequences and decisions*
 
-### F26 - near real-time sub-hourly OPERA Open Radar Data delivered via the same method (i.e., push via GTS) used by NMHSs today
+### F14 - near real-time access to Open Radar Data via a publish-subscribe message pattern
 
-"As a current data consumer of OPERA Open Radar Data, I want near real-time sub-hourly OPERA Open Radar Data delivered via the same method (i.e., push via GTS) used by NMHSs today. So, I can minimise development of my existing downstream systems."
-
-*Priority:*
-- tertiary
-
-*Clarifications:*
-- NOT RELEVANT
-- At the E-soh kick-off meeting on 3rd March, Jeremy Tandy mentioned that we could rely on WIS2.0 to take care of this delivery
-- Jeremy also noted that there are limitations within the current GTS systems (e.g., the use for bulletin headers TTAAii) that might mean not all additional data produced via the E-SOH project can be shared via GTS. Therefore there is no requirement for E-SOH to develop additional GTS capability to enable additional observations to be shared on the GTS.
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F27 - near real-time access to OPERA Open Radar Data via a publish-subscribe message pattern
-
-"As a data consumer of OPERA Open Radar Data, I want near real-time access to observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
+"As a data consumer of Open Radar Data, I want near real-time access to observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Use the MQTT solution as used in E-soh.
+- Use the MQTT solution as used in E-SOH.
+- This only applicable for the short-time archive
   
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F28 - OPERA Open Radar Data to scale to user demands for data
+### F15 - Open Radar Data to scale to user demands for data
 
-"As a system manager, I want OPERA Open Radar Data to scale to user demands for data, especially those users requesting data via the OPERA Open Radar Data API and pub/sub message pattern. So, I can deliver the service expected by data consumers."
+"As a system manager, I want Open Radar Data to scale to user demands for data, especially those users requesting data via the Open Radar Data API and pub/sub message pattern. So, I can deliver the service expected by data consumers."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-
+- monitoring of the system performance
+- The question should be split between input and output
+- expectation is that the number of users will not increase - API/database should no be the problem
+- has this requirement have a financial constrain e.g. in S3 or FEMDI transfer cost (Check the costs in EWC)
+  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F29 - query based on location, time, and parameter
+### F16 - query based on datasets, location, time, and parameters
 
-"As a data consumer using API access, I want to query the radar sites based on location, time, and parameter. So I can access exactly the data I require and minimised the amount of data retrieved and local post processing."
+"As a data consumer using API access, for single site data I want to query the radar sites based on location, radar name, area, time, quantity, and possible elevation angles and for the OPERA composites to quary on time and composite products and for national composites to query on producer, area, time, and quantity. So I can access exactly the data I require and minimised the amount of data retrieved and local post processing." 
 
 *Priority:*
  - primary
 
 *Clarifications:*
-- It should be possible to extract radarsites that is within a polygon. Feks a national exhonomical zone
-- It should be possibel to ask for pointers to files containing certain parameters for each radar scann.
-   
+- one should be able to filter with the quantities stated above.
+- also filter by country name.
+- follow EDR standards for location and time
+- OPERA database should be automatically updated in this Open Radar Data database, with priority taken from metadata. In the case of conflict found and automatic email should be sent to OPERA database provider (DHMZ).  
+-  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 - At this stage we expect to use EDR as the standard for the API so we should use the EDR standards for location and time. To start with, we will focus on simple radius and 2D polygon queries, and not worry about trajectories, etc.  There is still the open question about parameters but for location and time hopefully we can state EDR.
 
-### F30 - pub-sub message pattern to be compliant with the requirements of WIS 2.0
+### F17 - pub-sub message pattern to be compliant with the requirements of WIS 2.0
 
 "As a EUMETNET Member, I want the method of delivery via a pub-sub message pattern to be compliant with the requirements of WIS 2.0. So, I can efficiently meet my obligations as a WMO Member."
 
@@ -905,42 +781,43 @@ Suggestion is not to accept this requirement U07.
  - primary
 
 *Clarifications:*
-- Reuse method used i E-Soh
+- Reuse method used in E-SOH
   
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F31 - OPERA Open Radar Data software to meet agreed quality assurance standards
+### F18 - Open Radar Data software to meet agreed quality assurance standards
 
-"As a System Manager, I want OPERA Open Radar Data software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the service."
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- What is the definition of "agreed software quality assurance standards"?
-- We interpret this as something the OPERA Open Radar Data project team needs to agree on.
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F32 - contributions to the OPERA Open Radar Data code base to be open to all EUMETNET members
-
-"As a EUMETNET Member, I want contributions to the OPERA Open Radar Data code base to be Open to all Members. So, I can efficiently deliver my national and EUMETNET Strategy."
+"As a System Manager, I want Open Radar Data software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the service."
 
 *Priority:*
 - primary
 
 *Clarifications:*
--Codebase is placed on github.com, under the Eumetnet organisation term.
+- We rely on the NMSs' own software quality assurance standards.
+
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
 
-### F33 - security to be considered as a high priority
+### F19 - contributions to the Open Radar Data code base to be open to all EUMETNET members
+
+"As a EUMETNET Member, I want contributions to the Open Radar Data code base to be Open to all Members. So, I can efficiently deliver my national and EUMETNET Strategy."
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- Codebase is placed on github.com, under the Eumetnet organisation term.
+- This should be open software
+
+*Acceptance criteria:*
+
+*Consequences and decisions:*
+
+### F20 - security to be considered as a high priority
 
 "As a System Manager, I want security to be considered as a high priority and all aspects of the system to meet IT security best practice and includes, for example, identity and access management, role- based access controls, access tokens and data encryption at rest and in transit. So, I can deliver a robust and secure system."
 
@@ -948,11 +825,9 @@ Suggestion is not to accept this requirement U07.
 - primary
 
 *Clarifications:*
-- In the tender, we have said the following, regarding this:
-   * For F33 (security), we expect to implement encryption using secure protocols such as, e.g.HTTPS. Stored observation data will not be encrypted. Identity and Access Management (IAM) will depend on infrastructure implementations of which restrictions may apply, e.g., at EWC.
-- Access control
-   * Broken access control is the top issue in the link:https://owasp.org/Top10/A01_2021-Broken_Access_Control/[OWASP/Top 10 list of the most critical security risks facing organizations].
-   * It seems there is a need three separate systems for authentication and authorization:
+- We will follow the security measures of the NMSs security measures in software development.
+- We expect to implement encryption using secure protocols such as, e.g.HTTPS. Stored observation data will not be encrypted. Identity and Access Management (IAM) will depend on infrastructure implementations of which restrictions may apply, e.g., at EWC.
+- We follow the FEMDI stated processes in access control
 
 - Data ingestion (Only aplicable for dissimination of national products/files)
    * There must be control of who are allowed to upload data to the system. Also, there may be several systems for uploading data. Sftp may be one of them, while others may depend on http post requests. This means that each system for ingesting data may need its own mechanisms for authentication, and possibly also authorization. If possible, it would be useful to have a common "source of truth" regarding authorization, regardless of authentication mechanism.
@@ -972,7 +847,7 @@ Suggestion is not to accept this requirement U07.
 
 *Consequences and decisions:*
 
-### F34 - sufficient compute resources
+### F21 - sufficient compute resources
 
 "As a System Manager, I want sufficient compute resource to be available. So, I can deliver a resilient and sustainable service to my users."
 
@@ -992,26 +867,6 @@ Suggestion is not to accept this requirement U07.
 - The ‘periphery’ components of OPERA Open Radar Data (e.g., monitoring and reporting) will also require compute resources, but these are believed to be significantly less than the core of OPERA Open Radar Data.
 - The estimates above will need to be clarified during the design phase (WP1) and with E-soh.
 - --SKIPP-- Antoher crucial part is to estimate the load coming from open data requests. FMI open data gets about 20 req/s for observations (latest numbers should be confirmed with FMI). Scaling that up with number of countries would lead to 200-300 req/s and with number of users much more. FEMDI API gateway can hopefully cope with major part of the load, but probably not all. From that point of view, it's also important to check if, e.g., wis2box supports multiple nodes well (scaling).
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-### F35 - Data Enrichment and Processing
-
-There is no requirement for OPERA Open Radar Data to perform any significant data enrichment or processing. However, where data received from a data producer does not contain sufficient metadata to meet the standards required of OPERA Open Radar Data products, these additional metadata will be added where possible.
-
---SKIPP??-- In the case of WIGOS Station IDs (WSI) it will be the responsibility of the data producer to publish the WSI for each station exposed via OPERA Open Radar Data. The WSI may be expressed with the observations data provided or through an agreed metadata store (e.g., OSCAR).
-
-*Priority:*
-- primary
-
-*Clarifications:*
-- We need to state some principles before defining the standards:
-   * A minimum set of (required and recommended) use and discovery metadata must follow the data, i.e., as part of the data files
-   * This metadata must follow agreed standards
-   * It must be possible to translate from the agreed data-following standards to other standards, such as DCAT and ISO19115 and related profiles of these
-   * --SKIPP??-- Based on discussion in https://app.zenhub.com/workspaces/e-soh-63fc8658faa10d2e7d262c3c/issues/zh/40 we only treat open datasets without restrictions in the first stage. This implies that a license is required on all data, and that e-soh only takes in the data if it has an open license or a release statement.
 
 *Acceptance criteria:*
 
