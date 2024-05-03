@@ -22,7 +22,6 @@ This document defines KPIs for the RODEO WP6 weather radar supply. The target of
 - [Service Level Definitions](#Service_Level_Definitions)
 - [KPIs for Data Consumption](#KPIs_for_Data_Consumption)
 - [KPIs for Data Provisioning](#KPIs_for_Data_Provisioning)
-- [Conclusions](#Conclusions)
 
 ## Introduction
 
@@ -123,4 +122,3 @@ The KPI-12 target is derived from an assumption that all EUMETNET Member States 
 
 KPI-15: To be decided if this can be measured accurately.
 
-## Conclusions
