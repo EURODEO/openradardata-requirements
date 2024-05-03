@@ -112,7 +112,6 @@ Most of the rada data will come from Opera. The Data ingestion KPI's are only ap
 |KPI-14|Ingestion system uptime|The uptime of the ingestion system|99%|Please note: this can be different than the uptime of the API for the end-user
 |KPI-15|Ingestion success rate|The percentage of data succesfully ingested|99.95%|Please note: rejected files which do not comply to the input standards are not counted as an unsuccesfull ingest
 |KPI-16|Ingestion timeliness|Processing time from "inserted in system" to "notification sent out to destination"|< 1 minute|See Requirement F03
-|=========================
 
 #### Discussion
 
