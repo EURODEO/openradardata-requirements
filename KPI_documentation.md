@@ -65,7 +65,7 @@ The KPIs for Data Consumption define the target KPIs from the perspective of the
 |KPI-2|Response time of the archived Radar Data|How fast the API starts the response.|TBD |
 |KPI-3|Response time of the 24-hour cache of Radar Data|How fast the API starts the response.|TBD |
 |KPI-4|Number of requests per hour |The number API requests reflect the usability of the service|TBD|The system should be able to scale up to 200 pull request per second (Revised FEMDI ET Estimation). 
-|KPI-5|Amount of data downloaded |The amount of data downloaded indicates the usability of the data|TBD|KNMI radar data download = ca. 200 GB per day + FMI ca. 300 GB per day 
+|KPI-5|Amount of data downloaded |The amount of data downloaded indicates the usability of the data|TBD|KNMI radar data download = ca. 200 GB per day + FMI ca. 300 GB per day + DMI: 25 GB per day; average download size across all types 429 kB; number of downloads 58.627 per day
 |KPI-6|Number of unique users |The number of unique users|TBD|KNMI has ca. 200 unique users per day for radar data
 
 
