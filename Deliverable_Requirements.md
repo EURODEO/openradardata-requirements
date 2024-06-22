@@ -5,7 +5,9 @@
 
 ## Abstract
 
-This is the Requirements Document for the the RODEO WP6 for sharing weather radar data. This document outlines the technical requirements and objectives for the development of radar data supply, which utilizes components developed in the the EUMETNET Federated European Meteorological Data Infrastructure (FEMDI) programme. The objective of work in WP6 is utilize the data sharing done in the EUMETNET OPERA programme already over a decade and, build on this collaboration a data supply for the third-party users in line with the World Meteorological Organization’s (WMO) Information System 2.0 (WIS 2.0) strategy and the European Union’s (EU) regulation on Meteorological High Value Data (HVD).
+This document details the requirements for Work Package 6 (WP6) Tasks6.1-3 of the RODEO project, focusing on the sharing of Open Radar Data (ORD). It outlines the datasets to be included, the expected user requirements and objectives, as well as the technical specifications necessary for the development of an ORD supply.
+
+The proposed solutions are designed to align with other APIs (Application Programming Interfaces) developed within the RODEO project, leveraging components from the EUMETNET Federated European Meteorological Data Infrastructure (FEMDI) programme. In T6.1-3 the aim is to build upon the data-sharing framework established by the EUMETNET OPERA programme over the past decade. The planned design is to create a data supply system for third-party users that aligns with the World Meteorological Organization’s (WMO) Information System 2.0 (WIS 2.0) strategy and complies with the European Union’s (EU) regulation on Meteorological High Value Data (HVD).
 
 ## Revision history
 | Version | Date | Comment | Responsible
@@ -14,7 +16,7 @@ This is the Requirements Document for the the RODEO WP6 for sharing weather rada
 | 0.2 | 2024-02-09 | added dataset description, user requirements for review | Annakaisa v. Lerber
 | 0.3 | 2024-03-08 | Rewrite based on requrements for OPERA Open Radar Data Sharing F01 -F35 | Vegar Kristiansen
 | 0.4 | 2024-04-09 | Added the Business requirements done by Morten | Annakaisa von Lerber
-| | | |
+| 0.5 | 2024-06-22 | Reviewed documentation for milestone MS14 | Annakaisa von Lerber
 
 
 ## Table of Content
