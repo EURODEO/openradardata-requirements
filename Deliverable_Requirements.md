@@ -61,8 +61,7 @@ Table 1. Weather radar datasets in WP6 for supplying in RODEO
 
 ### OPERA Composite Data D01
 
-The composites cover the whole of Europe (area: 3,800 × 4,400 km2) in a Lambert Equal Area projection with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E. In ODYSSEY production (D01a, D01c, D01e) covering years of 01/2011- 10/2024, the composites are all updated every 15 minutes, and issued ca. 15 minutes after data time with 2 x 2 km resolution. In the new production (01/2024 - ) the CIRRUS products are with higher spatial resolution of 1 x 1 km and update cycle of 5 minutes. The composite products are based on incoming polar scans and volumes of filtered reflecitvity. The example image of ODYSSEY and CIRRUS maximum reflectivity composites are shown in Figure 1.
-
+The composites cover the whole of Europe (area: 3,800 × 4,400 km2) in a Lambert Equal Area projection with appox. corner coordinates: 70 N 30 W, 70N 50E, 32N 15W, 32 N 30E. In ODYSSEY production (D01a, D01c, D01e) covering years of 01/2011- 10/2024, the composites are all updated every 15 minutes, and issued ca. 15 minutes after data time with 2 x 2 km resolution. The example image of ODYSSEY maximum reflectivity composite is shown in Figure 1. In the new production (01/2024 - ) the CIRRUS products are with higher spatial resolution of 1 x 1 km and update cycle of 5 minutes. The composite products are based on incoming polar scans and volumes of filtered reflecitvity. 
 
 ![Figure 1. An example of OPERA ODYSSEY maximum reflectivity composite.](./Images/OPERA_ODYSSEY_MAX.png)
 
@@ -74,8 +73,10 @@ In late 2015, two additional methods were introduced: Beam blockage correction a
 
 The satellite filter is based on the EUMETSAT Nowcasting SAF Precipitating Clouds product, which provides a probability of precipitation. The filter considers the 49 surrounding satellite pixels for each radar pixel with a detected echo, accounting for time gaps between radar and satellite observations and parallax effects. The maximum probability serves as the third quality index, and if the probability of precipitation is 0, the reflectivity is marked as undetectable.
 
-The used data sharing model in OPERA is in-house deveoped ODIM (OPERA Data Information Model) both in BUFR and HDF5 for older production, solely HDF5 for the new production. 
-An example of the metadata structure of ODYSSEY which uses ODIM 2.0 format while NIMBUS follows ODIM 2.4 are illustrated in Figure 2 and metadata structure of  NIMBUS products is depicted in ANNEX1: Annex/ANNEX1_NIMBUS_composite_metadata_07032024.pdf.
+The used data sharing model in OPERA is in-house deveoped ODIM (OPERA Data Information Model) both in BUFR and HDF5 for older production, solely HDF5 for the new production. The current ODIM specifications can be found from [EUMETNET OPERA weather radar information model for
+implementation with the HDF5 file format
+Version 2.4](https://www.eumetnet.eu/wp-content/uploads/2021/07/ODIM_H5_v2.4.pdf). 
+An example of the metadata structures of ODYSSEY, which uses ODIM 2.0 format while NIMBUS composites follows ODIM 2.4, are illustrated in Figure 2 and the metadata structure of NIMBUS products are also depicted in ANNEX1: Annex/ANNEX1_NIMBUS_composite_metadata_07032024.pdf.
 
 ![Figure 2. The list of OPERA ODYSSEY (left) and NIMBUS (right) metadata structure.](./Images/ODYSSEY_NIMBUS_metadata_23062024.png)
 
