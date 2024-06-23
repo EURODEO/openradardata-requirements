@@ -72,7 +72,7 @@ In late 2015, two additional methods were introduced: Beam blockage correction a
 The satellite filter is based on the EUMETSAT Nowcasting SAF Precipitating Clouds product, which provides a probability of precipitation. The filter considers the 49 surrounding satellite pixels for each radar pixel with a detected echo, accounting for time gaps between radar and satellite observations and parallax effects. The maximum probability serves as the third quality index, and if the probability of precipitation is 0, the reflectivity is marked as undetectable.
 
 The used data sharing model in OPERA is in-house deveoped ODIM (OPERA Data Information Model) both in BUFR and HDF5 for older production, solely HDF5 for the new production. 
-An example of the metadata structure of ODYSSEY which uses ODIM 2.0 format while NIMBUS follows ODIM 2.4 are illustrated in Figure 2. 
+An example of the metadata structure of ODYSSEY which uses ODIM 2.0 format while NIMBUS follows ODIM 2.4 are illustrated in Figure 2 and metadata structure of  NIMBUS products is depicted in ANNEX1: Annex/ANNEX1_NIMBUS_composite_metadata_07032024.pdf.
 
 ![Figure 2. The list of OPERA ODYSSEY (left) and NIMBUS (right) metadata structure.](./Images/ODYSSEY_NIMBUS_metadata_23062024.png)
 
