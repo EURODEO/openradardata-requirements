@@ -67,6 +67,22 @@ The composites cover the whole of Europe (area: 3,800 × 4,400 km2) in a Lambert
 
 Figure 1. An example of OPERA ODYSSEY maximum reflectivity composite.
 
+There are three products on offer from the OPERA suite of products:
+ 
+#### OPERA Instantaneous Maximum Reflectivity (in dBz) (D01a, D01b)
+- In the maximum reflectivity composite each composite pixel contains the maximum of all polar cell values of the contributing radars at that location.
+- ODYSSEY production 2012-10/2024 and CIRRUS production 01/2024 -
+  
+#### Instantaneous Surface Rain rate composite (in mm/h) (D01c, D01d)
+- ODYSSEY production 2012-10/2024 and NIMBUS production 06/2024 -
+- In the ODYSSEY rain rate composite, each composite pixel is a weighted average of the valid pixels of the contributing radars, weighted by a quality index, the distance from center of the pixel and an exponential index related to inverse of the beam altitude. Whereas in NIMBUS production the compositing algorithm is based on the lowest elevation angle only.
+- Measured reflectivity values are converted to rainfall (mm/h) using the Marshall-Palmer equation.
+
+#### OPERA One Hour rainfall Accumulation (in mm) (D01e, D01f)
+- Rainfall accumulation is the sum of the previous four 15-minute rain-rate products.
+- ODYSSEY production 2012-10/2024 and NIMBUS production 06/2024 -
+
+
 Four quality filters are applied to the volume data prior to compositing (Saltikoff et al. 2019). Two methods were initially utilized since 2011: an anomaly-removal module and a hit-accumulation filter. The anomaly-removal module utilizes computer vision techniques to detect patterns often associated with non-weather-related sources, such as straight lines or single pixels. It assigns a probability of precipitation to the data as an initial quality indicator and discards non-precipitation pixels by setting values exceeding a threshold to nodata. The hit-accumulation clutter filter calculates a normalized echo count (or occurrence frequency) monthly. Pixels with a normalized echo count exceeding a threshold in each radar scan are identified as residual clutter, typically set at 0.6.
 
 In late 2015, two additional methods were introduced: Beam blockage correction and a satellite-based filter for residual non-precipitation echoes. Beam blockage correction involves calculating beam blockage percentage in polar coordinates using a 1 km digital elevation model (GTOPO30) and a geometric propagation model. Pre-calculated values are then used to adjust reflectivity, with values in partially blocked sectors corrected and given less weight in composite products. Reflectivity values in sectors with blockage exceeding 70% are set to nodata.
@@ -81,21 +97,6 @@ An example of the metadata structures of ODYSSEY, which uses ODIM 2.0 format whi
 ![Figure 2. The list of OPERA ODYSSEY (left) and NIMBUS (right) metadata structure.](./Images/ODYSSEY_NIMBUS_metadata_23062024.png)
 
 
-There are three products on offer from the OPERA suite of products:
- 
-#### OPERA Instantaneous Maximum Reflectivity (in dBz) (D01a, D01b)
-- In the maximum reflectivity composite each composite pixel contains the maximum of all polar cell values of the contributing radars at that location.
-- ODYSSEY production 2012-2023 and CIRRUS production 2024 -
-
-  
-#### Instantaneous Surface Rain rate composite (in mm/h) (D01c, D01d)
-- ODYSSEY production 2012-2023 and NIMBUS production 2024 -
-- In the ODYSSEY rain rate composite, each composite pixel is a weighted average of the valid pixels of the contributing radars, weighted by a quality index, the distance from center of the pixel and an exponential index related to inverse of the beam altitude. Whereas in NIMBUS production the compositing algorithm is based on the lowest elevation angle only.
-- Measured reflectivity values are converted to rainfall (mm/h) using the Marshall-Palmer equation.
-
-#### OPERA One Hour rainfall Accumulation (in mm) (D01e, D01f)
-- Rainfall accumulation is the sum of the previous four 15-minute rain-rate products.
-- ODYSSEY production 2012-2023 and NIMBUS production 2024 -
 
 ### OPERA Database
 
