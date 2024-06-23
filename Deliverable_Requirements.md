@@ -74,6 +74,9 @@ The satellite filter is based on the EUMETSAT Nowcasting SAF Precipitating Cloud
 The used data sharing model in OPERA is in-house deveoped ODIM (OPERA Data Information Model) both in BUFR and HDF5 for older production, solely HDF5 for the new production. 
 An example of the metadata structure of ODYSSEY which uses ODIM 2.0 format while NIMBUS follows ODIM 2.4 are illustrated in Figure 2. 
 
+![Figure 2. The list of OPERA ODYSSEY (left) and NIMBUS (right) metadata structure.](./Images/ODYSSEY_NIMBUS_metadata_23062024.png)
+
+
 There are three products on offer from the OPERA suite of products:
  
 #### OPERA Instantaneous Maximum Reflectivity (in dBz) (D01a, D01b)
