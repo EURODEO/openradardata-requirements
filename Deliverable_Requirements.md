@@ -256,6 +256,23 @@ In addition to these, the following post-processing steps have been applied to t
 * Removal of non-meteorological echoes.
 * Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
 
+**MET national products D03** (added by MSalomonsen ... )
+
+MET could demonstrate the RODEO interface with a mosiac covering the Nordic countries with D03a (reflectivity) and D03b (precipitation):
+1. Radar reflectivity factor in dBZ
+2. Rainfall intensity R, in units of mm/h
+
+A national mosiac covering Norway could be made available with D03a (reflectivity) and D03b (precipitation)
+
+Products for D02 are available in 5-minutes time resolution. The mosaic covering the nordic countries could be made available in ODIM H5, and GeoTIFF format.
+
+All data and resulting data products have undergone signal processing stages where:
+* Removal of non-meteorological echoes (sea clutter)
+* Stationary objects have been removed using ground clutter filtering.
+* Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
+
+(... added by MSalomonsen)
+
 **Metadata description missing (?)**
 
 ### Prioritizing FAIR-principles related to weather radar data
