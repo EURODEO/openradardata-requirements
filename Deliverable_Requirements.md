@@ -130,11 +130,12 @@ Table 2. OPERA Database content.
 | Frequency | 1.234 GHz | Frequency | 2.800
   
 ### National volume radar data (D02a, D02b)
-Via the ORD API, the plan is to supply the incoming OPERA volume radar data as it is collected from the EUMETNET radar data providers. The data include typically the unfiltered reflectivity factor (TH),  doppler-filtered and cleaned reflectivity factore, so called "best possible" reflectivity, (DBZH) and radial velocity data (VRADH). However, for example, the scanning strategies, data processing chains with chosen thresholds and algorithms, definitions of scanning time, spatial and temporal resolution of data and file structures, etc. vary nationally, therefore the datasets are known to be heterogeneous. The data are sent as as volumes, or scan-by-scan, and the radar variables can be in the same file or separate files. The used scans are generally either optimized for high-quality reflectivity factor observations or for unambigious radial velocity measurements, although VRADH dealiasing is not always nationally performed and currently also no centrally applied in OPERA.
+Via the ORD API, the plan is to supply the incoming OPERA volume radar data as it is collected from the EUMETNET radar data providers. The number of OPERA incoming data is typically ca. 340000 files/d with ca. 45 GB/d. The data include typically the unfiltered reflectivity factor (TH),  doppler-filtered and cleaned reflectivity factore, so called "best possible" reflectivity, (DBZH) and radial velocity data (VRADH). However, for example, the scanning strategies, data processing chains with chosen thresholds and algorithms, definitions of scanning time, spatial and temporal resolution of data and file structures, etc. vary nationally, therefore the datasets are known to be heterogeneous. The data are sent as as volumes, or scan-by-scan, and the radar variables can be in the same file or separate files. The used scans are generally either optimized for high-quality reflectivity factor observations or for unambigious radial velocity measurements, although VRADH dealiasing is not always nationally performed and currently also no centrally applied in OPERA.
 
 The OPERA voulme data archive extends to years 2011, however the data has large variability also over the years. The older datasets are very different from the newer ones. The ODIM standard is followed since begnning of OPERA volume data exchange, the older datasets are typically in BUFR format and newer ones are in HDF5. ODIM Data format model versions are applied 2.0 - 2.4, and these are not always reverse compatible. Due to computational resources, the plan in ORD supply is not to convert the older radar dataset to HDF5 or to new version of ODIM, this is left for the user to perfrom. Some encoders or links to encoders are provided.  
 
 The radar file metadata typically e.g. in ODIM 2.3 includes general information (also in ANNEX 3 [OPERA incoming data]()): 
+
 	* REFERENCE_DATE (d), type Date
 	* COUNTRY (ctry), type String
 	* COUNTRY_ID (ctryid), type String
@@ -148,7 +149,8 @@ The radar file metadata typically e.g. in ODIM 2.3 includes general information 
 	* LONGITUDE (long), type Float
 	* HEIGHT (h), type Float
 		
-and special information:		
+and special information:
+
 	* PROD_IDA1 (pida1), type String
   	* PROD_IDA2 (pida2), type String
 	* FILE_FORMAT (ff), type String
@@ -157,7 +159,7 @@ and special information:
    	* DECODE_DATE (dedat), type Date
     	* STORE_DATE (stdat), type Date
      
-The number of OPERA incoming data is
+
 
 
 
