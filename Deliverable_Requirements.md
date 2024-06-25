@@ -160,18 +160,10 @@ and special information:
     	* STORE_DATE (stdat), type Date
      
 
-
-
-
-
-
-#### National composites or products (D03a-d)
- - formats?
- - temporal and spatial resolution
- - included metadata
+### National composites or products (D03a-d)
 
 **FMI national products D3**
-FMI could demonstrate the RODEO interface with D3a (reflectivity composite), D3b (precipitation composites), and D3d (echo top):
+FMI could demonstrate the ORD API with D3a (reflectivity composite), D3b (precipitation composites), and D3d (echo top) products:
 1. Radar reflectivity factor in dBZ.
 2. Rainfall intensity R, in units of mm/h and 1, 12, and 24-hour rainfall accumulation (mm).
 
@@ -189,8 +181,8 @@ In addition to these, the following post-processing steps have been applied to t
 * Removal of non-meteorological echoes.
 * Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
 
-**KNMI National products**
-Probably those three: (Need to check this) 
+**KNMI National products D3**
+KNMI could demonstrate the ORD API with D3a (reflectivity composite), D3b (precipitation composites), and D3d (echo top) products: 
 * https://dataplatform.knmi.nl/dataset/radar-reflectivity-composites-2-0
 "Gridded files of radar reflectivities at 1500 m over the Netherlands and surrounding area measured by two radars in Herwijnen and Den Helder. Time interval is 5 minutes."
 format: hdf5
@@ -200,7 +192,7 @@ format: hdf5
 * https://dataplatform.knmi.nl/dataset/nl-rdr-data-rtcor-5m-1-0
 "Gridded files of radar-derived 5 minute precipitation accumulations, corrected by rain gauge data. Radar data over the Netherlands and surrounding area measured by Dutch, Belgian, and German radars are corrected by available data from automatic rain gauges. Time interval is 5 minutes." format: hdf5
 
-**Metadata description missing (?)**
+
 
 ### Prioritizing FAIR-principles related to weather radar data
 
