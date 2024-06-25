@@ -43,7 +43,7 @@ We hope that this document will serve as a clear guide for the development and i
 In this section we describe the datasets that are planned to be supplied by the RODEO developed APIs. In short, these are stated in the Table 1. 
 
 
-Table 1. Weather radar datasets in WP6 for supplying in RODEO 
+Table 1. Open radar datasets in WP6 for supplying in RODEO 
 | N | Data type | Spatial coverage | Temporal coverage | Timeliness |Availability| Data Owner/licensing | Period | Data model and format | Metadata standard | More Info
 | :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | :--- | :---
 | D01a| OPERA Composite: ODYSSEY maximum reflectivity  | 2 x 2 km, Cartesian grid covering the whole of Europe (area 3800 × 4400 km2) | every 15 minutes | delivery in (&#124;T2 – T1&#124; ≤ 1020 s) > 90 % |(&#124;T2 – T1&#124; ≤ 1800 s) > 99 % | EUMETNET | 2011 -10/2024  | ODIM (BUFR and HDF5) | ODIM |
@@ -100,7 +100,7 @@ An example of the metadata structures of ODYSSEY, which uses ODIM 2.0 format whi
 
 ### OPERA Database
 
-OPERA Database is manually maintained table by the OPERA data providers and by the Croatian Met Services. It is sporadically updated, minimum twice a year. The available formats are json, xlsx and csv and it can be automatically pushed to service. The fields it includes are stated in the Table 2 and example file is attached as Annex [OPERA database in csv](https://github.com/EURODEO/opera-requirements/blob/main/Annex/OPERA_RADARS_DB_2024_02.csv).  
+OPERA Database is manually maintained table by the OPERA data providers and by the Croatian Meteorological and Hydrological Service (DHMZ). It is sporadically updated, minimum twice a year. The available formats are json, xlsx and csv and it can be automatically pushed to service provider. The fields it includes are stated in the Table 2 and example file is attached as Annex [OPERA database in csv](https://github.com/EURODEO/opera-requirements/blob/main/Annex/OPERA_RADARS_DB_2024_02.csv).  
 
 Table 2. OPERA database content.
 | Field | Unit/Format | Description | Example 
