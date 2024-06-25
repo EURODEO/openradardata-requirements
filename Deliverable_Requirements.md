@@ -130,118 +130,38 @@ Table 2. OPERA Database content.
 | Frequency | 1.234 GHz | Frequency | 2.800
   
 ### National volume radar data (D02a, D02b)
-Via the ORD API, the plan is to supply the incoming OPERA volume radar data as it is collected from the EUMETNET radar data providers. The data include typically the unfiltered reflectivity factor (TH),  doppler-filtered and cleaned reflectivity factore, so called "best possible" reflectivity, (DBZH) and radial velocity data (VRADH). The scanning strategies, 
-data processing chains with chosen thresholds and algorithms, and file structures, etc. vary nationally, therefore the datasets are heterogeneous. The data can be sent as as volumes, or scan-by-scan, and the radar variables can be in the same file or seprate files. The used scans are generally either optimized for high-quality reflectivity factor observations or for unambigius radial velocity measurements, although VRADH aliasing is not always nationally performed and currently also no centrally in OPERA.
+Via the ORD API, the plan is to supply the incoming OPERA volume radar data as it is collected from the EUMETNET radar data providers. The data include typically the unfiltered reflectivity factor (TH),  doppler-filtered and cleaned reflectivity factore, so called "best possible" reflectivity, (DBZH) and radial velocity data (VRADH). However, for example, the scanning strategies, data processing chains with chosen thresholds and algorithms, definitions of scanning time, spatial and temporal resolution of data and file structures, etc. vary nationally, therefore the datasets are known to be heterogeneous. The data are sent as as volumes, or scan-by-scan, and the radar variables can be in the same file or separate files. The used scans are generally either optimized for high-quality reflectivity factor observations or for unambigious radial velocity measurements, although VRADH dealiasing is not always nationally performed and currently also no centrally applied in OPERA.
 
-The OPERA voulme data archive extends to years 2011, however the data has large variability also over the years. The older datasets are very different from the newer ones. The ODIM standard is followed since begnning of OPERA volume data exchange, the older datasets are typically in BUFR format and newer ones are in HDF5.    
+The OPERA voulme data archive extends to years 2011, however the data has large variability also over the years. The older datasets are very different from the newer ones. The ODIM standard is followed since begnning of OPERA volume data exchange, the older datasets are typically in BUFR format and newer ones are in HDF5. ODIM Data format model versions are applied 2.0 - 2.4, and these are not always reverse compatible. Due to computational resources, the plan in ORD supply is not to convert the older radar dataset to HDF5 or to new version of ODIM, this is left for the user to perfrom. Some encoders or links to encoders are provided.  
 
-- ODIM Data format model vr. 2-2.4 not always reverse compatible
-- archive in different national BUFR version, there are some manual how to encode these
-- the newer files in HDF
-- various national scanning strategies, definitions of scanning time, spatial and temporal resolution.
-- different quality processing levels 
+The radar file metadata typically e.g. in ODIM 2.3 includes general information (also in ANNEX 3 [OPERA incoming data]()): 
+	* REFERENCE_DATE (d), type Date
+	* COUNTRY (ctry), type String
+	* COUNTRY_ID (ctryid), type String
+	* STATION_NUMBER (stno), type Integer
+	* STATION_LOCAL_ID (stid), type String
+	* QUANTITY (quant), type String
+	* FILENAME (fn), type String
+	* ANTENNA_ELEVATION (ae), type Float
+	* WAVELENGTH (wl), type Float
+	* LATITUDE (lat), type Float
+	* LONGITUDE (long), type Float
+	* HEIGHT (h), type Float
+		
+and special information:		
+	* PROD_IDA1 (pida1), type String
+  	* PROD_IDA2 (pida2), type String
+	* FILE_FORMAT (ff), type String
+ 	* FILE_MODE (fm), type String
+  	* FORMAT_VERSION (fv), type String
+   	* DECODE_DATE (dedat), type Date
+    	* STORE_DATE (stdat), type Date
+     
+The number of OPERA incoming data is
 
-OPERA - CUMULUS incoming data:
 
-EDZW: 145000 Files/d 13.5 GB/d
 
-LFPW: 40000 Files/d 2G B/d
 
-ESWI: 30000 Files/d 2.5 GB/d
-
-EFKL: 17000 Files/d 1.5 GB/d
-
-EKMI: 1200 Files/d 1.5 GB/d
-
-BIRK: 1500 Files/d 850 MB/d
-
-LEMM: 3500 Files/d 500 MB/d
-
-LPMG: 15000 Files/d 800MB/d
-
-LYMB: 300 Files/d 70 MB/d
-
-LZIB: 3400 Files/D 1.4 GB/d
-
-LDZM: 1000 Files/d 600 MB/d
-
-LSSW: 6400 Files/d 750 MB/d
-
-ENMI: 7000 Files/d 5.5 GB/d
-
-OKPR: 1700 Files/d 500MB/d
-
-EBUM: 7700 Files/d 2 GB/d
-
-EGRR: 36000 Files/d 3.5 GB/d
-
-HABP: 5000 Files/d 1 GB/d
-
-YRBK: 750 Files/d 150 MB/d
-
-EIDB: 4700 Files/d 170 MB/d
-
-SOWR: 5500 Files/d 1.1 GB/d
-
-LJLM: 570 Files/d 280 MB/d
-
-EVRR: 140 Files/d 40 MB/d
-
-LLBD: 280 Files/d 2.5 GB/d
-
-LGAT: 300 Files/d 65 MB/d
-
-Summary : ca. 340000 Files/d with ca. 45GB/d
-
-Data Format:
-Info to ODIM Format (V2.3) located here:
-https://www.eumetnet.eu/wp-content/uploads/2019/01/ODIM_H5_v23.pdf
-
-Used metadata in DWD:
-
-	Metadata set definition: 
- 
- General information:
- 
-		Metadata field: REFERENCE_DATE (d), type Date
-  
-		Metadata field: COUNTRY (ctry), type String
-  
-		Metadata field: COUNTRY_ID (ctryid), type String
-  
-		Metadata field: STATION_NUMBER (stno), type Integer
-  
-		Metadata field: STATION_LOCAL_ID (stid), type String
-  
-		Metadata field: QUANTITY (quant), type String
-  
-		Metadata field: FILENAME (fn), type String
-  
-		Metadata field: ANTENNA_ELEVATION (ae), type Float
-  
-		Metadata field: WAVELENGTH (wl), type Float
-  
-		Metadata field: LATITUDE (lat), type Float
-  
-		Metadata field: LONGITUDE (long), type Float
-  
-		Metadata field: HEIGHT (h), type Float
-
-Special information:
-
-		Metadata field: PROD_IDA1 (pida1), type String
-  
-		Metadata field: PROD_IDA2 (pida2), type String
-  
-		Metadata field: FILE_FORMAT (ff), type String
-  
-		Metadata field: FILE_MODE (fm), type String
-  
-		Metadata field: FORMAT_VERSION (fv), type String
-  
-		Metadata field: DECODE_DATE (dedat), type Date
-  
-		Metadata field: STORE_DATE (stdat), type Date
 
 #### National composites or products (D03a-d)
  - formats?
