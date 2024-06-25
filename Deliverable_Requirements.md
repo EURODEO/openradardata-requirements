@@ -134,7 +134,7 @@ Via the ORD API, the plan is to supply the incoming OPERA volume radar data as i
 
 The OPERA voulme data archive extends to years 2011, however the data has large variability also over the years. The older datasets are very different from the newer ones. The ODIM standard is followed since begnning of OPERA volume data exchange, the older datasets are typically in BUFR format and newer ones are in HDF5. ODIM Data format model versions are applied 2.0 - 2.4, and these are not always reverse compatible. Due to computational resources, the plan in ORD supply is not to convert the older radar dataset to HDF5 or to new version of ODIM, this is left for the user to perfrom. Some encoders or links to encoders are provided.  
 
-The radar file metadata typically e.g. in ODIM 2.3 includes general information (also in ANNEX 3 [OPERA incoming data]()): 
+The radar file metadata typically e.g. in ODIM 2.3 includes general information (also in ANNEX 3 [OPERA incoming data](Annex/ANNEX3_OPERA_Incoming_Data_Cumulus.xlsx)): 
 
 	* REFERENCE_DATE (d), type Date
 	* COUNTRY (ctry), type String
