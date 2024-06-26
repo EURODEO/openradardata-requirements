@@ -367,10 +367,10 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4,and 4.5
 “EUMETNET members want to show the composite products on their forecasting services for official duty purposes. They want the composite data as fast as possible, high priority user. They are familiar with the data formats and the radar data processing. ”  
 
 *Requirements:*
-- D01 OPERA composite data is already to NMSs, the added value of RODEO API needs to be clarified - can be taken out. Already provided by OPERA
-- Automized fetching of data from an interface
-- would require map-service (WMS-layer?) functionality to the system
-- could provide also D03 national products (the map service is NMSs' side )
+- D01 OPERA composite data is already supplied to NMSs, the added value of ORD API needs to be clarified. 
+- Automized fetching of data (direct S3 download)
+- Requirement would be a map-service (WMS-layer) functionality to the system
+- National datasets D03 could be provided (the map service should be at NMSs'end)
 
 *Priority:*
 - Secondary
@@ -381,8 +381,9 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4,and 4.5
 - The D01 and D03 products can be fetched via API with the agreed SLA via API and presented on GeoWeb
 
 *Consequences and decisions:*
-- Do we remove this requirement?
-- Do we offer this MAP service?
+- GeoWeb is used as demonstration tool
+- ORD is not going to provide map-service
+- The D01 composites are converted to cloud-optimied Geotiffs 
 
 
 ### U06 - National Met Service is supplying their national radar products (composites, echo tops, vertical wind profiles) to third party users 
@@ -390,49 +391,48 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4,and 4.5
 “As a EU members I have to fulfill the HVD Implementation Act, and RODEO provides a common interface which is also good for the third-party users to obtain radar data products from the same interface. This user requirement is following the federated distribution of data.”  
 
 *Requirements:*
-- Includes only radar data products (D03), no volume data, this is included in U04
-- Requires the definition which of the products, formats/model, metadata structure are applicable for RODEO API 
-- Federated distribution, no archive, with 24 - hour cache
-- If the requirement is that products are visualized on GeoWeb, requires map service?
-- Set of decided formats (data, metadata) that can be offered through this API
+- This use case will include radar data products (D03) only, no national volume data, this is included in U04
+- Set of decided formats (data, metadata) that can be offered through this API. Requires the definition which of the products, formats/model, metadata structure are applicable for ORD API 
+- Federated distribution, no archive, possible 24 - hour cache.
 - Requires metadata ingestion to be defined 
 
 *Priority:* 
 - Primary
 
 *Clarifications:*
-- the SLA for this service is nationally dependent, there needs to be combined SLA how the API supplies the data products 
-
+- the SLA for this service is nationally dependent, there needs to be agreed combined SLA how the ORD API supplies D03 products 
 
 *Acceptance criteria:*
 Demonstration that project partners (METNO, FMI, DMI and KNMI) can offer their products from their open interfaces, these can be downloaded accroding to SLA and fetched from the Data Catalogue and visualized on GeoWeb. 
 
 *Consequences and decisions:*
-- Which formats we agree on to offer to be served with API - HDF5 and/or GeoTiff
-- Manual how data can be applied to RODEO API
-
+- GeoWb is used as demonstration tool, no map service is offered.
+- Metadata ingestion needs to be defined.  
+- ODIM HDF5 and cloud-optimized GeoTiff are the supplied formats.
+- This use case requires a manual for the possible end users how datasets can be supplied via ORD API
+  
 
 ### U07 - radar data observations from 3rd parties
 
 Related to E-SOH requirement 4.5.
 
-“I'm representative of e.g. hydrological services or a private company and I own radar data. I would like to include supply my radar data via RODEO developed APIs.”  
+“I'm representative of e.g. hydrological services or a private company and I own radar data. I would like to include supply my radar data via ORD developed APIs.”  
 
 *Requirements:*
-- External provideor should be applicable to OPERA rules for data ingestion or defined in U06
-- Data compliency checks
-- agreements for licensing 
+- Set requirements to agree on licensing 
 
 *Priority:*
 - tertiary
   
 *Clarifications:*
-- OPERA is making quality and complience checks before accepting the data or products to the data flow. Rodeo does not have resources to do this. 
+- External provider should be applicable to OPERA rules for data ingestion or in case of products defined in U06
+- ORD supply will take only external radar data or products via NMSs, then this user requirement is following similar to datasets D02 or in the case of products OD3
+- OPERA is making quality and complience checks before accepting the data or products to the data flow. ORD supply does not have resources to do this. 
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
-Suggestion is not to accept this requirement U07.
+- Suggestion is not to leave this requirement out of the scope of ORD supply.
 
 ## Functional and non-functional requirements
 
