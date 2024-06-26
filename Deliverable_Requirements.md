@@ -160,7 +160,7 @@ and special information:
 
 ### National composites or products (D03a-d)
 
-**FMI national products D3**
+**FMI national products D03**
 
 FMI could demonstrate the ORD API with D3a (reflectivity composite), D3b (precipitation composites), and D3d (echo top) products:
 1. Radar reflectivity factor in dBZ.
@@ -180,7 +180,7 @@ In addition to these, the following post-processing steps have been applied to t
 * Removal of non-meteorological echoes.
 * Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
 
-**KNMI National products D3**
+**KNMI National products D03**
 KNMI could demonstrate the ORD API with D3a (reflectivity composite), D3b (precipitation composites), and D3d (echo top) products: 
 * https://dataplatform.knmi.nl/dataset/radar-reflectivity-composites-2-0
 "Gridded files of radar reflectivities at 1500 m over the Netherlands and surrounding area measured by two radars in Herwijnen and Den Helder. Time interval is 5 minutes."
@@ -190,6 +190,23 @@ format: hdf5
   format: hdf5
 * https://dataplatform.knmi.nl/dataset/nl-rdr-data-rtcor-5m-1-0
 "Gridded files of radar-derived 5 minute precipitation accumulations, corrected by rain gauge data. Radar data over the Netherlands and surrounding area measured by Dutch, Belgian, and German radars are corrected by available data from automatic rain gauges. Time interval is 5 minutes." format: hdf5
+
+**METNO national products D03** 
+
+METNO could demonstrate the RODEO interface with a mosiac covering the Nordic countries with D03a (reflectivity) and D03b (precipitation):
+1. Radar reflectivity factor in dBZ
+2. Rainfall intensity R, in units of mm/h
+
+A national mosiac covering Norway could be made available with D03a (reflectivity) and D03b (precipitation)
+
+Products for D02 are available in 5-minutes time resolution. The mosaic covering the Nordic countries could be made available in ODIM H5, and GeoTIFF format.
+
+All data and resulting data products have undergone signal processing stages where:
+* Removal of non-meteorological echoes (sea clutter)
+* Stationary objects have been removed using ground clutter filtering.
+* Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
+
+
 
 ### Prioritizing FAIR-principles related to weather radar data
 
