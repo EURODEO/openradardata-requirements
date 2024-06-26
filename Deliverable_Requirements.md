@@ -275,44 +275,44 @@ Related to use cases in FEMDI 2.4.
 - The user case defines that a metadata database is needed with the discovery metadata for searching data. The metadata database structure for both the archived or 24-cache datasets should be the same. For composites it may be diffrent.
 
 *Acceptance criteria:* 
-- Suggestion for WP6 T6.4 (ECMWF) to be a test user pr some other met institute developing AI tools. The acceptance criteria would be that a test user can download data efficiently, calculate an dataset based on data fetched via the API and converted it to format they can read.
+- Suggestion for WP6 T6.4 (ECMWF) to be a test user or some other met institute developing AI tools. The acceptance criteria would be that a test user can download data efficiently, calculate an dataset based on data fetched via the API and converted it to format they can read.
 
 *Consequences and decisions:* 
 - Due to computational resources, ORD supply will not convert the old archive to HDF5, nor will it split the volume files to single elevation files, but archives the data as it is in the OPERA archive. Therefore, the requirement is to provide the converters/readers for the old data for the users. Collaboration can be with OPERA Expert Team and [xradar - community](https://github.com/openradar/xradar)
-- To find test users, collaboration with WP6 T6.4 (ECMWF)
+- To find test users, possible collaboration with WP6 T6.4 (ECMWF)
   
 
 ### U02 A Small & Medium Enterprise (SME) application developer who wants to see what data sets are available, access them and build an application based on OPERA data  
 
 Related to use cases in FEMDI 2.5 and E-SOH 4.3.
 
-“As a new data consumer, I want a single unified view of available meteorological datasets which are updated on a regular basis, that is easily accessible and findable, is easily integrated into my systems and can be re-used (i.e., following FAIR principles). This will allow me to develop an application which makes best use of the available data to add value to the users and bring me in an income.”  
+“As a new data consumer, I want a single unified view of available meteorological datasets which are updated on a regular basis, that is easily accessible and findable, is easily integrated into my systems and can be re-used (i.e. following FAIR principles). This will allow me to develop an application which makes best use of the available data to add value to the users and bring me in an income.”  
 
 *Requirements:* 
-- Preseumably uses only D01 composite data, but e.g. aviation application developer may would like to have 3D - volume data (this is similar to U01)
-- Requirement is to identify a suitable datasets via the FEMDI Shared Catalogue and determine which of the APIs for that dataset is suitable for running application.
-- The mobile application quickly becomes popular and is installed on over 10,000 devices. Each device makes a few requests a day as the user changes location, and this adds up to lots of requests on the Data Supply component’s API.
-- Data should be easily readable, requires e.g. that datasets are availbale in GeoTiff (composites only) in addition to HDF5
+- D01 datasets are the primary use but e.g. aviation application developer may would like to have 3D - volume data (then this is similar to U01)
+- Requirement is to identify a suitable datasets via the FEMDI Shared Catalogue and determine, which of the datasets are suitable for running application.
+- The mobile application can quickly become popular and is installed on over 10,000 devices. Each device makes a few requests a day as the user changes location, and this adds up to lots of requests on the data supply component’s API.
+- Data should be easily readable, requires e.g. that datasets are availbale in cloud-optimized GeoTiff (composites only) in addition to HDF5
 - Requires a manual how to use the data
-- For D01, the search can be time-wise, but no need for spatial-wise. Always use the whole composite.
-- Potentially can lead to a lot of requests and processing on the data source, thus, requires for priority use an authorization.    
+- For D01, the search can be done by time, but no need by coordinates. The supply will be always for the whole composite.
+- Potentially can lead to a lot of requests and processing on the data source, therefore would require priority use by authorization.    
 
 *Priority:*  
--secondary 
+- secondary 
 
 *Clarifications:* 
 
 *Acceptance criteria:* 
-- Performance validation tests for the API - to be able to download archived GeoTiffs (composites) via API and to be able to download real-time GeoTiffs via API with the defined timeliness and availability.
+- Performance validation tests for the API with test users (agree this with WP7) - to be able to download archived GeoTiffs (composites) via API and to be able to download real-time GeoTiffs via API with the defined timeliness and availability (TBD).
 
 *Consequences and decisions:* 
 - Sets system requirement of authorized access for data for prioritising data flow
-- Data conversion to GeoTiff
-- Requires descision of the SLA we are offering for the datasets in RODEO 
+- Data conversion to cloud-optimised GeoTiff for D01. This is performed for the whole archive. 
+- Requires descision of the perfomrance level offered for different datasets in RODEO  
 
 ### U03 A member of a public organisation who wants to see real time weather radar visualised on their mobile.  
 
-Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
+Related to use cases in FEMDI 2.6 and E-SOH 4.4,and 4.5
 
 “As a traffic officer manager, I want to use my smart phone to regularly check the rainfall amounts across my country and bordering countries in Europe, so I can be prepared for different driving conditions, and potential impacts on the traffic network and people’s safety. This will allow me to rapidly respond with appropriate resources and equipment to incidents.”   
 
@@ -323,39 +323,43 @@ Related to use cases in FEMDI 2.6 and E-SOH 4.4, and 4.5
 - secondary
 
 *Clarifications:* 
-- Visualisation is out of scope of FEMDI. The responsibilty of the RODEO API will end to supply the data. 
+- This U03 will not introduce new system requirements to U02.
 - Potential additional use case to be considered 
 
 *Acceptance criteria:* 
 - same as U02
 
 *Consequences and decisions:* 
-- This U03 will not introduce new system requirements to U02 
+- Visualisation is out of scope of FEMDI and also ORD supply. The responsibilty of the ORD API will end to supply the data.
 
 ### U04 - EUMETNET Members uses RODEO for data exchange
 
-“EUMETNET members want to replace the bilateral data exchange with RODEO. They want the 3D-volume data as fast as possible as a high priority user. They are familiar with the data formats and the radar data processing. They will build their national forecasting services on this data.”  
+“EUMETNET members want to replace the bilateral data exchange with ORD supply. They want the 3D-volume data as fast as possible as a high priority user. They are familiar with the data formats and the radar data processing. They will build their national forecasting services on this data.”  
 
 *Requirements:*
-- requires 3D-volume radar data
-- requires automized fetching of data from an interface, automized set of rules for selecting data (radar-wise, spatially, variables) 
-- a 24 - hour cache is suitable, doesn't require the large archive
-- requires the authorization and priorization for the data use
-- reqiures a fast connection to data, no in-between processing  
+- Requires 3D-volume radar data (real-time D02)
+- Requires automized fetching of data from an interface, automized set of rules for selecting data (radar identification, location, radar quantities, elevation angles) 
+- A 24 - hour cache is suitable, doesn't require the large archive
+- Requires the authorization and priorization for the data use
+- Reqiures a fast connection to data, no in-between processing
+- For redundancy, could require a two sets of 24-hour caches in two separate locations.
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Clarify is the API providing links to S3 or to data (for composites)
+- Clarification can the direct links to S3 be used, are there any security limitations in this solution.
+- The plans of WP2 FEMDI API gateway for authorization
+- The structure of S3 archive, to define the optimized speed to use the archive.  
    
 *Acceptance criteria:*
-- Perfromance validation results for fetching different sizes of data batches in the defined SLA of timeliness, availablity and completeness
+- Performance validation results for fetching different sizes of data batches in the defined timeliness, availablity and completeness with a test user.
 
 *Consequences and decisions:*
 - The SLAs for RODEO needs to be defined following the QoS planned.
-- Prioritized data use (FEMDI is not supporting this at the moment)
-- can bypass this with direct links to S3 fro EUMETNET members
+- Prioritized data use (clarify if WP2 FEMDI is supporting this)
+- If no security issues, build direct links to S3 for EUMETNET members to have fast access to the data.
+- Clarify the need for redundancy and the cost implications. 
 
 
 ### U05 EUMETNET members are visualising OPERA products in the forecasting services
