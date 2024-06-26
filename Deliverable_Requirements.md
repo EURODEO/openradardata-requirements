@@ -97,7 +97,6 @@ An example of the metadata structures of ODYSSEY, which uses ODIM 2.0 format whi
 ![Figure 2. The list of OPERA ODYSSEY (left) and NIMBUS (right) metadata structure.](./Images/ODYSSEY_NIMBUS_metadata_23062024.png)
 
 
-
 ### OPERA Database
 
 OPERA Database is manually maintained table by the OPERA data providers and by the Croatian Meteorological and Hydrological Service (DHMZ). It is sporadically updated, minimum twice a year. The available formats are json, xlsx and csv and it can be automatically pushed to service provider. The fields it includes are stated in the Table 2 and example file is attached as ANNEX2 [OPERA database in csv](https://github.com/EURODEO/opera-requirements/blob/main/Annex/ANNEX2_OPERA_RADARS_DB_2024_02.csv).  
@@ -206,23 +205,37 @@ All data and resulting data products have undergone signal processing stages whe
 * Stationary objects have been removed using ground clutter filtering.
 * Transformation of radar reflectivity factor depending on precipitation type to rainfall intensity.
 
-
-
 ### Prioritizing FAIR-principles related to weather radar data
 
-The expectation of EU Digital Funding is that the funded APIs are developed according to FAIR (Findability, Accessibility, Interoperability, and Reuse of digital assets) - principles. The principles emphasise machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention). The principles refer to three types of entities: data (or any digital object), metadata (information about that digital object), and infrastructure. For instance, principle F4 defines that both metadata and data are registered or indexed in a searchable resource (the infrastructure component). Datasets in WP6 can partially fullfill the requirement of FAIR, but not fully. Here in Table 3 are identified and prioritized, which datasets fulfill the required FAIR-principles and if not, what are the actions either to make the dataset complient.   
+The expectation of EU Digital Funding is that the funded APIs are developed according to FAIR (Findability, Accessibility, Interoperability, and Reuse of digital assets) - principles. The principles emphasise machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention). The principles refer to three types of entities: data (or any digital object), metadata (information about that digital object), and infrastructure. For instance, principle F4 defines that both metadata and data are registered or indexed in a searchable resource (the infrastructure component). It has been discussed that datasets in ORD can partially fullfill the requirement of FAIR, but not fully. Here in Table 3 are identified and prioritized, which datasets fulfill the required FAIR-principles and if not, what are the actions either to make the dataset complient.   
+
+
+Findability: with WSI or a temporary ID, timestamp and sensor type we can identify the dataset uniquely and point it with the metadata database entry, therefore we see it to be persistent and compliant as we can make the pointer again if needed.
+
+License. OPERA composite data can be published under agreed license and we can have it in the metadata. For the national products or single site radar data this is NMS's responsibility
+
+We are following the ODIM standard, therefore here we are complaint again.
+
+Accessibility is compliant since one will require data from the API when needed.
+
+Data is not typically inserted to the system after disruption, there should not be double-feeding.
+
+For the national products the NMSs is responsible for the data storing.
+
+we are for now following the ODIM vocabularies, but can then use the converter later if needed.
+
 
 Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/Tertiary (T)/Not applied during RODEO (NA)
 | FAIR | Description | D01 real-time OPERA composites | D01 archived OPERA composites| D02 real-time OPERA volume data  | D02 archived volume data | D03 real-time National products | More Info 
 | :--- | :--- |  :--- |  :--- |  :--- |  :--- |  :--- |  :---
-| **Findable** | Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services |  |  |   |  |  | 
-| **F1** | (Meta)data are assigned a globally unique and persistent identifier | P: ID for international dataset, version control, Annakaisa to clarify if this possible |  S: Can ID be given for historical data, e.g. version control|  NA: national effort |  NA: national effort |  NA: national effort. If such exists API should be able to push this information forward |  
-| **F2** |  Data are described with rich metadata (defined by R1 below) | Compliant | Compliant | Compliant | Compliant | Compliant | The metadata needs to read from the data files, version control is not really compliant 
-| **F3** | Metadata clearly and explicitly include the identifier of the data they describe |  |  |  |  |  | 
-| **F4** | (Meta)data are registered or indexed in a searchable resource |  |  |  |  |  | 
-| **Accesible** |Once the user finds the required data, she/he/they need to know how they can be accessed, possibly including authentication and authorisation. |  |  |   |  |  | 
-| **A1** | (Meta)data are retrievable by their identifier using a standardised communications protocol |  |  |  |  |  |  
-| **A1.1** | The protocol is open, free, and universally implementable |  |  |  |  |  | 
+| **Findable** | Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services | P | P  | NA  | NA  | NA | 
+| **F1** | (Meta)data are assigned a globally unique and persistent identifier | The OPERA datasets D01 can be indentified with unique identifier, but cannot be linked to persistent ID system such as DOI due to the nature of continous (version control), the data EUMETNET ownership, and historical datasets |  same as on the right|  national effort |  national effort |  national effort|  
+| **F2** |  Data are described with rich metadata (defined by R1 below) | Compliant with ODIM | Compliant with ODIM | Compliant with ODIM | Compliant with ODIM | Compliant with ODIM | The metadata needs to read from the data files, version control is not really compliant 
+| **F3** | Metadata clearly and explicitly include the identifier of the data they describe | Compliant with ODIM  | Compliant with ODIM | Compliant with ODIM | Compliant with ODIM  | National effort | 
+| **F4** | (Meta)data are registered or indexed in a searchable resource | Discovery metadata database is implemented | Discovery metadata database is implemented | Discovery metadata database is implemented | Discovery metadata database is implemented | ODIM compliant metadata and discovery meatadata can be read, otherwise national effort | 
+| **Accesible** |Once the user finds the required data, she/he/they need to know how they can be accessed, possibly including authentication and authorisation. | P | P | P  | P | NA | 
+| **A1** | (Meta)data are retrievable by their identifier using a standardised communications protocol | planned to be compliant | planned to be compliant | planned to be compliant | planned to be compliant | national effort |  
+| **A1.1** | The protocol is open, free, and universally implementable | planned to be compliant | planned to be compliant  | planned to be compliant | planned to be compliant | planned to be compliant | 
 | **A1.2** | The protocol allows for an authentication and authorisation procedure, where necessary |  |  |  |  |  | 
 | **A2** |  Metadata are accessible, even when the data are no longer available |  |  |  |  |  | 
 | **Interoperable** |The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing. |  |  |   |  |  | 
