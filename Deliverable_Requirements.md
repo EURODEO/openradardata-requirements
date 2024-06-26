@@ -248,43 +248,38 @@ Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/
 
 Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
 
-![Table 4. User requirements in short .](./Images/WP6_userrequirements_tables_Datasets.png)
-
+Table 4. User requirements in short.
+![Table 4. User requirements in short.](./Images/WP6_userrequirements_tables_Datasets.png)
 
 ### U01 A company or public institute, where a data scientist who wants to use radar data in their machine learning model (training and operational) environment. 
 
 Related to use cases in FEMDI 2.4.
 
-“As a big data consumer, I want a single unified view of available meteorological datasets in machine-readable formats and large-scale data usage / re-processing, dataset needed for training a Machine Learning (ML) model and then running it. This innovative use of met data, will help bring step-change advances to technological solutions for understanding and forecasting the weather and its impacts events.”  
+“As a big data consumer, I want a single unified view of available meteorological datasets in machine-readable formats and large-scale data usage/re-processing, dataset needed for training a Machine Learning (ML) model and then running it. This innovative use of met data, will help bring step-change advances to technological solutions for understanding and forecasting the weather and its impacts events.”  
 
 *Requirements:* 
 
-- Requires either D01 composite or D02 volume radar data with a large archive (the back-end archive to be established in EWC)
-- Needs a suitable access mechanism for bulk consumption (rather than download), e.g. through S3 in cloud native formats to download directly to avoid download store.
+- Requires datasets D01 OPERA composite or D02 OPERA volume radar data with a large archive (the back-end archive to be established in EWC) (F)
+- Requires a suitable access mechanism for bulk consumption (rather than download), e.g. access through S3 in cloud native formats to download directly to avoid download store.
 - The execution of the trained AI model requires the real-time to be consistent with the training data (i.e., from the same source)
-- The old archive includes country specific BUFR ODIM format files, the newer files are in HVDs, requirement is to provide converters/readers to the old data. Here WP6 T4 could provide suitable tools when they are also developing the suitable datasets.
-- Data consumption is large in the case of radar volumes, but not time critical. This sets requirement for priorization of data supply
-- Requires that data could be searched by radar-wise, by coordinate-wise (radar location information should be in the discovery metadata), time-wise, variable-wise, format-wise
-- Requires license rights to data
--  
+- Requirement is to provide converters/readers for the old data. Here RODEO WP6 T6.4 could provide suitable tools when they are also developing the suitable AI datasets.
+- Data consumption is large in the case of radar volumes, but not time critical. This sets requirement for priorization of data supply for real-time use of volume data.
+- Requires that data could be searched by e.g. by radar identification, coordinates (radar location information should be in the discovery metadata), time ,  radar quantity (DBZH, TH, VRADH), format, elevation angle
+- Requires that the OPERA volume data which is not part of the HVD is prohibited to be not be supplied by ORD
+  
 *Priority:* 
-- secondary? Should this be primary accroding to EU Digital funding?
-
+- Primary
+  
 *Clarifications:* 
-- metadata database is needed, will be a large task to define it, but not to extract this 
-- Clarify metadata database structure both for the archived data or 24-cache, should be the same. 
-- For composites the metadata database may be diffrent.
-- Günther and Milka can provide infromation about the queries done at MF API or ODE
-- Basic queries could be (check ODIM definitions): radar id, radar quantity (DBZH, TH, VRADH), time, product type (single site, composite), elevation angles?  
-
+- The OPERA volume radar data archive includes both ODIM files both in BUFR and HDF5. The older ones are in BUFR format.
+- The user case defines that a metadata database is needed with the discovery metadata for searching data. The metadata database structure for both the archived or 24-cache datasets should be the same. For composites it may be diffrent.
 
 *Acceptance criteria:* 
-- Suggestion: Could WP6 T4 (ECMWF) to be a test user here and when they can calculate an dataset based on data fetched via the API and converted it to format they can read.
+- Suggestion for WP6 T6.4 (ECMWF) to be a test user pr some other met institute developing AI tools. The acceptance criteria would be that a test user can download data efficiently, calculate an dataset based on data fetched via the API and converted it to format they can read.
 
 *Consequences and decisions:* 
-- Responsible to provide the converters/readers for the old data, collaboration with OPERA ET and xradar
-- To engange WP6 T4 (ECMWF)
-- requires the descision of how much we can follow FAIR-principles with the datasets
+- Due to computational resources, ORD supply will not convert the old archive to HDF5, nor will it split the volume files to single elevation files, but archives the data as it is in the OPERA archive. Therefore, the requirement is to provide the converters/readers for the old data for the users. Collaboration can be with OPERA Expert Team and [xradar - community](https://github.com/openradar/xradar)
+- To find test users, collaboration with WP6 T6.4 (ECMWF)
   
 
 ### U02 A Small & Medium Enterprise (SME) application developer who wants to see what data sets are available, access them and build an application based on OPERA data  
