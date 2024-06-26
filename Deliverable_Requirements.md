@@ -236,17 +236,17 @@ Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/
 | **Accesible** |Once the user finds the required data, she/he/they need to know how they can be accessed, possibly including authentication and authorisation. | P | P | P  | P | NA | 
 | **A1** | (Meta)data are retrievable by their identifier using a standardised communications protocol | planned to be compliant | planned to be compliant | planned to be compliant | planned to be compliant | national effort |  
 | **A1.1** | The protocol is open, free, and universally implementable | planned to be compliant | planned to be compliant  | planned to be compliant | planned to be compliant | planned to be compliant | 
-| **A1.2** | The protocol allows for an authentication and authorisation procedure, where necessary |  |  |  |  |  | 
-| **A2** |  Metadata are accessible, even when the data are no longer available |  |  |  |  |  | 
-| **Interoperable** |The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing. |  |  |   |  |  | 
-| **I1** | (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation. |  |  |  |  |  |  
-| **I2** | (Meta)data use vocabularies that follow FAIR principles |  |  |  |  |  | 
-| **I3** | (Meta)data include qualified references to other (meta)data |  |  |  |  |  | 
-| **Reusable** | Metadata and data should be well-described so that they can be replicated and/or combined in different settings. |  |  |   |  |  | 
-| **R1** | (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation. |  |  |  |  |  |  
-| **R1.1** | (Meta)data are released with a clear and accessible data usage license. |  |  |  |  |  | 
-| **R1.2** | (Meta)data are associated with detailed provenance |  |  |  |  |  | 
-| **R1.3** | (Meta)data meet domain-relevant community standards |  |  |  |  |  | 
+| **A1.2** | The protocol allows for an authentication and authorisation procedure, where necessary | TBD in FEMDI API Gateway | TBD | TBD | TBD  | TBD | 
+| **A2** |  Metadata are accessible, even when the data are no longer available | TBD | TBD  | TBD | TBD | national efforts | 
+| **Interoperable** |The data usually need to be integrated with other data. In addition, the data need to interoperate with applications or workflows for analysis, storage, and processing. | S | S | S | S | NA | 
+| **I1** | (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation. | ODIM compliant | ODIM compliant  | ODIM compliant | ODIM compliant | national effort |  
+| **I2** | (Meta)data use vocabularies that follow FAIR principles | ODIM, later can be used mapping to CF conventions if needed | same | same | same | national effort | 
+| **I3** | (Meta)data include qualified references to other (meta)data | TBD | TBD | TBD | TBD | national effort | 
+| **Reusable** | Metadata and data should be well-described so that they can be replicated and/or combined in different settings. | S | S | S | S | NA  | 
+| **R1** | (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation. | planned to be compliant | planned to be compliant  | planned to be compliant | planned to be compliant | national efforts |  
+| **R1.1** | (Meta)data are released with a clear and accessible data usage license. | TBD | TBD  | national effort | national effort | national effort | 
+| **R1.2** | (Meta)data are associated with detailed provenance | TBD | TBD  | national effort |  national effort  |  national effort | 
+| **R1.3** | (Meta)data meet domain-relevant community standards | ODIM  | ODIM | ODIM  | ODIM  | national effort  | 
 
 
 ## User requirements
