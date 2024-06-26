@@ -207,22 +207,17 @@ All data and resulting data products have undergone signal processing stages whe
 
 ### Prioritizing FAIR-principles related to weather radar data
 
-The expectation of EU Digital Funding is that the funded APIs are developed according to FAIR (Findability, Accessibility, Interoperability, and Reuse of digital assets) - principles. The principles emphasise machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention). The principles refer to three types of entities: data (or any digital object), metadata (information about that digital object), and infrastructure. For instance, principle F4 defines that both metadata and data are registered or indexed in a searchable resource (the infrastructure component). It has been discussed that datasets in ORD can partially fullfill the requirement of FAIR, but not fully. Here in Table 3 are identified and prioritized, which datasets fulfill the required FAIR-principles and if not, what are the actions either to make the dataset complient.   
+The expectation of EU Digital Funding is that the funded APIs are developed according to the FAIR (Findability, Accessibility, Interoperability, and Reusability) principles. These principles emphasize machine-actionability, meaning the ability of computational systems to find, access, interoperate, and reuse data with minimal or no human intervention. The principles pertain to three types of entities: data (or any digital object), metadata (information about that digital object), and infrastructure. For instance, principle F4 states that both metadata and data should be registered or indexed in a searchable resource (the infrastructure component).
 
+It has been noted that datasets in ORD can partially fulfill the requirements of FAIR, though not entirely. Table 3 identifies and prioritizes which datasets meet the FAIR principles and outlines actions to achieve compliance where they do not.
 
-Findability: with WSI or a temporary ID, timestamp and sensor type we can identify the dataset uniquely and point it with the metadata database entry, therefore we see it to be persistent and compliant as we can make the pointer again if needed.
+Weather radar datasets typically consist of measurements over long time series, during which new signal processing methods and algorithms have been applied. However, version control is not specifically defined. Additionally, for OPERA production (D01), specific software releases over the years are not consistently registered, making it challenging to apply persistent identifiers such as DOIs to these datasets. Furthermore, the ownership of OPERA products (D01) belongs to EUMETNET, so national entities cannot assign identifiers. Nevertheless, OPERA data products can be identified and researched using their metadata, thereby seen to fulfil the Findability principle. Also for national volume data (D02), datasets can be uniquely identified with a timestamp, WSI (WIGOS Station Identifier), or a temporary ID created by the API system in the backend log. These datasets can be referenced via the metadata database, making D02 datasets persistent and compliant, as the API can redirect to the same data source if needed.
 
-License. OPERA composite data can be published under agreed license and we can have it in the metadata. For the national products or single site radar data this is NMS's responsibility
+Regarding the datasets supplied via the ORD API, accessibility is considered compliant since datasets are available from the API when needed.
 
-We are following the ODIM standard, therefore here we are complaint again.
+OPERA composite data (D01) can be published under an agreed license in RODEO (TBD), which can be applied in the metadata. For national products (D03) or single-site radar (D02) data, this responsibility lies with the NMS's radar data providers.
 
-Accessibility is compliant since one will require data from the API when needed.
-
-Data is not typically inserted to the system after disruption, there should not be double-feeding.
-
-For the national products the NMSs is responsible for the data storing.
-
-we are for now following the ODIM vocabularies, but can then use the converter later if needed.
+OPERA and the datasets collected via OPERA, follow the ODIM standard, meaning the data and metadata adhere to community standards. However, converters and vocabulary mapping to conventions such as CF (Climate and Forecast) conventions will be developed later if needed.
 
 
 Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/Tertiary (T)/Not applied during RODEO (NA)
