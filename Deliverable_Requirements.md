@@ -246,7 +246,7 @@ Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/
 
 ## User requirements
 
-Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
+This section represents the use cases and the requirements based on these user needs. The user requirements are linked to functional and non-functional requirements of the ORD supply system. Some of the use cases are stated also in the FEMDI (WP2) and E-SOH (WP3) requirement documentation. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
 
 Table 4. User requirements in short.
 ![Table 4. User requirements in short.](./Images/WP6_userrequirements_tables_Datasets.png)
