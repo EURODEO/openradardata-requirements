@@ -248,16 +248,8 @@ Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/
 
 Description of use cases. Three of the use cases are stated also in the FEMDI documentation and four are related to E-SOH requirements. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
 
-Table 4. User requirements in short 
-| User requirement | Description | D01 real-time OPERA composites | D01 archived OPERA composites| D02 real-time OPERA volume data  | D02 archived volume data | D03 real-time National products | Primary (P)/Secondary (S)/Tertiary (T)| More Info 
-| :--- | :--- | :--- | :--- | :--- |:---| :--- |:--- | :--- | 
-| U01 | Development of AI model | X | X | X | X | | P | requires large amount of data, but not with prioritized access to develop, consistent data in operating the AI model| 
-| U02 | Development and operating an application  | X | X | (X) | (X) | | S | requires easy access and easily-readible data, archive for development | 
-| U03 | Use data on mobile | X | | | | | S | requires easy access and easily-readible data | 
-| U04 | EMN for data exchange | | | X | | | P |requires fast access and prioritized to real-time volume data | 
-| U05 | EMN for data visualization | X | | | | X | S |requires data to be easily inserted to the used visualization tools| 
-| U06 | EMN supply national radar products | | | | | X | P |requires data to be easily inserted to the used visualization tools|
-| U07 | Third-party radar observations | | | | | | T | N/A | 
+![Table 4. User requirements in short .](./Images/WP6_userrequirements_tables_Datasets.png)
+
 
 ### U01 A company or public institute, where a data scientist who wants to use radar data in their machine learning model (training and operational) environment. 
 
