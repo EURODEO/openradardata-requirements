@@ -922,7 +922,7 @@ The business requirements in this section is covering the requirements that are 
 - TBD, is the service build on EWC or similar cloud service. This is still under negotiations. 
 
    
-### B06 - existing Members’ capability considered for incorporation within RODEO/OPERA?
+### B06 - existing Members’ capability considered for incorporation within RODEO
 
 “As a EUMETNET Member, I want, wherever possible, existing Members’ (including ECMWF, EUMETSAT) capability (e.g., EWC) considered for incorporation within ORD supply. So, previous investment is exploited to its full potential.”
 
@@ -1069,9 +1069,33 @@ This section defines the main risks seen in the design of the ORD supply.
 
 *Clarifications:*
 - The risk is similar to R01.
+- The funding for the operations of ORD supply is not yet secured
   
 *Mitigation:*
-- Active negotiations between the EUMETNET members and EUMETNET Secretariat and in collaboration with EWC representatives of EUMETSAT and ECMWF. 
+- Active negotiations between the EUMETNET members and EUMETNET Secretariat to secure post-RODEO funding. 
+
+### R03 - uncertainty of the operational platform
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- The risk is similar to R01 and R02.
+- Related to the uncertainty of R01, as no descision has not been made about the resources, there is no firm definition of the used platform on which ORD supply should be running. The expectation is, and also according to B06, EWC would be preferable option. At the moment, in ORD the test implementation is designed to be on EWC, in the case, the descision is to have the supply on other platform, some designed solutions may not be usable on the chosen platform leading to double work as well as most likely delay in the implementation.     
+  
+*Mitigation:*
+- Active negotiations between the EUMETNET members and EUMETNET Secretariat to have descision on the used solution for providing the service.
+
+### R04 - scalability of ORD supply is not adequate
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- The service levels and the computational resources      
+  
+*Mitigation:*
+- Active negotiations between the EUMETNET members and EUMETNET Secretariat to have descision on the used solution for providing the service. 
 
 
 
