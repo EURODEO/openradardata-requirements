@@ -32,7 +32,7 @@ trace root cause of the potential problems.
 
 In the process of establishing the KPIs the following sources and examples are taken into consideration:
 
-* [OPERA Database:]() 
+* [OPERA Database:](Annex/ANNEX2_OPERA_RADARS_DB_2024_02.csv) 
 * [WIS 2.0 Technical requirements:](https://community.wmo.int/en/WIS2_Technical_Specification_Guidance)
 * [WIS Metadata Key Performance Indicators:](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis)?
 * DWD OPERA KPI's?
