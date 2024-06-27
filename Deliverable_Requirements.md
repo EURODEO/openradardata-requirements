@@ -590,7 +590,6 @@ In this section are listed the functional and non-functional requirements which 
 *Clarifications:*
 - This states that the goal is to build the service on exisiting and openly availble software, but system components can also be home-made for the purpose of the project.
 
-
 *Acceptance criteria:*
 - NA
   
@@ -758,6 +757,7 @@ In this section are listed the functional and non-functional requirements which 
 
 *Acceptance criteria:*
 - NA
+  
 *Consequences and decisions:*
 - Here are relied on the NMSs' own software quality assurance standards.
 
@@ -962,7 +962,7 @@ The desicion of using of API also to supply national products (D03) should then 
 - primary
 
 *Clarifications:*
-- The filled FAIR principles are stated in the section (Prioritizing FAIR-principles related to weather radar data)[Prioritizing_FAIR-principles_related_to_weather_radar_data]
+- The filled FAIR principles are stated in the section [Prioritizing FAIR-principles related to weather radar data](#Prioritizing_FAIR-principles_related_to_weather_radar_data)
 - It is seen that many of the principles are fulfilled, however for national products (OD3) filling the most of the principles are seen as national effort.
 - The FAIR, HVD and WIS2 requirements are not contradictory.
   
