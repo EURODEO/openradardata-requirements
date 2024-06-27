@@ -246,7 +246,7 @@ Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/
 
 ## User requirements
 
-This section represents the use cases and the requirements based on these user needs. The user requirements are linked to functional and non-functional requirements of the ORD supply system. Some of the use cases are stated also in the FEMDI (WP2) and E-SOH (WP3) requirement documentation. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
+This section represents the use cases and the requirements based on these user needs. Some of the use cases are stated also in the FEMDI (WP2) and E-SOH (WP3) requirement documentation. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
 
 Table 4. User requirements in short.
 ![Table 4. User requirements in short.](./Images/WP6_userrequirements_tables_Datasets.png)
@@ -259,7 +259,7 @@ Related to use cases in FEMDI 2.4.
 
 *Requirements:* 
 
-- Requires datasets D01 OPERA composite or D02 OPERA volume radar data with a large archive (the back-end archive to be established in EWC) (F)
+- Requires datasets D01 OPERA composite or D02 OPERA volume radar data with a large archive (the back-end archive to be established in EWC)
 - Requires a suitable access mechanism for bulk consumption (rather than download), e.g. access through S3 in cloud native formats to download directly to avoid download store.
 - The execution of the trained AI model requires the real-time to be consistent with the training data (i.e., from the same source)
 - Requirement is to provide converters/readers for the old data. Here RODEO WP6 T6.4 could provide suitable tools when they are also developing the suitable AI datasets.
@@ -446,7 +446,7 @@ In this section are listed the functional and non-functional requirements which 
 - primary
 
 *Clarifications:*
-- Operational service includes e.g. documentation, stable production fulfillig the defined service level of timeliness, availability and completness, possible also includes redundancy.  
+- Operational service includes e.g. documentation, stable production fulfillig the defined service level of timeliness, availability and completness, possible also includes redundancy. The system perfromance should be monitored and reported. 
 - This is the main goal set for the requirements, the below defined requirements are to explanatory to this. Requirements F02 to F06 describe the service levels required.
 
 *Acceptance criteria:*
@@ -471,77 +471,89 @@ In this section are listed the functional and non-functional requirements which 
 - System is planned to fulfill the defined service level with taking into account the available resources.
   
 *Acceptance criteria:*
+- Similar to F01 to have a testing period to examine the availability of the system. The avalability should be monitored continously.
 
 *Consequences and decisions:*
 - ORD supply is designed and build to be available 24/7
 - Service desk function is planned to be performed together with the other dataset supplies possibly in FEMDI (WP2), no 24/7 service to fix the errors in data flow can be promised.
 - For now, dublicated system at EWC is not planned (meaning e.g. 24-cache archive in both EWC computational centres), but should be also considred as operational use of the supply should have redundancy in place.  
 
-### F03 - delivery within 1 minute
+### F03 - delivery within one minute
 
-"As an consumer of Open Radar Data, I want volumes and composites to be available within 1 minute of data is publishing by the OPERA hub. So, I can deliver the level of service required by my users."
+"As an consumer of ORD, I want volumes and composites to be available within 1 minute of data is publishing by the OPERA hub and production. So, I can deliver the level of service required by my users."
 
 *Priority:*
  - primary
 
 *Clarifications:*
+- ORD supply should not cause any significant delay in sharing time-critical data
 
 *Acceptance criteria:*
+- once API is implemented, the fastness of the data flow must be monitored and validated.
 
 *Consequences and decisions:*
-
+- The OPERA volumen data and the products are ingested from DWD, GeoSphere Austria, and Météo France with the ingest-API. The perfromance of the ingest API must be considered carfully, e.g. how much discovery metadata information is read from the file and how much from the filename to save time.
+      
 ### F04 - file delivered within a minute of the youngest observation within the file 
 
-"As an consumer of Open Radar Data, I want the files available for downloading within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
+"As an consumer of ORD, I want the files available for downloading within a minute of the youngest observation within the file. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Depending on who makes the batched file, this is a requirement on the data producer? Yes, but also on the system throughput.
+- Similar to F03, more related to files sent as volumes.
+- More a data provider requirement but the system throughput should no add any additional delay.
 
 *Acceptance criteria:*
+- same as F03
 
 *Consequences and decisions:*
+- same as F03
 
 ### F05 - data producers to make the data they create available with minimum delay
 
-"As the Open Radar Data system manager, I want data producers of national products to make the data they create available with minimum delay. So, I can deliver the level of service required by my users."
+"As the ORD system operator, I want data producers of national products to make the data they create available with minimum delay. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
+- This is a requirement for the data providers.
+- For OPERA datasets D01 and D02, these are monitored in the EUMETNET Quality Monitoring Portal.
+- For D03, this is seen as the national responsibility.
 
 *Acceptance criteria:*
+- NA
 
 *Consequences and decisions:*
+- This is out of the scope of ORD supply operations. 
+
 
 ### F06 - agreed delivery data format and protocol
 
-"As the Open Radar Data system manager, I want data producers to make the data they create available in an agreed data format and following an agreed delivery protocol. So, I can deliver the level of service required by my users."
+"As the ORD supply, I want data producers to make the data they create available in an agreed data format and following an agreed delivery protocol. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- ODIM HDF is mandatory for volumes (archive is also in BUFR or HDF5) and composites (is also converted to GeoTiff)
-- The archive is supplied in its native format
-- links for converter (xradar)
-- in future data may be also available in FM301 (based on CFradial2, netcdf) - future development of RODEO (after project) 
-- Delivery will be done in S3 buckets
-- the supported data formats for national product files are HDF5 or GeoTiff
-- But also composites with other formats can be supplied directly from national interfaces as the data is stored locally at each NMS or sent to EWC S3 bucket
+- ODIM HDF is mandatory for volumes (archive is also in BUFR or HDF5) and composites (converted to cloud-optimized GeoTiff in ORD supply)
+- The archive is supplied in its native format and links for converters are provided (e.g. xradar)
+- In future, the data may be also available in WMO FM301 (based on CFradial2, netcdf), this requires future development after the RODEO project. Some of the work will be in considred in OPERA. 
+- Discussion if composites with other formats can be supplied directly from national interfaces (D03) as the data is stored locally at each NMS or sent to EWC S3 bucket with their national tendancy (TBD). This may be a problem for metadata ingestion.  
 - Ingest API will send the notification when the data has arrived to S3 or national storage.
 - Pointer needs to url-based and suitable for web-based clients (GeoWeb), but recommended to save the listing in as EDR-compliant.
-- Make the radar data as easy as possible for GeoWeb (FMI is investigating the solution of optimized GeoTiff)
-
-- Difference between short-term and long-term archives.
-  
+- Make the radar data as easy as possible for GeoWeb
+- Discussion is there a difference between short-term and long-term archives.  
 
 *Acceptance criteria:*
-
+- The decision of the supported formats should be clearly indicated to the users of the ORD supply.
+  
 *Consequences and decisions*:
+- OPERA composites (D01) are converted to cloud-optimized GeoTiffs in ORD while ingesting
+- Delivery will be done in S3 buckets
+- The supported data formats for national product files are ODIM HDF5 or cloud-optimized GeoTiff.
 
 ### F07 - reports of the performance against agreed KPIs
 
