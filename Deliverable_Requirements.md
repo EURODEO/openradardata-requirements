@@ -786,17 +786,12 @@ In this section are listed the functional and non-functional requirements which 
 - primary
 
 *Clarifications:*
-- We will follow the security measures of the NMSs security measures in software development.
-- We expect to implement encryption using secure protocols such as, e.g. HTTPS. Stored observation data will not be encrypted. Identity and Access Management (IAM) will depend on infrastructure implementations of which restrictions may apply, e.g., at EWC.
-- We follow the FEMDI stated processes in access control
-
-- Data ingestion (Only aplicable for dissimination of national products/files)
-   * There must be control of who are allowed to upload data to the system. Also, there may be several systems for uploading data. Sftp may be one of them, while others may depend on http post requests. This means that each system for ingesting data may need its own mechanisms for authentication, and possibly also authorization. If possible, it would be useful to have a common "source of truth" regarding authorization, regardless of authentication mechanism.
-
+- Data ingestion (Only aplicable for dissimination of national products (D03))
+   * There must be control of who are allowed to upload data to the system. Also, there may be several systems for uploading data. SFTP may be one of them, while others may depend on http post requests. This means that each system for ingesting data may need its own mechanisms for authentication, and possibly also authorization. If possible, it would be useful to have a common "source of truth" regarding authorization, regardless of authentication mechanism.
 - Administration and monitoring
    * Access to administration and statistics about the system should not be freely available to anyone. Some system must be set up to allow access to relevant users only.
 - Data delivery
-   * In the first version of ORD supply, there will be no restricted data, so from that perspective there is no need for authentication or authorization (Restriction is done at OPERA level).
+   * In the first version of ORD supply, there will be no restricted data, so from that perspective there is no need for authentication or authorization (Restriction is done at OPERA level), except for priorization.
    * If, at a later stage, we will introduce access control here, there seems to be some limitations in FEMDI regarding this: The use of a message queue implies that anyone will be able to know about the *existence* of restricted data. We can only provide access control on the actual data itself. 
    * Even if we want to only serve freely available data, we may still want to have some kind of access control here, to have some protection against servers becoming overloaded.
 - Security monitoring
@@ -807,70 +802,68 @@ In this section are listed the functional and non-functional requirements which 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- We will follow the security measures of the NMSs security measures in software development.
+- We expect to implement encryption using secure protocols such as, e.g. HTTPS. Stored observation data will not be encrypted. Identity and Access Management (IAM) will depend on infrastructure implementations of which restrictions may apply, e.g., at EWC.
+- We follow the FEMDI stated processes in access control
 
 ### F20 - sufficient compute resources
 
-"As a System Manager, I want sufficient compute resource to be available. So, I can deliver a resilient and sustainable service to my users."
+"As a ORD system operator, I want sufficient compute resource to be available. So, I can deliver a resilient and sustainable service to my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- The required compute resource for OPERA Open Radar Data is thought to be relatively low, especially compared with the requirements of NWP, Satellites and even Radar processing.
+- The required compute resource for OPERA ORD is thought to be relatively low, especially compared with the requirements of NWP, satellites and even radar processing.
 - The storage requirements are modest where only 24 hours of storage is required.
-- In the case of archive data seperat storege requirements will be placed.
-- Consideration also needs to be given to the requirements for resilience and for development environments. Depending on the resilience architecture and the need for development environments there might be several instances of OPERA Open Radar Data running in parallel to the operational system. On the other hand, depending on the service of the Cloud provider chosen, resilience might not need to be running in parallel and development environments may only exist when actively being used rather than being “always on”.
-- As more radars are added to OPERA Open Radar Data the resource requirements will increase accordingly. 
-- --SKIPP-- CPU ~8 CPU Core, Memory ~8GB RAM, Storage ~1TB
-- --SKIPP-- The estimate above is for a single instance of E-SOH running.
-- --SKIPP-- For other networks the number of parameters per station might be less. E.g., rain-gauges might only record a single meteorological value.
-- --SKIPP-- In addition to the resources required for the observations processing chain, additional resources will be required for the input and output to the systems. The number of “PUT” and “GET” request are likely to be significant given the number of  mall messages/files delivered to and disseminated by OPERA Open Radar Data. The Scoping study estimated between 0.25 and 1.7 Billion PUT requests per month.
-- The ‘periphery’ components of OPERA Open Radar Data (e.g., monitoring and reporting) will also require compute resources, but these are believed to be significantly less than the core of OPERA Open Radar Data.
-- The estimates above will need to be clarified during the design phase (WP1) and with E-soh.
-- --SKIPP-- Antoher crucial part is to estimate the load coming from open data requests. FMI open data gets about 20 req/s for observations (latest numbers should be confirmed with FMI). Scaling that up with number of countries would lead to 200-300 req/s and with number of users much more. FEMDI API gateway can hopefully cope with major part of the load, but probably not all. From that point of view, it's also important to check if, e.g., wis2box supports multiple nodes well (scaling).
+- In the case of archive data seperat storage requirements will be placed.
+- Consideration also needs to be given to the requirements for resilience and for development environments. Depending on the resilience architecture and the need for development environments there might be several instances of ORD running in parallel to the operational system. On the other hand, depending on the service of the cloud provider chosen, resilience might not need to be running in parallel and development environments may only exist when actively being used rather than being “always on”.
+- As more radars are added to ORD or more quantaties the resource requirements will increase accordingly. 
+- The ‘periphery’ components of ORD (e.g., monitoring and reporting) will also require compute resources, but these are believed to be significantly less than the core.
+
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- The resources at EWC or similar service needs to be defined. Premilinary calculations have been submitted to EUMETNET.
 
 
 ## Business requirements
 
-The business requirements in this section is covering the requirements that are related to WP6 for supplying weather radar data. 
+The business requirements in this section is covering the requirements that are related to WP6 for supplying ORD. 
 
+### B01 - ORD supply to be a flexible pathway to exposing weather radar data observations
 
-### B01 - RODEO WP6 OPERA to be a flexible pathway to exposing weather radar data observations
-
-“As a EUMETNET Member, I want RODEO to be flexible and be a pathway to exposing radar data from a single point of contact. So, I can deliver a consistent solution and reduce development activity.”
+“As a EUMETNET Member, I want ORD supply to be flexible and be a pathway to exposing radar data from a single point of contact. So, I can deliver a consistent solution and reduce development activity.”
 
 *Priority:*
 - secondary
 
 *Clarifications:*
-- Documentation and education for members and other user groups are required to provide such pathway
+
  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
-- Documentation and education for members and other user groups are required to provide such pathway.
+- Documentation and education for members and other user groups are required to use this supply.
 
 
 ### B02 - adoption of a "build and share" approach to software development
 
-“As a EUMETNET Member, I want the adoption of a "build and share" approach to software development. So, Members can efficiently and consistently develop their national capability related to FEMDI and beyond.” **Question**: What does "build and share" means?
+“As a EUMETNET Member, I want the adoption of a "build and share" approach to software development. So, Members can efficiently and consistently develop their national capability related to FEMDI and beyond.” 
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- The project description says that all software should be free and open-source.
-- OPERA is committed to share OPERA software under the GPL3.0 license with descision of EUMETNET PFAC. 
+- The project description says that all software should be free and open-source similar to system requirements F08 and F18
+- OPERA is committed to share OPERA software under the GPL3.0 license with decision of EUMETNET PFAC. 
 
 *Acceptance criteria:*
-- Software in RODEO is licensed with a free and open source license
+
 
 *Consequences and decisions:*
-- We will use Apache 2.0 as default? **Question**: Is the rest of FEMDI using Apache 2.0? Do we then need to clarify the difference between GPL and Apache and what consequences this may have for FEMDI and the FEMDI Radar data service? 
+- Software in RODEO is licensed with a free and open source license (TBD later)
 
 
 ### B03 - homogeneous data interoperability between EUMETNET Members and the wider community
@@ -881,19 +874,19 @@ The business requirements in this section is covering the requirements that are 
 - primary
 
 *Clarifications:*
-- The primary source of data in WP6 Open Radar Data is from OPERA, where a OPERA-developed common data model of ODIM (Michelson D. B., Lewandowski R., Szewczykowski M., Beekhuis H., Haase H., Mammen T., and D. Johnson, 2021: EUMETNET OPERA weather radar information model for implementation with the HDF5 file format Version 2.4. (www.eumetnet.eu/wp-content/uploads/2021/07/ODIM_H5_v2.4.pdf)) is used for years.
-- **Question:** Is a requirement of ODIM also applicable for the national products?
-- WMO has decided to follow the developed FM301 data model in the global radar data exchange, the transition period is presumably be long. WP6 Open Radar Data should be ready to supply data also in this model and format (netcdf). OPERA will develop a suitable framework for changing from ODIM to FM301. Converters are offered by WMO, and OPERA will develop a suitable addition to that to meet the requirements of OPERA. 
+- The primary source of data in ORD is from OPERA, where a OPERA-developed common data model of ODIM (Michelson et al. 2021) is used for years.
+- The national datasets (D03) are required to use ODIM, in case they are sending data in HDF5.
+- WMO has decided to follow the developed FM301 data model in the global radar data exchange, the transition period is presumably be long. ORD should be ready to supply data also in this model and format (netcdf). OPERA will develop a suitable framework for changing from ODIM to FM301. Converters are offered by WMO, and OPERA will develop a suitable addition to that to meet the requirements of OPERA. 
 - Current data formats are HDF5 and BUFR for archived data.
 - Radar metadata for OPERA members is stored in OPERA database, WRD, and OSCAR database. The infromation is not necessarily aligned.
-- We need to define use and discovery metadata that supports interoperability. Some station metadata (following a controlled vocabulary) should be required 
+- We need to define use and discovery metadata that supports interoperability. Some station metadata (following a controlled vocabulary) should be required. 
 
 *Acceptance criteria:*
 
 *Consequences and decisions*
-- RODEO project should provide converters from BUFR to ODIM/FM301
-- WIGOS Station Identifiers (WSI) are not yet collected to OPERA radar database 
-- Ignore restricted data in the beginning (i.e., data without a standard open license or release statement) **Question** this is not stated in the ODIM metadata, should it be a requirement in OPERA as well?  
+- RODEO project should provide converters from BUFR to HDF5/FM301
+- WIGOS Station Identifiers (WSI) are not yet collected to OPERA Database 
+- Ignore restricted data in the beginning (i.e., data without a standard open license or release statement) 
 
 ### B04 - sustainable service
 
@@ -1073,4 +1066,5 @@ documented and addressed. It is essential for the success of the project that al
 
 ## References
 
+Michelson D. B., Lewandowski R., Szewczykowski M., Beekhuis H., Haase H., Mammen T., and D. Johnson, 2021: EUMETNET OPERA weather radar information model for implementation with the HDF5 file format Version 2.4. (www.eumetnet.eu/wp-content/uploads/2021/07/ODIM_H5_v2.4.pdf)
 Saltikoff, E.; Haase, G.; Delobbe, L.; Gaussiat, N.; Martet, M.; Idziorek, D.; Leijnse, H.; Novák, P.; Lukach, M.; Stephan, K. OPERA the Radar Project. Atmosphere 2019, 10, 320. https://doi.org/10.3390/atmos10060320
