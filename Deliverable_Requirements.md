@@ -962,12 +962,14 @@ The desicion of using of API also to supply national products (D03) should then 
 - primary
 
 *Clarifications:*
-- The filled FAIR principles are stated in the section  we actually can fulfill in WP radar data - e.g. DOI for OPERA composite. For national data, the DOI or PID should be applied by the NMSs? 
-- The FAIR, HVD and WIS2 requirements are not contradictory, but strict follow-up of the FAIR principles requires at least unique persistent id's on the dataset level (see definition elsewhere). Keeping metadata and in the case of radar data, the data processing chanin, for indefinite time may be too challenging.
-
+- The filled FAIR principles are stated in the section (Prioritizing FAIR-principles related to weather radar data)[Prioritizing_FAIR-principles_related_to_weather_radar_data]
+- It is seen that many of the principles are fulfilled, however for national products (OD3) filling the most of the principles are seen as national effort.
+- The FAIR, HVD and WIS2 requirements are not contradictory.
+  
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- The national datasets (OD3) are considred in the demonstration.  
 
 ### B09 - data exposed in a way that’s consistent with data exchange initiatives within EUMETNET, WMO and the wider data community
 
@@ -981,35 +983,40 @@ The desicion of using of API also to supply national products (D03) should then 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- As ORD supply development is done under the RODEO project, the aim is to fulfill all the requirements and targets of the enteties in coherent matter. 
 
 ### B10 - secure mechanism to share data according to data policy
 
-“As a data owner, I want a secure mechanism to share data according to my data policy. So, I can use WP6 Open radar data to expose my data.”
+“As a data owner, I want a secure mechanism to share data according to my data policy. So, I can use ORD supply to expose my data.”
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- radar data belongs to the data providor, e.g. UKMO doesn't need to follow the HVD, and most likely is not willing to share the volume data through RODEO. Hence, somewhere, either in OPERA side or in RODEO, there needs to be block preventing data to be shared.
+- Radar data belongs to the data providor, e.g. UKMO doesn't need to follow the HVD, and most likely is not willing to share the volume data through RODEO. 
 - Discussions on sharing all the OPERA data inside the composite must be agreed inside EUMETNET
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- The restrictions in data sharing are performed at OPERA side.
+- Discussions on data licensing/sharing as HVDs are done with collaboration of WP7. 
 
 ### B11 - observation station metadata
 
-“As a data owner, I want observations station metadata to be efficiently held and maintained within RODEO; synchronised with national, EUMETNET and international metadata stores (e.g., WMO OSCAR, WMO WRD); respecting the metadata agreed Single Source of Truth. So, I am assured my data are represented correctly to radar data users and costs of metadata maintenance are minimised. ”
+“As a data owner, I want metadata to be efficiently held and maintained within RODEO; synchronised with national, EUMETNET and international metadata stores (e.g., WMO OSCAR, WMO WRD); respecting the metadata agreed single source of truth. So, I am assured my data are represented correctly to radar data users and costs of metadata maintenance are minimised. ”
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- WP6 Open radar data should define what are we considering the source of metadata information?
+- There are discrepancies in OPERA Database, WMO Oscar and WMO WRD (World Radar Database), all of these are depending on manual filling.
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- The metadata ingestion is taken directly from the files.
+
 
 ### B12 - radar observations delivered in the same format and exchange protocols as used today
 
@@ -1019,43 +1026,29 @@ The desicion of using of API also to supply national products (D03) should then 
 - secondary
 
 *Clarifications:*
-- real-time data flow can be arranged following the same standard than today, however the big archive has different data formats with BUFR, and HDF5 with different versions of ODIM. These are not coing to be changed, but converted can be provided from the project?
+- The real-time data flow can be arranged following the same standard than today, however the big archive has different data formats with BUFR, and HDF5 with different versions of ODIM.
+- As stated these are not coing to be changed, but converters can be provided from the project.
 
 *Acceptance criteria:*
 
 *Consequences and decisions:*
-
-### B13 - RODEO to handle transmission on GTS
-
-“As a data producer, I want to rely on RODEO to handle the transmission of new, late or subsequently corrected observations on WIS2.0, so I can replace my old systems for message generation. Applicable for radar data?”
-
-*Priority:*
-- secondary
-
-*Clarifications:*
-- The shared infrastructure of WIS2.0 will most likely be able to support this
-
-*Acceptance criteria:*
-
-*Consequences and decisions:*
-
-
-
+- Chnage the Composite data OD1 to cloud optimized GeoTiff
+- Provide converters from BUFR to HDF5, and possibly later to WMO FM301.  
 
 
 ## Dependencies
 
-The API of choice for WP6 will be OGC API EDR in line with the rest of the RODEO project. However, file based data and products will be mainly distributed via S3. WP2 will provide a so called EDR profile which is to be followed also in WP6. Essentially it is an agreement between the project members on how the EDR implementation and data models are implemented. This is needed as the EDR specification is very permissible and interoperability cannot be guaranteed by only following the standard. This includes best practices on how to use the recommended CoverageJSON data model.
+The API of choice for ORD supply will be OGC API EDR in line with the rest of the RODEO project. However, file based data and products will be mainly distributed via S3. WP2 (FEMDI) will provide a so called EDR profile which is to be followed also in ORD supply. Essentially it is an agreement between the project members on how the EDR implementation and data models are implemented. This is needed as the EDR specification is very permissible and interoperability cannot be guaranteed by only following the standard. This includes best practices on how to use the recommended CoverageJSON data model.
 
 ## Constraints and assumptions
 
-Is this needed at all?
-
 The purpose of this sub-section is to document any limitations or assumptions that could impact the development of the system in order to ensure that the final product meets the users' needs and expectations. These constraints could include factors such as budget or time constraints, technical limitations, or any other factors that could affect the functionality or usability of the system. By identifying and addressing these constraints and assumptions early in the development process, we can minimize the risk of delays, misunderstandings, or unsatisfactory outcomes.
+
+TBD later when the technical architecture solutions are defined based on the above mentioned requirements.
 
 ## Risks
 
-This section should identify any risks specific to the requirements.
+This section defines the 
 
 ## Conclusion
 
@@ -1066,4 +1059,5 @@ documented and addressed. It is essential for the success of the project that al
 ## References
 
 Michelson D. B., Lewandowski R., Szewczykowski M., Beekhuis H., Haase H., Mammen T., and D. Johnson, 2021: EUMETNET OPERA weather radar information model for implementation with the HDF5 file format Version 2.4. (www.eumetnet.eu/wp-content/uploads/2021/07/ODIM_H5_v2.4.pdf)
+
 Saltikoff, E.; Haase, G.; Delobbe, L.; Gaussiat, N.; Martet, M.; Idziorek, D.; Leijnse, H.; Novák, P.; Lukach, M.; Stephan, K. OPERA the Radar Project. Atmosphere 2019, 10, 320. https://doi.org/10.3390/atmos10060320
