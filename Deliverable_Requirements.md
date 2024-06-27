@@ -557,23 +557,28 @@ In this section are listed the functional and non-functional requirements which 
 
 ### F07 - reports of the performance against agreed KPIs
 
-"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against agreed KPIs, of the Open Radar Data service. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
+"As a EUMETNET Member, I want monthly, quarterly, and annual reports of the performance, against agreed KPIs, of the ORD supply. So, I am assured that the level of service is at agreed levels and meeting our users’ requirements. Also, so I have an indication of possible future investment needs."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- It is mandatory to make this as a self service sollution. No manual work should be required for monitoring the system.
-- Depends on the system used in EWC for survailance.
-- For monitoring we use database (as E-SOH), visualization shown in Grafana
-- S3 (uptime) can be monitored if its available. This will be implented in EWC, and E-SOH and Open radar data can reuse this.
-- Document how monioring is done in WP6
+- It is mandatory to make this as an automatic solution. No manual work should be required for monitoring the system.
+- The solution depends on the system used in EWC for survailance.
+- For monitoring we use the created database (as in WP3 E-SOH), visualization are shown with Grafana.
+- S3 (uptime) can be monitored if its available. This will be implemented in EWC, and then WP3 E-SOH and WP6 ORD supply can reuse this.
+- Requires documentation of the monitoring 
 - FEMDI is monitored and surveilance data can be gathered from there, but the direct downloading pypasses these statistics (no user statiscs)
-- In near future, the EWC will not get the monitoring data from the S3 use, but this may change in the long run. 
+- In near future, it should be noted that EWC will not get the monitoring data from the S3 use, but this may change in the long run. 
 
 *Acceptance criteria:*
+- Monitoring results and report are demonstrated. 
 
 *Consequences and decisions:*
+- Firstly to clarify how much monitoring is done in WP2 FEMDI, then build a suitable log-files for monitoring the performance of ORD supply.
+- Database is created for the monitoring data (log-files)
+- Monitoring is presented with the Granfana software.
+- Noting here that with direct use of S3 buckets, the user information cannot be gathered. 
 
 ### F08 - data application providers to only provide supported operating systems, libraries, and software
 
