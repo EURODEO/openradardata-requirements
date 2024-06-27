@@ -16,7 +16,7 @@ The proposed solutions are designed to align with other APIs (Application Progra
 | 0.2 | 2024-02-09 | added dataset description, user requirements for review | Annakaisa v. Lerber
 | 0.3 | 2024-03-08 | Rewrite based on requrements for OPERA Open Radar Data Sharing F01 -F35 | Vegar Kristiansen
 | 0.4 | 2024-04-09 | Added the Business requirements done by Morten | Annakaisa von Lerber
-| 0.5 | 2024-06-22 | Reviewed documentation for milestone MS14 | Annakaisa von Lerber
+| 1.0 | 2024-06-28 | Reviewed documentation for milestone MS16 | Annakaisa von Lerber
 
 
 ## Table of Content
