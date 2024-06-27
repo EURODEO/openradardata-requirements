@@ -25,16 +25,14 @@ This document defines KPIs for the RODEO WP6 Open Radar Data (ORD) supply. The t
 
 ## Introduction
 
-This document defines KPIs for RODEO WP6 open radar data system. The target of the KPIs is to provide guidance for system design and operations to ensure correct level of availability and usability of the system and data.  RODEO WP6 open radar data requirement F07 states that the EUMETNET members want monthly, quarterly, and annual reports of the performance, against (to be confirmed) agreed KPIs.
+This document defines KPIs for RODEO WP6 Open Radar Data (ORD) supply. The target of the KPIs is to provide guidance for system design and operations to ensure correct level of availability and usability of the system and data.  ORD requirement F07 in the [Requirement documentation](#) states that the EUMETNET members want monthly, quarterly, and annual reports of the performance, against (to be confirmed) agreed KPIs.
 
-The KPIs are measurable and aim to be as simple as possible, containing only few automatically collected metrics.
-
-KPIs should not be confused with requirements nor monitoring. Requirements defines clear lower/upper bounds while KPIs target a goal. Monitoring is used to ensure that the system is operating as expected, to detect anomalies and to
+The KPIs are measurable and aim to be as simple as possible, containing only few automatically collected metrics. KPIs should not be confused with requirements nor monitoring. Requirements defines clear lower/upper bounds while KPIs target a goal. Monitoring is used to ensure that the system is operating as expected, to detect anomalies and to
 trace root cause of the potential problems.
 
 In the process of establishing the KPIs the following sources and examples are taken into consideration:
 
-* OPERA database? Check this with needed metadata.
+* [OPERA Database:]() 
 * [WIS 2.0 Technical requirements:](https://community.wmo.int/en/WIS2_Technical_Specification_Guidance)
 * [WIS Metadata Key Performance Indicators:](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis)?
 * DWD OPERA KPI's?
