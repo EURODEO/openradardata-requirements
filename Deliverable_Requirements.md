@@ -1092,10 +1092,10 @@ This section defines the main risks seen in the design of the ORD supply.
 - primary
 
 *Clarifications:*
-- The service levels and the computational resources      
+- The service levels and needed computational resource estimates are now based on use of the nationally-implemented open radar data supply. The national estimates are scaled up accoring to BKT (Gross domestic product) to European level. There is expectation for large interest on radar data, and therefore, the risk is that the resources are not adequate for teh high demand.           
   
 *Mitigation:*
-- Active negotiations between the EUMETNET members and EUMETNET Secretariat to have descision on the used solution for providing the service. 
+-  
 
 
 
