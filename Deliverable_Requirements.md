@@ -582,20 +582,21 @@ In this section are listed the functional and non-functional requirements which 
 
 ### F08 - data application providers to only provide supported operating systems, libraries, and software
 
-"As the Open Radar Data system manager, I want data application providers to only provide supported operating systems, libraries, and software. So, I can minimise the costs of managing the lifecycle of Open Radar Data."
+"As the ORD system operator, I want data application providers to only provide supported operating systems, libraries, and software. So, I can minimise the costs of managing the lifecycle of Open Radar Data."
 
 *Priority:*
  - primary
 
 *Clarifications:*
-- It does not mean that system components could not be home made for the purpos of the project.
-- trying to emphasize the open-source libraries or software in the development.
-  
+- This states that the goal is to build the service on exisiting and openly availble software, but system components can also be home-made for the purpose of the project.
+
 
 *Acceptance criteria:*
-
+- NA
+  
 *Consequences and decisions:*
-
+- The open-source libraries or software in the development are emphasized. 
+  
 ### F09 - access to real-time open radar data up to 24 hours after the observations data time
 
 "As a data consumer, I want access to open radar data, up to 24 hours after the nominal time of the radar data is produced. So, I can retrieve data I might have missed due to, for example, local technical incidents."
