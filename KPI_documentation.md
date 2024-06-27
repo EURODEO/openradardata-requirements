@@ -6,15 +6,15 @@
 
 ## Abstract
 
-This document defines KPIs for the RODEO WP6 weather radar supply. The target of the KPIs is to provide guidance for system design and operations to ensure correct level of availability and usability of the system and data.
+This document defines KPIs for the RODEO WP6 Open Radar Data (ORD) supply. The target of the KPIs is to provide guidance for system design and operations to ensure correct level of availability and usability of the system and data.
 
 ## Revision history
 | Version | Date | Comment | Responsible
 | :--- | :--- | :--- | :--- 
 | 0.1 | 2024-01-14 | preliminary draft | Annakaisa v. Lerber
 | 0.2 | 2024-02-05 | first concept | Gijsbert Kruithof
-| 0.3 |2024-05-03  |after discussion in RODEO RADAR Team meeting | Gijsbert Kruithof
-| | | |
+| 0.3 | 2024-05-03 | after discussion in RODEO RADAR Team meeting | Gijsbert Kruithof
+| 1.0 | 2024-06-28 | Document reviewed for MS16 | Annakaisa von Lerber
 
 
 ## Table of Content
