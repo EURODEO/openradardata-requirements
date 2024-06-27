@@ -458,24 +458,24 @@ In this section are listed the functional and non-functional requirements which 
 
 ### F02 - 24/7 availability
 
-"As an consumer of OPERA Open Radar Data, I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
+"As an consumer of ORD supply, I want the service to be available 24/7 with minimal agreed downtime and maintenance slots. So, I can deliver the level of service required by my users."
 
 *Priority:*
 - primary
 
 *Clarifications:*
 - There is an expectation for data to be consistently available 24/7, although a minimum of downtime (<1%) is acceptable with no break in service > 24hours.
-- There is an expectation that to deliver this level of service, a "service desk" capability will be required so incidents can be managed.
-- We need to figure out the consequences of any downtime
-- We need to separate between ingestion and data access downtimes
-- Centralized and federated components also need to be viewed individually
-- We need to clarify the meaning of service desk. How automatic could this be?
-- System is planned to fulfill the defined in the SLA. Depended on resources the service level can be changed.
-- For now, dublicated system at EWC is not planned (meaning archive), but should be also considred. Operational use of real-time could be more applicable to have redundancy.  
+- There is an expectation to deliver the 24/7 level of service, a "service desk" capability will be required to handle the disruptions in data flow.
+- The consequences of downtime need to specified. The ingestion and data access downtime need to seprated, also centralized and federated components need to be viewed individually.
+- The meaning of service desk needs to be clarified and the level of automatisation.
+- System is planned to fulfill the defined service level with taking into account the available resources.
   
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- ORD supply is designed and build to be available 24/7
+- Service desk function is planned to be performed together with the other dataset supplies possibly in FEMDI (WP2), no 24/7 service to fix the errors in data flow can be promised.
+- For now, dublicated system at EWC is not planned (meaning e.g. 24-cache archive in both EWC computational centres), but should be also considred as operational use of the supply should have redundancy in place.  
 
 ### F03 - delivery within 1 minute
 
