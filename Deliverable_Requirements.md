@@ -637,28 +637,29 @@ In this section are listed the functional and non-functional requirements which 
 
 ### F11 - reject corrupt data and record the event
 
-"Given a data producer exposes data to Open Radar Data, when the metadata and/or data is found to be corrupt. Then OPERA Open Radar Data should reject the data and record the event."
+"Given a data producer exposes data to ORD, when the metadata and/or data is found to be corrupt. Then ORD supply should reject the data and record the event."
 
 *Priority:*
- - primary
+- primary
 
 *Clarifications:*
- - OPERA HUB disiminates all data to Open Radar Data.
- - The Open radar data only checkes the readibility of metadata and removes the file if this is not readible, otherwise no quality control is performed.
- - The quality is radar data is responsiblity of the NMS
- - If the file is found to be corrupted, the system is able to remove the corrupted file in EUMETNET tendency 
- - ODIM validation is not done prior to sending,  it is done by OPERA when the NMSs is testing the data transfer.
- - Monitoring of the number corrupted files
- - OPERA (DWD, MF, GeoSphere Austria) could have access to Grafana monitoring system
+- ORD gets the data directly either from OPERA or national data provider
+- OPERA performs the ODIM compliancy checks and in general checks the datafile quality before letting the radar data provider send data to OPERA hub.
+- The quality is radar data is responsiblity of the NMS.
+- If the file is found to be corrupted, the system is able to remove the corrupted file in EUMETNET tendency 
+- OPERA (DWD, MF, GeoSphere Austria) could have access to Grafana monitoring system
  
 *Acceptance criteria:*
+- Monitoring process should be documented.
 
 *Consequences and decisions:*
+- ORD only checkes the readibility of metadata and removes the file if this is not readible, otherwise no quality control is performed.
+- Set a monitoring of the number corrupted files in place
 
 
-### F13 - parameter naming convention standards, where not established, to be developed and followed
+### F12 - parameter naming convention standards, where not established, to be developed and followed
 
-"As a Service Manager, I want parameter naming convention standards, where not established, to be developed and followed. So, I can efficiently maintain and lifecycle the Open Radar Data service."
+"As a ORD service operator, I want parameter naming convention standards, where not established, to be developed and followed. So, I can efficiently maintain and lifecycle the ORD service."
 
 *Priority:*
 - primary
@@ -666,63 +667,71 @@ In this section are listed the functional and non-functional requirements which 
 *Clarifications:*
 - Currently the vocabulary is taken from ODIM
 - GeoTiff can use the ODIM vocabulary 
-- This may change with FM301 (vocab service)
+- This may change with WMO FM301, then the vocab service developed in WP2 FEMDI can be utilized in mapping the terminology.
 
 *Acceptance criteria:*
+- NA
 
 *Consequences and decisions*
+- Currently ODIM vocabulary is going to be used.
+  
+### F13 - near real-time access to ORD via a publish-subscribe message pattern
 
-### F14 - near real-time access to Open Radar Data via a publish-subscribe message pattern
-
-"As a data consumer of Open Radar Data, I want near real-time access to observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
+"As a data consumer of ORD, I want near real-time access to observations via a publish-subscribe message pattern. So, I can minimise the development of new applications and reduce the need to rely on domain specific delivery methods."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Use the MQTT solution as used in E-SOH.
-- This only applicable for the short-time archive
+- This only applicable for the short-time archive.
   
 *Acceptance criteria:*
 
 *Consequences and decisions:*
+- Use the MQTT solution as used in WP3 E-SOH.
+  
+### F14 - ORD suuply to scale to user demands for data
 
-### F15 - Open Radar Data to scale to user demands for data
-
-"As a system manager, I want Open Radar Data to scale to user demands for data, especially those users requesting data via the Open Radar Data API and pub/sub message pattern. So, I can deliver the service expected by data consumers."
+"As a ORD system operator, I want ORD to scale to user demands for data, especially those users requesting data via the ORD API and pub/sub message pattern. So, I can deliver the service expected by data consumers."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- monitoring of the system performance
-- The question should be split between input and output
-- expectation is that the number of users will not increase - API/database should no be the problem
-- has this requirement have a financial constrain e.g. in S3 or FEMDI transfer cost (Check the costs in EWC)
+- This requires monitoring of the system performance
+- Both input and output data should be considered separately.
+- Expectation is that the number of users will not increase rapidly - API/database should no be the problem
+- This requirement may have a financial constrain e.g. in S3 or FEMDI transfer cost 
   
 *Acceptance criteria:*
+- Demonstration and reporting of the monitoring
 
 *Consequences and decisions:*
+- Set up monitoring
+- Build the API that it can be scalable
+- Service level (TBD) should be set accordingly.
 
-### F16 - query based on datasets, location, time, and parameters
+### F15 - query based on datasets, location, time, and parameters
 
-"As a data consumer using API access, for single site data I want to query the radar sites based on location, radar name, area, time, quantity, and possible elevation angles and for the OPERA composites to quary on time and composite products and for national composites to query on producer, area, time, and quantity. So I can access exactly the data I require and minimised the amount of data retrieved and local post processing." 
+"As a data consumer using API access, for volume radar data I want to query the radar sites based on location, radar name, bounding box, time, quantity, and possible elevation angles and for the OPERA composites to quary on time and composite products and for national composites to query on producer, area, time, and quantity. So I can access exactly the data I require and minimised the amount of data retrieved and local post processing." 
 
 *Priority:*
  - primary
 
 *Clarifications:*
-- one should be able to filter with the quantities stated above.
-- also filter by country name.
-- follow EDR standards for location and time
-- OPERA database should be automatically updated in this Open Radar Data database, with priority taken from metadata. In the case of conflict found and automatic email should be sent to OPERA database provider (DHMZ).  
--  
+- In one volume radar file there can be all the elevation angles included as well as quantities.
+- Filtering by country name.
+- Follow EDR standards for location and time
+- OPERA database should be automatically updated in this ORD database, with priority taken from metadata. In the case of conflict found and automatic email should be sent to OPERA database provider (DHMZ).  
+  
 *Acceptance criteria:*
-
+- once implemented, the performance should be demonstrated and documented.
+   
 *Consequences and decisions:*
 - At this stage we expect to use EDR as the standard for the API so we should use the EDR standards for location and time. To start with, we will focus on simple radius and 2D polygon queries, and not worry about trajectories, etc.  There is still the open question about parameters but for location and time hopefully we can state EDR.
+- the other query items are ingested into the metadata database from the files.
 
-### F17 - pub-sub message pattern to be compliant with the requirements of WIS 2.0
+### F16 - pub-sub message pattern to be compliant with the requirements of WIS 2.0
 
 "As a EUMETNET Member, I want the method of delivery via a pub-sub message pattern to be compliant with the requirements of WIS 2.0. So, I can efficiently meet my obligations as a WMO Member."
 
@@ -730,52 +739,55 @@ In this section are listed the functional and non-functional requirements which 
  - primary
 
 *Clarifications:*
-- Reuse method used in E-SOH
+
   
 *Acceptance criteria:*
-
+- NA
+  
 *Consequences and decisions:*
+- Reuse method used in WP3 E-SOH
 
-### F18 - Open Radar Data software to meet agreed quality assurance standards
+### F17 - ORD software to meet agreed quality assurance standards
 
-"As a System Manager, I want Open Radar Data software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the service."
+"As a ORD system operator, I want ORD software to meet agreed quality assurance standards. So, I can efficiently maintain and lifecycle the service."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- We rely on the NMSs' own software quality assurance standards.
 
 
 *Acceptance criteria:*
-
+- NA
 *Consequences and decisions:*
+- Here are relied on the NMSs' own software quality assurance standards.
 
-### F19 - contributions to the Open Radar Data code base to be open to all EUMETNET members
+### F18 - contributions to the ORD code base to be open to all EUMETNET members
 
-"As a EUMETNET Member, I want contributions to the Open Radar Data code base to be Open to all Members. So, I can efficiently deliver my national and EUMETNET Strategy."
+"As a EUMETNET Member, I want contributions to the ORD code base to be open to all Members. So, I can efficiently deliver my national and EUMETNET Strategy."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Codebase is placed on github.com, under the Eumetnet organisation term.
-- This should be open software
+- Codebase is placed on github.com, under the EUMETNET organisation
+- In RODEO, all software is open.
 
 *Acceptance criteria:*
-
+- NA
 *Consequences and decisions:*
+- NA
+  
+### F19 - security to be considered as a high priority
 
-### F20 - security to be considered as a high priority
-
-"As a System Manager, I want security to be considered as a high priority and all aspects of the system to meet IT security best practice and includes, for example, identity and access management, role- based access controls, access tokens and data encryption at rest and in transit. So, I can deliver a robust and secure system."
+"As a ORD system operator, I want security to be considered as a high priority and all aspects of the system to meet IT security best practice and includes, for example, identity and access management, role- based access controls, access tokens and data encryption at rest and in transit. So, I can deliver a robust and secure system."
 
 *Priority:*
 - primary
 
 *Clarifications:*
 - We will follow the security measures of the NMSs security measures in software development.
-- We expect to implement encryption using secure protocols such as, e.g.HTTPS. Stored observation data will not be encrypted. Identity and Access Management (IAM) will depend on infrastructure implementations of which restrictions may apply, e.g., at EWC.
+- We expect to implement encryption using secure protocols such as, e.g. HTTPS. Stored observation data will not be encrypted. Identity and Access Management (IAM) will depend on infrastructure implementations of which restrictions may apply, e.g., at EWC.
 - We follow the FEMDI stated processes in access control
 
 - Data ingestion (Only aplicable for dissimination of national products/files)
@@ -784,8 +796,8 @@ In this section are listed the functional and non-functional requirements which 
 - Administration and monitoring
    * Access to administration and statistics about the system should not be freely available to anyone. Some system must be set up to allow access to relevant users only.
 - Data delivery
-   * In the first version of OPERA Open Radar Data, there will be no restricted data, so from that perspective there is no need for authentication or authorization.
-   * If, at a later stage, we will introduce access control here, there seems to be some limitations in FEMDI regarding this: The use of a message queue implies that anyone will be able to know about the *existence* of restricted data. We can only provide access control on the actual data itself. *This may or may not be acceptable at a later stage.*
+   * In the first version of ORD supply, there will be no restricted data, so from that perspective there is no need for authentication or authorization (Restriction is done at OPERA level).
+   * If, at a later stage, we will introduce access control here, there seems to be some limitations in FEMDI regarding this: The use of a message queue implies that anyone will be able to know about the *existence* of restricted data. We can only provide access control on the actual data itself. 
    * Even if we want to only serve freely available data, we may still want to have some kind of access control here, to have some protection against servers becoming overloaded.
 - Security monitoring
    * Some system must be in place to allow admins to monitor the system with regards to security incidents.
@@ -796,7 +808,7 @@ In this section are listed the functional and non-functional requirements which 
 
 *Consequences and decisions:*
 
-### F21 - sufficient compute resources
+### F20 - sufficient compute resources
 
 "As a System Manager, I want sufficient compute resource to be available. So, I can deliver a resilient and sustainable service to my users."
 
