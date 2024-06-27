@@ -35,7 +35,7 @@ In the process of establishing the KPIs the following sources and examples are t
 * [OPERA Database](Annex/ANNEX2_OPERA_RADARS_DB_2024_02.csv) 
 * [WIS 2.0 Technical requirements](https://community.wmo.int/en/WIS2_Technical_Specification_Guidance)
 * [WIS Metadata Key Performance Indicators](https://community.wmo.int/en/activity-areas/wis/wis-metadata-kpis)
-* [A Performance Benchmarking Methodology for MQTT Broker Implementations](https://qrs20.techconf.org/QRSC2020_FULL/pdfs/QRS-C2020-4QOuHkY3M10ZUl1MoEzYvg/891500a499/891500a499.pdf) - Technical 
+* [A Performance Benchmarking Methodology for MQTT Broker Implementations](https://qrs20.techconf.org/QRSC2020_FULL/pdfs/QRS-C2020-4QOuHkY3M10ZUl1MoEzYvg/891500a499/891500a499.pdf) 
 
 ## Service Level Definitions
 
