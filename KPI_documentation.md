@@ -1,7 +1,7 @@
-# RODEO WP 6 Opera open radar data Key Performance Indicators
+# RODEO WP6 Open Radar Data Key Performance Indicators
 
 
-### Annakaisa v. Lerber, Stuart J. Matthews, Roope Tervo, Gijsbert Kruithof, Mikko Rauhala, Vegar Kristiansen, DMI (Morten?), Lukas Tüchler (?), Christoph Müller, Daniel Heintze, Steffen Kremer 
+### Gijsbert Kruithof (KNMI), Annakaisa v. Lerber (FMI), Stuart J. Matthews (EUMETNET), Roope Tervo (EUMETSAT), Mikko Rauhala (FMI), Vegar Kristiansen (METNO) 
 
 
 ## Abstract
