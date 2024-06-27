@@ -597,55 +597,45 @@ In this section are listed the functional and non-functional requirements which 
 *Consequences and decisions:*
 - The open-source libraries or software in the development are emphasized. 
   
-### F09 - access to real-time open radar data up to 24 hours after the observations data time
+### F09 - access to real-time ORD up to 24 hours after the observations data time
 
-"As a data consumer, I want access to open radar data, up to 24 hours after the nominal time of the radar data is produced. So, I can retrieve data I might have missed due to, for example, local technical incidents."
+"As a data consumer, I want access to ORD, up to 24 hours after the nominal time of the radar data is produced. So, I can retrieve data I might have missed due to, for example, local technical incidents."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- Data consumers might choose to archive data themselves. This is common amongst Members as it, for example, allows Members to run re-analysis trials based on the data reception, rather than validity, time.
-- it is not impossible to overwrite the archive e.g. with new processed data. DWD may send data twice to 24 cache, but this should just overwrite the old data
-
+- Data consumers might choose to archive data themselves. This is common among EUMETNET Members as it, for example, allows Members to run re-analysis trials based on the data reception, rather than validity time.
+- It should be possible to overwrite the archive e.g. with new processed data. DWD may send data twice to 24 - hour cache, but new data should just overwrite the old data
 
 *Acceptance criteria:*
+- NA
 
 *Consequences and decisions:*
-
-### F10 - access to the first iteration as well as corrected observations data
-
-"As a data consumer of file-based Open Radar Data, I want access to the first iteration of the observations data, as well as to late or subsequently corrected observations. So, I am able to handle all data."
-
-*Priority:*
-- secondary
-
-*Clarifications:*
- - data and corrected data are in the same file, and these are overwritten in the case of resending the data.
+- The real-time OPERA composite (D01) and volume radar data (D02) should have the 24-cache to retrieve the data, after this the user can fetch it from the archive
+- ORD will not offer 24- hour cache service for the national products (OD3), this is dependent on the national resources. 
   
-*Acceptance criteria:*
 
-*Consequences and decisions:*
+### F10 - ORD must perform its data provider role within FEMDI when a data producer exposes data in an approved format
 
-
-### F11 - Open Radar Data must perform its data provider role within FEMDI when a data producer exposes data in an approved format
-
-"Given a data producer/OPERA exposes data in an approved format, when new data are received by Open Radar Data, then Open Radar Data must perform its data provider roll within FEMDI."
+"Given a data producer/OPERA exposes data in an approved format, when new data are received by ORD, then ORD supply must perform its data provider role within FEMDI."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- No data from NMS is transfered. Only notification and a link/URL to localy stored data or S3 bucket at EWC (NMS's own tendancy)  
-- ODIM HDF is used for all data mandataory data.
-- For archive of single site radar data both HDF5 and BUFR will be handled
-- Pilot for national composites and files used by GeoWeb could devide from this requirement
+- For national products (OD3) no data is transfered from NMS. Only notification and a link/URL to localy stored data or S3 bucket at EWC (NMS's own tendancy)  
 
 *Acceptance criteria:*
+- The required formats are documented.
 
 *Consequences and decisions:*
+- ODIM HDF format is used for all mandatory data, and cloud-optmized GeoTiffs for the products
+- For archive of single site radar data both HDF5 and BUFR will be handled
+- Pilot for national products (OD3) used by GeoWeb could devide from this requirement (TBD)
 
-### F12 - reject corrupt data and record the event
+
+### F11 - reject corrupt data and record the event
 
 "Given a data producer exposes data to Open Radar Data, when the metadata and/or data is found to be corrupt. Then OPERA Open Radar Data should reject the data and record the event."
 
