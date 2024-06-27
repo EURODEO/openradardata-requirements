@@ -1086,24 +1086,33 @@ This section defines the main risks seen in the design of the ORD supply.
 *Mitigation:*
 - Active negotiations between the EUMETNET members and EUMETNET Secretariat to have descision on the used solution for providing the service.
 
-### R04 - scalability of ORD supply is not adequate
+### R04 - resources of ORD supply are not adequate
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- The service levels and needed computational resource estimates are now based on use of the nationally-implemented open radar data supply. The national estimates are scaled up accoring to BKT (Gross domestic product) to European level. There is expectation for large interest on radar data, and therefore, the risk is that the resources are not adequate for teh high demand.           
+- The service levels and needed computational resource estimates are now based on use of the nationally-implemented open radar data supply. The national estimates are scaled up accoring to BKT (Gross domestic product) to European level. There is expectation for large interest on radar data, and therefore, the risk is that the resources are not adequate for the high demand.           
   
 *Mitigation:*
--  
+- The ORD supply is planned to have scalability in diffrent parts of the system, which can then be ramped up if neede to have adequate service levels. 
 
+### R05 - The defined service level cannot be not offered to primary users 
 
+*Priority:*
+- primary
+
+*Clarifications:*
+- The user requirement U04 requires a quick access to volume radar data, and is seen to replace the bilateral exchange between the EUMETNET members.
+- The descision in WP2 FEMDI is not have autheticated use of the gateway, therefore the ORD supply cannot be prioritized for official duty use, thus can lead that the data needed at NMSs cannot be echanged enough fast. 
+  
+*Mitigation:*
+- The ORD supply is planned to offer direct access to S3, which NMSs could use. However, there are still clarified, can in this direct access control the data flow and are there security issues (TBD).
+  
 
 ## Conclusion
 
-In conclusion, the requirements document outlines the specific needs and objectives of the RODEO WP6 radar data supply, including functional and non-functional requirements. It should serve as a guide for the development team to ensure
-that the final product meets the expectations and requirements Eumetnet and its associates. The document should be regularly reviewed and updated throughout the project lifecycle to ensure that any changes or additions are properly
-documented and addressed. It is essential for the success of the project that all stakeholders agree on the requirements outlined in this document and use it as a reference throughout the development process.
+In conclusion, the requirements document outlines the specific needs and objectives of the RODEO WP6 Open Radar Data (ORD) supply, including functional and non-functional requirements. It should serve as a guide for the development team to ensure that the final product meets the expectations and requirements of EUMETNET, its associates and the expected end-users. The document should be regularly reviewed and updated throughout the project lifecycle to ensure that any changes or additions are properly documented and addressed. It is essential for the success of the project that all stakeholders agree on the requirements outlined in this document and use it as a reference throughout the development process.
 
 ## References
 
