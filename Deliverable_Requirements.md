@@ -1048,7 +1048,32 @@ TBD later when the technical architecture solutions are defined based on the abo
 
 ## Risks
 
-This section defines the 
+This section defines the main risks seen in the design of the ORD supply. 
+
+### R01 - No resources to implement ORD supply
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- The resources to implement and run the ORD supply has not yet been secured. This has been on EUMETNET discussion for some time. The original idea was to used EWC, and then resources could be allocated from the joint national resources. The proposed solution is still under investigatation, and may lead to slowning the development and delay in implementation.
+- In the case if funding cannot be secured for ORD supply, then this will most likely stop the development and ORD supplied cannot be delivered in the RODEO-project.    
+
+*Mitigation:*
+- Active negotiations between the EUMETNET members and EUMETNET Secretariat and in collaboration with EWC representatives of EUMETSAT and ECMWF. 
+
+### R02 - No resources to operate ORD supply
+
+*Priority:*
+- primary
+
+*Clarifications:*
+- The risk is similar to R01.
+  
+*Mitigation:*
+- Active negotiations between the EUMETNET members and EUMETNET Secretariat and in collaboration with EWC representatives of EUMETSAT and ECMWF. 
+
+
 
 ## Conclusion
 
