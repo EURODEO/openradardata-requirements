@@ -436,21 +436,24 @@ Related to E-SOH requirement 4.5.
 
 ## Functional and non-functional requirements
 
+In this section are listed the functional and non-functional requirements which are stemed from the user requirements. A summary is provided in the Table 5. 
+
 ### F01 - operational service
 
-"As an consumer of OPERA Open Radar Data, I want the sytem to be operational. So I can build my operational services based on WP6 Open radar data."
+"As an consumer of radar data, I want the system to be operational. So, I can build my operational services based on ORD supply."
 
 *Priority:*
 - primary
 
 *Clarifications:*
-- What is the meaning of "operational service"?
-- This is the main goal set for the requirements, the below defined requirements are to explanatory
-- Open Radar Data will be a fully operational service, providing core capability on behalf of EUMETNET Members. Requirements F02 to F06 describe the Service levels required. 
+- Operational service includes e.g. documentation, stable production fulfillig the defined service level of timeliness, availability and completness, possible also includes redundancy.  
+- This is the main goal set for the requirements, the below defined requirements are to explanatory to this. Requirements F02 to F06 describe the service levels required.
 
 *Acceptance criteria:*
+- When implementation is in place, define a certain test period, where the timeliness, availability and completness of the system are tested and reported. 
 
 *Consequences and decisions:*
+- ORD supply will be an operational service, providing core capability on behalf of EUMETNET Members.  
 
 
 ### F02 - 24/7 availability
