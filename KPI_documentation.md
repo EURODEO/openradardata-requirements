@@ -46,6 +46,7 @@ The EU HVD Regulation, Article 3 defines: "Set out and publish the terms of use 
 3. **Time critical – fixes in an hour:** Operational international data exchange for model input. 24/7 first, second and third level support, efficient monitoring tools detecting any errors, high availability, and capacity to process data. Capabilities can be developed further, according to FAIR.
 
 The 
+The goal is to provide the first answer to support enquiries in 75% of cases within three working days and 75% of the closing answers within two weeks.
 
 ## KPIs for Data Consumption
 
