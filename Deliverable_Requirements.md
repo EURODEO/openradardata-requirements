@@ -24,10 +24,10 @@ The proposed solutions are designed to align with other APIs (Application Progra
 - [Dataset description](#Dataset-description)
 - [User requirements](#User-requirements)
 - [System requirements](#System-requirements)
-- [Functional and non-functional requirements](#Functional_and_non-functional_requirements)
-- [Business requirements](#Business_requirements)
+- [Functional and non-functional requirements](#Functional-and-non-functional-requirements)
+- [Business requirements](#Business-requirements)
 - [Dependencies](#Dependencies)
-- [Constraints and assumptions](#Constraints_and_assumptions)
+- [Constraints and assumptions](#Constraints-and-assumptions)
 - [Risks](#Risks)
 - [Conclusions](#Conclusions)
 
