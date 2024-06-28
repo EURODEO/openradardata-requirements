@@ -45,9 +45,11 @@ The EU HVD Regulation, Article 3 defines: "Set out and publish the terms of use 
 2. **Immediate response – fixes in 24 hours:** Higher system performance with moderate service level. More advanced automatic monitoring checks and alerts, 24/7 first level support, and the ability to give human support in 24 hours. Error cases fixed within a week. Capabilities can be developed further, according to FAIR. 
 3. **Time critical – fixes in an hour:** Operational international data exchange for model input. 24/7 first, second and third level support, efficient monitoring tools detecting any errors, high availability, and capacity to process data. Capabilities can be developed further, according to FAIR.
 
-In OPERA, the Service Level Agreements (SLAs) for the OPERA production are defined separately for the different production lines as they are operated by different NMSs and the offered service levels can vary. The OPERA SLAs [ANNEX1 OPERA SLA](./Annex/ANNEX1_OPERA_SLA_08032024.pdf) are defined
-The 
-The goal is to provide the first answer to support enquiries in 75% of cases within three working days and 75% of the closing answers within two weeks.
+In OPERA, the Service Level Agreements (SLAs) for production are defined separately for each of the three production lines, as they are operated by different NMSs and the service levels offered can vary. The OPERA SLAs are detailed in [ANNEX1 OPERA SLA](./Annex/ANNEX1_OPERA_SLA_08032024.pdf).
+
+Generally, the production lines are designed to serve operationally. Each production line has a secondary backup system, but switching to the backup is not automatic and can take several hours. Additionally, the service desks do not monitor production performance 24/7. For example, the goal at the OPERA hub is to provide an initial response to support inquiries in 75% of cases within three working days and to resolve 75% of inquiries within two weeks.
+
+In the ORD supply, the targeted service levels are not yet defined. These will be established collaboratively in the RODEO project as part of the Quality of Service framework, following the preliminary implementation of the ORD API FEMDI Gateway. Additionally, the service desk correspondence will  be determined jointly within the RODEO project. The target of ORD supply is outlined in requirements F01-F05, aiming for a 24/7 service with an allowable yearly data disruption margin of 1%, and a maximum delay of one minute in data flow from the OPERA/national interface to making the datasets available in the S3. 
 
 ## KPIs for Data Consumption
 
