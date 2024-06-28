@@ -45,6 +45,7 @@ The EU HVD Regulation, Article 3 defines: "Set out and publish the terms of use 
 2. **Immediate response – fixes in 24 hours:** Higher system performance with moderate service level. More advanced automatic monitoring checks and alerts, 24/7 first level support, and the ability to give human support in 24 hours. Error cases fixed within a week. Capabilities can be developed further, according to FAIR. 
 3. **Time critical – fixes in an hour:** Operational international data exchange for model input. 24/7 first, second and third level support, efficient monitoring tools detecting any errors, high availability, and capacity to process data. Capabilities can be developed further, according to FAIR.
 
+[ANNEX1 OPERA SLA](./Annex/ANNEX1_OPERA_SLA_08032024.pdf)
 The 
 The goal is to provide the first answer to support enquiries in 75% of cases within three working days and 75% of the closing answers within two weeks.
 
