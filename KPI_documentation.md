@@ -53,33 +53,27 @@ In the ORD supply, the targeted service levels are not yet defined. These will b
 
 ## KPIs for Data Consumption
 
-The KPIs for Data Consumption define the target KPIs from the perspective of the data consumers of the open radar data. This corresponds to the Search and Access APIs, and the Notification Service.
+The KPIs for Data Consumption define the target KPIs from the perspective of the data consumers of the ORD. This corresponds to the Search and Access APIs shown in Table 1., and the Notification Service in Table 2.
 
 ### Search and Access APIs
 
 **Recommended Service Level:** "Reasonable endeavour – business hours", in the pre-operational phase.
 
-
+Table 1. KPI for Search and Access API.
 |*ID* |*KPI* |*Description* |*Target* |*Notes*
 | :--- | :--- | :--- | :--- | :--- 
-|KPI-1 |Availability |The check has to request for latest data and ensure that the returned data is in accordance with the expected one. |99% |Related to requirement F02
-|KPI-2|Response time of the archived Radar Data|How fast the API starts the response.|TBD |
-|KPI-3|Response time of the 24-hour cache of Radar Data|How fast the API starts the response.|TBD |
+|KPI-1 |Availability |The check has to request for latest data and ensure that the returned data is in accordance with the expected one. |99% |Related to requirements F02, F04, F05
+|KPI-2|Response time of the archived ORD|How fast the API starts the response.|TBD |
+|KPI-3|Response time of the 24-hour cache of ORD|How fast the API starts the response.|TBD |
 |KPI-4|Number of requests per hour |The number API requests reflect the usability of the service|TBD|The system should be able to scale up to 200 pull request per second (Revised FEMDI ET Estimation). 
-|KPI-5|Amount of data downloaded |The amount of data downloaded indicates the usability of the data|TBD|KNMI radar data download = ca. 200 GB per day + FMI ca. 300 GB per day + DMI: 25 GB per day; average download size across all types 429 kB; number of downloads 58.627 per day
-|KPI-6|Number of unique users |The number of unique users|TBD|KNMI has ca. 200 unique users per day for radar data
-
-
+|KPI-5|Amount of data downloaded |The amount of data downloaded indicates the usability of the data|TBD|National examples: KNMI radar data download = ca. 200 GB per day + FMI ca. 300 GB per day + DMI: 25 GB per day; average download size across all types 429 kB; number of downloads 58.627 per day
+|KPI-6|Number of unique users |The number of unique users|TBD|Examples: KNMI has ca. 200 unique users per day for radar data
 
 #### Discussion
 
-KPI-1 The 99% is based on the target availability of the European Weather Cloud
+KPI-1: The 99% is based on the target availability of the European Weather Cloud levels.
 
-KPI-5 Number of unique API users. If this can be measured via registration or
-using fingerprint (e.g. combination of IP address, user-agent, operating
-system, and referrer). TBD after start of operations. Maybe the number of
-subscribers to the notification service (KPI-8) is easier to measure and gives
-an equally good indication.
+KPI-5 Number of unique API users: This metric can be tracked through user registration or by using a fingerprinting method (e.g., a combination of IP address, user-agent, operating system, and referrer). However, this approach will be determined after the start of operations. Currently, WP2 FEMDI does not plan to authenticate users, so if KPI-5 needs to be tracked per user, an alternative mechanism will be required. One possibility is to measure the number of subscribers to the notification service (KPI-8), which might be easier to track and could provide a similarly good indication.
 
 KPI-4 and KPI-5: the number of requests and amount of data downloaded are not automatically monitored on EWC. So it needs an explicit effort to measure and report these.
 
@@ -87,9 +81,10 @@ KPI-4 and KPI-5: the number of requests and amount of data downloaded are not au
 
 **Recommended Service Level:** "Reasonable endeavour – business hours", in the pre-operational phase.
 
-
+Table 2. The KPIs of the Notification Service
 |*ID* |*KPI* |*Description* |*Target* |*Notes*
 | :--- | :--- | :--- | :---| :--- 
+|KPI-8| Number of subscribers| |TBD|
 |KPI-10|Publish delay|the time interval starts when a PUBLISH message is sent and ends when the corresponding PUBACK (QoS1) message has been received|TBD|
 
 #### Discussion
@@ -98,17 +93,17 @@ Initially only the WIS2.0 Global brokers will subscribe to the notification serv
 
 ## KPIs for Data Provisioning
 
-The KPIs for Data Provisioning define the target KPIs for the data provisioning
-system, initially used by the NMHS'es. This corresponds to the Data Ingestion API(s).
+The KPIs for Data Provisioning define the target KPIs for the data provisioning system, initially used by the NMHS'es. This corresponds to the Data Ingestion API(s) shown in Table 3.
 
 ### Data Ingestion API(s)
-Most of the rada data will come from Opera. The Data ingestion KPI's are only applicable to the National Composites.
+The main data source for ORD is OPERA, therefore the Data ingestion KPI's are only applicable to the national products D03.
 
 **Recommended Service Level:** "Reasonable endeavour – business hours", in the pre-operational phase.
 
+Table 3. KPIs for Data Ingestion API(s).
 *ID*|*KPI*|*Description*|*Target*|*Notes*
 |:---|:---|:---|:---|:---
-|KPI-12|Number of data providers |(Mainly) NMHS'es providing data |31|
+|KPI-12|Number of data providers |(Mainly) NMHS'es providing data |33|
 |KPI-13|Amount of data ingested|Gives an indication of the scale of the ingestion system|TBD|
 |KPI-14|Ingestion system uptime|The uptime of the ingestion system|99%|Please note: this can be different than the uptime of the API for the end-user
 |KPI-15|Ingestion success rate|The percentage of data succesfully ingested|99.95%|Please note: rejected files which do not comply to the input standards are not counted as an unsuccesfull ingest
@@ -116,9 +111,9 @@ Most of the rada data will come from Opera. The Data ingestion KPI's are only ap
 
 #### Discussion
 
-Internal use of the NMHSs need to be reported as a special case as it is in special interest of the EUMETNET Member States and providing organisations. The KPIs and the target figures should be the same.
-
 The KPI-12 target is derived from an assumption that all EUMETNET Member States will provide data.
+
+Internal use of the NMHSs need to be reported as a special case as it is in special interest of the EUMETNET Member States and providing organisations. The KPIs and the target figures should be the same.
 
 KPI-15: To be decided if this can be measured accurately.
 
