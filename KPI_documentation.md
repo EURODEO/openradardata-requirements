@@ -19,9 +19,9 @@ This document defines KPIs for the RODEO WP6 Open Radar Data (ORD) supply. The t
 
 ## Table of Content
 - [Introduction](#Introduction)
-- [Service Level Definitions](#Service_Level_Definitions)
-- [KPIs for Data Consumption](#KPIs_for_Data_Consumption)
-- [KPIs for Data Provisioning](#KPIs_for_Data_Provisioning)
+- [Service Level Definitions](#Service-Level-Definitions)
+- [KPIs for Data Consumption](#KPIs-for-Data-Consumption)
+- [KPIs for Data Provisioning](#KPIs-for-Data-Provisioning)
 
 ## Introduction
 
