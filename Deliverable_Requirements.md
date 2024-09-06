@@ -1,4 +1,4 @@
-# RODEO WP6: OPERA Open Radar Data Sharing Requirements
+# RODEO WP6: OPERA Open Radar Data (ORD) Sharing Requirements
 
 ### Annakaisa v. Lerber (FMI), Vegar Kristiansen (METNO),  Morten Stig Andersen (DMI), Stuart J. Matthews (EUMETNET), Roope Tervo (EUMETSAT), Gijsbert Kruithof (KNMI), Mikko Rauhala (FMI), Vera Meyer (GeoSphere Austria), Christoph Müller (DWD) 
 .
