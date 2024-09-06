@@ -246,7 +246,7 @@ Table 3. FAIR principles with priorization defined as Primary (P)/Secondary (S)/
 
 ## User requirements
 
-This section represents the use cases and the requirements based on these user needs. Some of the use cases are stated also in the FEMDI (WP2) and E-SOH (WP3) requirement documentation. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
+This section represents the use cases and the requirements based on these user needs. Some of the use cases are stated also in the FEMDI (WP2) and ORD (WP6) requirement documentation. These are stated at each use case. The short descriptions of the use cases specified in the Table 4. aligned with the datasets they are utilizing. 
 
 Table 4. User requirements in short.
 ![Table 4. User requirements in short.](./Images/WP6_userrequirements_tables_Datasets.png)
@@ -284,7 +284,7 @@ Related to use cases in FEMDI 2.4.
 
 ### U02 A Small & Medium Enterprise (SME) application developer who wants to see what data sets are available, access them and build an application based on OPERA data  
 
-Related to use cases in FEMDI 2.5 and E-SOH 4.3.
+Related to use cases in FEMDI 2.5 and ORD
 
 “As a new data consumer, I want a single unified view of available meteorological datasets which are updated on a regular basis, that is easily accessible and findable, is easily integrated into my systems and can be re-used (i.e. following FAIR principles). This will allow me to develop an application which makes best use of the available data to add value to the users and bring me in an income.”  
 
@@ -312,7 +312,7 @@ Related to use cases in FEMDI 2.5 and E-SOH 4.3.
 
 ### U03 A member of a public organisation who wants to see real time weather radar visualised on their mobile.  
 
-Related to use cases in FEMDI 2.6 and E-SOH 4.4,and 4.5
+Related to use cases in FEMDI 2.6 and ORD
 
 “As a traffic officer manager, I want to use my smart phone to regularly check the rainfall amounts across my country and bordering countries in Europe, so I can be prepared for different driving conditions, and potential impacts on the traffic network and people’s safety. This will allow me to rapidly respond with appropriate resources and equipment to incidents.”   
 
